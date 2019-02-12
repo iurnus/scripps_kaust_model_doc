@@ -1,0 +1,20 @@
+############################
+Limitations and known issues
+############################
+
+Limitations
+===========
+
+The limitations of the code are:
+
+- MITgcm is quite flexible and the current coupler cannot cover every situation in MITgcm. The
+  developers are still trying to make the code to cover all the modeling conditions in MITgcm.
+- The WRF implements are based on WRF I/O streams. The implementations may change the I/O streams of
+  WRF (io_esmf) and disable the modeling of some cases in the WRF tutorial.
+- Now WRF only accepts RRTMG shortwave/longwave option (because WRF is coupled based on I/O streams)
+
+Known issues
+============
+
+There are currently no major issues with the code. If the user have any issues with the code, please
+contact: rus043@ucsd.edu or aneeshcs@gmail.com
