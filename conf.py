@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Documentation of the Scripps Coupled Atmosphere-Ocean (SCAO) model '
+project = u'Documentation of the Scripps-KAUST Regional Integrated Prediction System (SKRIPS)'
 copyright = u'2017, contributors'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -168,7 +168,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'SCAO'
+htmlhelp_basename = 'SKRIPS'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -187,7 +187,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'SCAO.tex', u'Documentation of the Scripps Coupled Atmosphere-Ocean (SCAO) model',
+  ('index', 'SKRIPS.tex', u'Documentation of the Scripps-KAUST Regional Integrated Prediction System (SKRIPS)',
    u'Rui Sun, Aneesh C. Subramanian, \\\ Bruce D. Cornuelle, Ibrahim Hoteit, \\\ Matthew R. Mazloff, Art J. Miller',
    'manual'),
 ]
@@ -218,7 +218,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'CoupledOceanAtmosphere', u'Documentation of the Scripps Coupled Atmosphere-Ocean (SCAO) model',
+    ('index', 'SKRIPS', u'Documentation of the Scripps-KAUST Regional Integrated Prediction System (SKRIPS)',
      [u'R. Sun, A. C. Subramanian, B. D. Cornenulle, , I. Hoteit, M. R. Mazloff, A. J. Miller'], 1)
 ]
 
@@ -232,9 +232,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'CoupledOceanAtmosphere', u'Documentation of the Scripps Coupled Atmosphere-Ocean (SCAO) model',
+  ('index', 'SKRIPS', u'Documentation of the Scripps-KAUST Regional Integrated Prediction System (SKRIPS)',
    u'R. Sun, A. C. Subramanian, B. D. Cornenulle, I. Hoteit, M. R. Mazloff, A. J. Miller',
-   'SCAO v1.0', 'scripps coupled atmosphere-ocean model', 'Miscellaneous'),
+   'SKRIPS v1.0', 'SKRIPS', 'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.

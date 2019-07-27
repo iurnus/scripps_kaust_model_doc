@@ -4,18 +4,17 @@
    contain the root `toctree` directive.
 
 
-#############################################################
-Documentation of scripps coupled atmosphere ocean model
-#############################################################
+####################################################################
+Documentation of SKRIPPS-KAUST Regional Integrated Prediction System
+####################################################################
 
-This is a documentation for the scripps coupled atmosphere-ocean model.  This
-model is designed to be a state-of-the-art coupled atmosphere-ocean modeling
-system. It also supports the new components by using the ESMF coupler and the
-NUOPC layer.
+This is a documentation for the SCRIPPS-KAUST Regional Integrated Prediction System (SKRIPS).  This
+model is designed to be a state-of-the-art coupled atmosphere-ocean modeling system. It also
+supports the new components by using the ESMF coupler and the NUOPC layer.
 
 The designed modeling system currently includes the following models:
 
-- Atmosphere Solver: WRF (version 3.9.1.1 and above)
+- Atmosphere Solver: WRF (version 3.9.1.1)
 - Ocean Solver: MITgcm (version c66h)
 - Driver (coupler): ESMF/NUOPC (version 7.0.0)
 
@@ -38,18 +37,17 @@ physics and programming techniques involved.
 
 The coupled code is available at:
 
-  https://github.com/iurnus/scripps_coupled_model.git
+  https://github.com/iurnus/scripps_kaust_model.git
 
-Now, let's start from installing and running the coupled code. Have fun! If you
-are familiar with ESMF, MITgcm and WRF, please go to :ref:`tutorial<tutorial_index>` directly. 
+Now, let's start from installing and running the coupled code. Have fun! We will start from
+installing the model components (ESMF, MITgcm and WRF). Maybe you are familar with these model
+components, but we made a few modifications couple them. Let's go! 
 
 .. toctree::
   :maxdepth: 2
   :titlesonly:
 
-  Install and test ESMF<esmf/index>
-  Install and test MITgcm<mitgcm/index>
-  Install and test WRF<wrf/index>
+  Install model components <install_index>
   Coupled simulation tutorial <tutorial/index>
   Implementations <implementations/index>
   Limitations and known issues <limitations/index>
