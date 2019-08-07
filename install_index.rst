@@ -2,21 +2,28 @@
 Install the model components
 ############################
 
-To install the SKRIPS, the oceanic component MITgcm, the atmospheric component WRF, and the coupler
-ESMF should be installed first. 
+The coupled model can be downloaded by using::
 
-If you installed PGI compiler and compiled NETCDF using PGI, I would recommend you use::
+  git clone https://github.com/iurnus/scirpps_kaust_model.git
+
+It can be also downloaded from Github directly. This coupled model is maintained on Github and this
+documentation is for SCRIPS v1.0. 
+
+To install SKRIPS, the oceanic component MITgcm, the atmospheric component WRF, and the coupler ESMF
+should be installed first. I would recommend installing the components in the same folder as SCRIPS.
+
+There are two make files in the GIT repository. If you are using ring@ucsd.edu (PGI compiler), I
+would recommend you use::
 
   ./Allmake.ring.sh
 
-If you installed Intel compiler and compiled NETCDF using Intel, I would recommend you use::
+If you are using Shaheen-II at KAUST (Cray XC CLE/Linux x86_64, Xeon ifort compiler), I would
+recommend you use::
 
   ./Allmake.shaheen.sh
 
-Here, *ring* and *shaheen* are two machines that I used to compile the coupled model. 
-
-It is highly possible that other machines will not compile directly using these two makefiles. The
-detail instruction on installing the model component are detailed:
+I use *ring* and *shaheen* to compile and test the coupled model. If you are not using ring or
+shaheen, please follow the detailed instruction below:
 
 .. toctree::
    :maxdepth: 1

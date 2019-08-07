@@ -11,7 +11,7 @@ Before running geogrid, in *namelist.wps* file, make sure that *geog_data_path* 
 location where you put your geography static data (for ring, the location is
 */home/rus043/wrf/data/*). Once that is set, you can run geogrid::
 
-    ./geogrid.exe >& log.geogrid
+    ./geogrid.exe &> log.geogrid
 
 If you successfully created a geo_em* file for each domain, then you are ready to prepare to run
 ungrib. Start by linking in the input GFS data (for ring, the location is

@@ -1,6 +1,6 @@
-############
-Install ESMF
-############
+####################
+Install ESMF on ring
+####################
 
 Download ESMF
 =============
@@ -18,7 +18,7 @@ Install ESMF7.0.0 Using PGI, OpenMPI, and NetCDF4
 
 First, we need to compile OpenMPI and NetCDF4 to use ESMF v7.0.0. 
 
-Second, check the files in installOption_OTH/esmfInstallOptions::
+Second, check the files in *installOption_OTH/esmfInstallOptions*::
 
     build_rules.mk.ring
     configure.esmf.netcdf3
@@ -30,13 +30,14 @@ Second, check the files in installOption_OTH/esmfInstallOptions::
     README.tscc
     version.pgCC.ring
 
-Copy configure.esmf.netcdf4 to the ESMF folder. Then source the configuration
+Copy *configure.esmf.ring* to the ESMF folder. Then source the configuration
 file::
 
     cd configurations.esmf.ring $ESMF_DIR/configurations.esmf
     . configure.esmf
 
-Finally, change the following files ($ESMF_DIR is the ESMF directory):
+Finally, I need to change the following files because ring@ucsd.edu is using PGI 17. They might be
+different when using different versions of PGI compiler.
 
 (1) $ESMF_DIR/build_config/Linux.pgi.default/build_rules.mk
 
@@ -87,8 +88,8 @@ http://www.earthsystemmodeling.org/download/platforms/reports/700/700_PC-Xeon-Cl
 Use other options
 =================
 
-Using the default options
--------------------------
+Using the default options on ring
+---------------------------------
 
 Required Libraries: no libraries are required
 Code directory: /home/rus043/kaust_project/esmf/esmf/
@@ -106,11 +107,11 @@ Compile the code::
 
     gmake
  
-Using NetCDF3
--------------
+Using NetCDF3 on ring
+---------------------
 
 Since the installation of NetCDF3 is slightly different than NetCDF4, the following steps are
-required to activate NetCDF3 (on ring@ucsd)::
+required to activate NetCDF3 on ring@ucsd::
 
     1 
     2 MPI_HOME="/project_shared/Libraries/openmpi-2.1.1_pgi_fortran_17.5-0/include"
@@ -136,50 +137,3 @@ required to activate NetCDF3 (on ring@ucsd)::
     22 export ESMF_ABI=64
     23 export ESMF_COMPILER=pgi
 
-Some known compilation errors 
-=============================
-
-(1) /usr/bin/ld: /project_shared/Libraries/netcdf-3.6.3_pgi_fortran_17.4-0//lib/libnetcdf.a(attr.o):
-relocation R_X86_64_32S against '.data' can not be used when making a shared object; recompile with
--fPIC
-/project_shared/Libraries/netcdf-3.6.3_pgi_fortran_17.4-0//lib/libnetcdf.a: error adding symbols:
-Bad value
-
-The NetCDF library is not compiled using shared library. You need to re-install NetCDF, compile it
-with -fPIC, and check if libnetcdf.so file is generated.
-
-(2) /usr/bin/ld: cannot find -lmpi_cxx
-
-The mpi_cxx library is not available now in the current OpenMPI version. Use -lmpi instead in the
-build_rule.mk file. Also, the following command can be used to check which library mlicxx depends
-on::
-
-    mpicxx -showme:libs
-
-(3) /usr/bin/ld: ESMCI_StringSubr.o: undefined reference to symbol
-'_ZNKSt5ctypeIcE13_M_widen_initEv@@GLIBCXX_3.4.11'
-
-It seems that the location of library that ESMC_StringSubr.o depend on is not known to the system.
-Check the library by using::
-
-    strings /usr/lib64/libstdc++.so.6 | grep _ZNKSt5ctypeIcE13_M_widen_initEv_ZNKSt5ctypeIcE13_M_widen_initEv
-
-And, add /usr/lib64/ to the LD_LIBRARY_PATH variable in the ~/.bashrc
-
-To see what a Library is linked to::
-
-    [cpapadop@ring lib64]$ ldd libstdc++.so.6
-    linux-vdso.so.1 =>  (0x00007ffd7bdf8000)
-    libm.so.6 => /lib64/libm.so.6 (0x00007f569cdd9000)
-    libc.so.6 => /lib64/libc.so.6 (0x00007f569ca17000)
-    /lib64/ld-linux-x86-64.so.2 (0x00007f569d3f9000)
-    libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f569c801000)
-
-(4) /home/rus043/kaust_project/esmf/esmf_pgi//lib/libO/Linux.pgi.64.openmpi.default/libesmf.so:
-undefined reference to 'netcdf_nf90_put_var_4d_eightbytereal\_'
-
-The undefined reference issue is because the the library is not added when compiling the unit test
-programs. The solution if to add “-netcdff” to the end of the compling command.
-
-(5) ESMF compiler output from different systems (can be used as the compiler reference): 
-https://www.earthsystemcog.org/projects/esmf/platforms_7_0_0
