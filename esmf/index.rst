@@ -20,6 +20,7 @@ handling, and parallel communications.
    :titlesonly:
 
 
+   Install ESMF <install>
    Install ESMF on ring<install_ring>
    Install ESMF on shaheen<install_shaheen>
    Test ESMF<test_ESMF>

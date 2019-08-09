@@ -49,5 +49,5 @@ components, but we made a few modifications couple them. Let's go!
 
   Install model components <install_index>
   Coupled simulation tutorial <tutorial/index>
-  Implementations <implementations/index>
+  Introduction of implementations <implementations/index>
   Limitations and known issues <limitations/index>

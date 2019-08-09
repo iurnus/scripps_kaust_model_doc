@@ -2,17 +2,6 @@
 Install ESMF on ring
 ####################
 
-Download ESMF
-=============
-
-ESMF is available at:
-
-    https://www.earthsystemcog.org/projects/esmf/download/
-
-The earlier versions of ESMF can be found at:
-
-    http://www.earthsystemmodeling.org/download/data/releases.shtml
-
 Install ESMF7.0.0 Using PGI, OpenMPI, and NetCDF4
 =================================================
 
