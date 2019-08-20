@@ -23,10 +23,12 @@ Clone the git repository of the coupled model::
   git clone https://github.com/iurnus/scripps_kaust_model.git
 
 Check the folder of the coupled model::
+
   cd scripps_kaust_model
   ls
 
 The following folders and files will be shown::
+
   -rwxrwxr-x  1 ruisun ruisun  132 2019-07-31 07:19 Allclean.sh
   -rwxrwxr-x  1 ruisun ruisun 4323 2019-08-01 02:35 Allmake.ring.sh
   -rwxrwxr-x  1 ruisun ruisun 4106 2019-07-31 07:25 Allmake.shaheen.sh
@@ -67,6 +69,7 @@ Configure ESMF
 ==============
 
 I am using the following ESMF configurations::
+
   # compile options
   export ESMF_DIR=$(pwd)/
   export ESMFMKFILE=${ESMF_DIR}lib/libg/Linux.pgi.64.openmpi.default/esmf.mk
@@ -100,12 +103,15 @@ Note that:
 Compile ESMF
 ============
 Check the information of necessary configurations::
+
     gmake info
 
 Compile the code::
+
     gmake
  
 If it is the first time ESMF is installed, make sure to test ESMF using::
+
     gmake all_tests
 
 If ESMF7.0.0 is successfully built, the unit tests will pass.

@@ -4,7 +4,7 @@ Install the model components
 
 The coupled model can be downloaded by using::
 
-  git clone https://github.com/iurnus/scirpps_kaust_model.git
+  git clone https://github.com/iurnus/scripps_kaust_model.git
 
 It can be also downloaded from Github directly. This coupled model is maintained on Github and this
 documentation is for SCRIPS v1.0. 
