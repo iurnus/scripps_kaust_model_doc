@@ -12,7 +12,7 @@ documentation is for SCRIPS v1.0.
 To install SKRIPS, the oceanic component MITgcm, the atmospheric component WRF, and the coupler ESMF
 should be installed first. I would recommend installing the components in the same folder as SCRIPS.
 
-There are two make files in the GIT repository. If you are using ring@ucsd.edu (PGI compiler), I
+There are two makefiles in the GIT repository. If you are using ring@ucsd.edu (PGI compiler), I
 would recommend you use::
 
   ./Allmake.ring.sh

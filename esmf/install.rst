@@ -25,7 +25,7 @@ Clone the git repository of the coupled model::
 Check the folder of the coupled model::
 
   cd scripps_kaust_model
-  ls
+  ls -l
 
 The following folders and files will be shown::
 
@@ -42,14 +42,14 @@ The following folders and files will be shown::
 Load the modules
 ================
 
-Load the following modules::
+Load the following modules (I put them in the ~/.bashrc file)::
 
   # load pgi compiler, openmpi, netcdf
   module load pgi13/compiler-13.3
   module load pgi13/openmpi-2.0.2
   module load pgi13/netcdf-4.3.2
 
-  # change the path of pgi compiler, openmpi, netcdf
+  # update the path of pgi compiler, openmpi, netcdf
   export NETCDF_ROOT="/usr/local/netcdf/432_pgi133/"
   export MPI_INC_DIR="/usr/local/mpi/pgi13/openmpi-2.0.2/include/"
   export LD_LIBRARY_PATH=/usr/local/pgi/133/linux86-64/13.3/libso/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
@@ -57,18 +57,29 @@ Load the following modules::
   export LD_LIBRARY_PATH=/usr/local/netcdf/432_pgi133/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
   export NETCDF=/usr/local/netcdf/432_pgi133/
 
-  # change the path of ESMF
+  # add the path of ESMF
   export LD_LIBRARY_PATH=/home/ruisun/scripps_kaust_model/esmf/lib/libg/Linux.pgi.64.openmpi.default/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 
 Note that:
-  (1) the modules have different names for different machines, please load the modules on your machine
+  (1) the modules (pgi compiler, openmpi, netcdf) have different names for different machines, please load the modules on your machine
   (2) the paths are also different for different machines
   (3) the path of ESMF should be the path of *libesmf.a* and *esmf.mk* after ESMF is successfully installed
 
 Configure ESMF
 ==============
 
-I am using the following ESMF configurations::
+Copy the download ESMF 7.0.0 to the current folder (the current folder is *$HOME/scripps_kaust_model/).
+
+Open the tar file (a folder *esmf* will appear after opening the tar file)::
+  
+  tar -xf esmf_7_0_0_src.tar
+
+Enter the *esmf* folder::
+  
+  cd $HOME/scripps_kaust_model/esmf/
+
+I am using a few specific configurations to compile ESMF. To setup the configurations, I generate a
+file *config.esmf* in the current folder and put the following commands::
 
   # compile options
   export ESMF_DIR=$(pwd)/
@@ -94,6 +105,10 @@ I am using the following ESMF configurations::
   export ESMF_TESTHARNESS_FIELD=RUN_ESMF_TestHarnessField_default
   export ESMF_TESTWITHTHREADS=OFF
   export ESMF_TESTEXHAUSTIVE=ON
+
+Source the configuration file (current folder *$HOME/scripps_kaust_model/esmf/*)::
+
+  source ./config.esmf
 
 Note that:
   (1) *ESMF_NETCDF_INCLUDE*, *ESMF_NETCDF_LIBPATH*, *ESMF_NETCDF_LIBPATH_PREFIX* should be modified according to the NETCDF setups. 
