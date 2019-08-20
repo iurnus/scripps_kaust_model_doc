@@ -1,6 +1,6 @@
-############
-Install ESMF
-############
+######################
+Install ESMF (general)
+######################
 
 Download ESMF
 =============
@@ -68,7 +68,7 @@ Note that:
 Configure ESMF
 ==============
 
-Copy the download ESMF 7.0.0 to the current folder (the current folder is *$HOME/scripps_kaust_model/).
+Copy the download ESMF 7.0.0 to the current folder (the current folder is *$HOME/scripps_kaust_model/*).
 
 Open the tar file (a folder *esmf* will appear after opening the tar file)::
   
@@ -119,15 +119,15 @@ Compile ESMF
 ============
 Check the information of necessary configurations::
 
-    gmake info
+    gmake info &> log.info &
 
 Compile the code::
 
-    gmake
+    gmake &> log.gmake &
  
 If it is the first time ESMF is installed, make sure to test ESMF using::
 
-    gmake all_tests
+    gmake all_tests &> log.all_tests *
 
 If ESMF7.0.0 is successfully built, the unit tests will pass.
 
