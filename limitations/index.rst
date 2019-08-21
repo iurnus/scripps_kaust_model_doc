@@ -20,4 +20,4 @@ Known issues
 ============
 
 There are currently no major issues with the code. If the user have any issues with the code, please
-contact: rus043@ucsd.edu or aneeshcs@gmail.com
+contact: Rui Sun (rus043@ucsd.edu) or Aneesh Subramanian (aneeshcs@gmail.com)
