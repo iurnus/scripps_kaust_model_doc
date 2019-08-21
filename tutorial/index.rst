@@ -4,10 +4,9 @@
 Tutorial on Coupled Atmosphere--Ocean Simulations
 #################################################
 
-Two examples are used to show how to run the coupled solver. The Red Sea region
-case is to demonstrate how to generate new cases. The California region case is
-to demonstrate how to run the coupled-solver based on existing MITgcm and WRF
-cases. 
+Two examples are used to show how to run the coupled solver on ring@ucsd.edu. The Red Sea region
+case is to demonstrate how to generate new cases. The California region case is to demonstrate how
+to run the coupled-solver based on existing MITgcm and WRF cases. 
   
 .. toctree::
    :maxdepth: 1

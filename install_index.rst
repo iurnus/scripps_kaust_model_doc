@@ -32,3 +32,4 @@ shaheen, please follow the detailed instruction below:
    Install and test ESMF<esmf/index>
    Install and test MITgcm<mitgcm/index>
    Install and test WRF<wrf/index>
+   Install and test coupled code<coupled/index>

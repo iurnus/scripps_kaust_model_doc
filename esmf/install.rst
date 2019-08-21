@@ -110,10 +110,21 @@ Source the configuration file (current folder *$HOME/scripps_kaust_model/esmf/*)
 
   source ./config.esmf
 
+ESMF 7.0.0 uses an old openmpi flag for PGI compiler. We need to modify
+*$ESMF_DIR/build_config/Linux.pgi.default/build_rules.mk*. Replace line 92::
+
+    ESMF_F90LINKLIBS       += -lmpi_cxx
+
+using::
+
+    ESMF_F90LINKLIBS       += -lmpi
+
 Note that:
   (1) *ESMF_NETCDF_INCLUDE*, *ESMF_NETCDF_LIBPATH*, *ESMF_NETCDF_LIBPATH_PREFIX* should be modified according to the NETCDF setups. 
   (2) *ESMF_COMPILER=pgi* means I am using PGI compiler. When using other compilers, one needs to change this option.
   (3) The explaination of other configurations is documented in ESMF tutorials.
+  (4) If build_rules.mk file is not modified, you may still compile ESMF successfully. However, you
+  will fail when compiling the coupled code.
 
 Compile ESMF
 ============
@@ -129,7 +140,9 @@ If it is the first time ESMF is installed, make sure to test ESMF using::
 
     gmake all_tests &> log.all_tests *
 
-If ESMF7.0.0 is successfully built, the unit tests will pass.
+If ESMF7.0.0 is successfully built, all the unit tests should pass. We can also compile the coupled
+code when a few unit tests failed. On ESMF official website, some unit tests could also fail.
+Currently we don't know which specific tests must pass for the coupled code.
 
 The perfect build summary on the ESMF website is: 
 https://www.earthsystemcog.org/projects/esmf/platforms_7_0_0

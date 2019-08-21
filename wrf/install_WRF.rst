@@ -64,11 +64,12 @@ We can see a configuration file in the WRF folder::
 Next, we need to edit this configuration file.
   
 At the beginning of *configure.wrf* (line 16 in my file), add the ESMF_DIR.
-Note that $HOME must be the real path of the home directory::
+Note *ESMF_DIR* must be the real path of the home directory::
 
-  ESMF_DIR=$HOME/scripps_kaust_model/esmf/
+  ESMF_DIR=/home/ruisun/scripps_kaust_model/esmf/
 
-Replace the ESMF switches in *configure.wrf* (from line 76 to 96 in my file)::
+Replace the ESMF switches in *configure.wrf* (from line 76 to 96 in my file). Note that the ESMF
+path in *ESMF_IO_INC* and *ESMF_LIB* should be updated accordingly::
 
   #### ESMF switches                 ####
   #### These are set up by Config.pl ####
@@ -88,7 +89,7 @@ Replace the ESMF switches in *configure.wrf* (from line 76 to 96 in my file)::
   ESMFLIB         = $(ESMF_DIR)/lib/libg/Linux.pgi.64.openmpi.default
   include $(ESMFLIB)/esmf.mk
 
-Add *-DESMFIO* in *ARCHFLAGS* (line 164 in my file). Put it below *-DNETCDF \/*  ::
+Add *-DESMFIO* in *ARCHFLAGS* (line 164 in my file). Put it below *-DNETCDF*::
 
   -DNETCDF \
   -DESMFIO \
@@ -99,7 +100,7 @@ Modify the ESMF flags, replace (from line 192 to line 195 in my file)::
   ESMF_IO_LIB     =    $(ESMF_F90LINKPATHS) $(ESMF_F90ESMFLINKLIBS) -L$(WRF_SRC_ROOT_DIR)/external/io_esmf -lwrfio_esmf
   ESMF_IO_LIB_EXT =    $(ESMF_IO_LIB)
 
-Add ESMF in *INCLUDE_MODULES* (from line 196 in my file)::
+Add ESMF mod folder in *INCLUDE_MODULES* (from line 196 in my file)::
 
   -I$(ESMF_DIR)/mod/modg/Linux.pgi.64.openmpi.default \
 
@@ -134,11 +135,11 @@ Need to check the makefile for io_esmf (external/io_esmf/makefile).
    
 Start of the file::
 
-   ESMF_DIR=~/scripps_kaust_model/esmf/
+   ESMF_DIR=/home/ruisun/scripps_kaust_model/esmf/
    ESMF_INCLUDE  = ${ESMF_DIR}/mod/modg/Linux.pgi.64.openmpi.default/
    ESMF_LIBRARY  = ${ESMF_DIR}/lib/libg/Linux.pgi.64.openmpi.default/
-   MAIN_DIR=~/scripps_kaust_model/
-   CURRENT_DIR=~/scripps_kaust_model/WRFV3911_AO/external/io_esmf/
+   MAIN_DIR=/home/ruisun/scripps_kaust_model/
+   CURRENT_DIR=/home/ruisun/scripps_kaust_model/WRFV3911_AO/external/io_esmf/
    NETCDF_INCLUDE=/usr/local/netcdf/432_pgi133/include/
 
 Line 35 needs *NETCDF_INCLUDE* sometimes::
@@ -154,12 +155,12 @@ Also need to check the makefile for io_netcdf (external/io_netcdf). Line
   $(CPP1) -I/usr/local/netcdf/432_pgi133/include -I$(NETCDFPATH)/include -I../ioapi_share diffwrf.F90 | sed '/integer *, *external.*iargc/d' > diffwrf.f ;\
   $(CPP1) -I/usr/local/netcdf/432_pgi133/include -I$(NETCDFPATH)/include -I../ioapi_share diffwrf.F90 > diffwrf.f ; \
 
-
 Now we can start compiling WRF by using (current folder *$HOME/scripps_kaust_model/WRFV3911_AO/*)::
 
   ./compile em_real &> log.em_real &
 
-Need to compile two times. The first compile will not be successful because *io_esmf* is not successfully compiled.
+Need to compile two times. The first compile will not be successful because *io_esmf* is not
+successfully compiled.
 
 After WRF is successfully compiled, you will see a few \*.exe files::
 
