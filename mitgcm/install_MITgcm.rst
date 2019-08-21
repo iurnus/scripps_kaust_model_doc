@@ -10,13 +10,13 @@ The MITgcm code is available at:
 http://mitgcm.org/public/source_code.html
 
 After downloading the code (we are using c66h version of MITgcm, other versions
-should be fine), open the file in *$HOME/scripps_coupled_model/*::
+should be fine), open the file in *$HOME/scripps_kaust_model/*::
 
     tar -xf MITgcm_c66h.tar.gz
 
 Enter the folder::
 
-    cd $HOME/scripps_coupled_model/MITgcm_c66h/
+    cd $HOME/scripps_kaust_model/MITgcm_c66h/
 
 Compile the code
 ----------------
