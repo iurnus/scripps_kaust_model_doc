@@ -108,3 +108,7 @@ This is because the name of the pgi libraries are different from ring@ucsd.edu, 
 2. PGF90-W-0025-Illegal character (#) - ignored (mod_esmf_atm.F90: 564)
 
 This is because the include function in mod_esmf_atm.F90 is illegal. I will replace *#include "med_find_esmf_coupling.inc"* using *include "med_find_esmf_coupling.inc"*.
+
+3. We have also tried to compile the code using iFort compiler. It would take iFort 40 minutes when
+   compiling MITgcm as a library (which is less than 5 minutes when using PGI compiler).
+
