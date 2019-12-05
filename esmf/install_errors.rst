@@ -41,11 +41,13 @@ To see what a Library is linked to::
     /lib64/ld-linux-x86-64.so.2 (0x00007f569d3f9000)
     libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f569c801000)
 
-(4) /home/rus043/kaust_project/esmf/esmf_pgi//lib/libO/Linux.pgi.64.openmpi.default/libesmf.so:
+(4) ./esmf/lib/libO/Linux.pgi.64.openmpi.default/libesmf.so:
 undefined reference to 'netcdf_nf90_put_var_4d_eightbytereal\_'
 
 The undefined reference issue is because the the library is not added when compiling the unit test
 programs. The solution if to add “-netcdff” to the end of the compling command.
 
-(5) ESMF compiler output from different systems (can be used as the compiler reference): 
-https://www.earthsystemcog.org/projects/esmf/platforms_7_0_0
+(5) error: namespace "std" has no member "addressof"
+
+This is a problem due to c++11 library.
+

@@ -2,28 +2,25 @@
 Install ESMF on Shaheen-II
 ##########################
 
-Install ESMF7.0.0 on Shaheen-II
-===============================
+Install step 3: Load PGI compiler, OpenMPI and NetCDF (now you are in folder
+$HOME/scripps_kaust_model-1.1/esmf)::
 
-First, we need to load the necessary modules on Shaheen-II (intel compiler)::
+    . ../installOption_OTH/bash_setup_shaheen
 
-  . ./installOption_OTH/bash_setup_shaheen
-    
-Second, copy *configure.esmf.shaheen* to the ESMF folder. Then source the configuration
-file::
+Install step 4: Set ESMF configurations (now you are in folder
+$HOME/scripps_kaust_model-1.1/esmf)::
 
-    cd configurations.esmf.shaheen $ESMF_DIR/configurations.esmf
-    . configure.esmf
+    cp ../installOption_OTH/esmfInstallOptions/configurations.esmf.shaheen .
+    . configure.esmf.shaheen
 
-Check the information of necessary configurations::
+Install step 5: Compile ESMF (now you are in folder
+$HOME/scripps_kaust_model-1.1/esmf)::
 
-    gmake info
+    # Check the information of necessary configurations
+    gmake info &> log.info
 
-Compile the code::
+    # Compile the code
+    gmake &> log.gmake
 
-    gmake
- 
-The perfect build summary on the ESMF website is: 
-https://www.earthsystemcog.org/projects/esmf/platforms_7_0_0
-http://www.earthsystemmodeling.org/download/platforms/reports/700/700_PC-Xeon-Cluster_Discover_PGI.html
-
+    # the tests cannot run successfully on Shaheen because of their unique system
+    # gmake all_tests &> log.all_tests
