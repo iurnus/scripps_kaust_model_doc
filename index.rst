@@ -14,34 +14,22 @@ supports the new components by using the ESMF coupler and the NUOPC layer.
 
 The designed modeling system currently includes the following models:
 
-- Atmosphere Solver: WRF (version 3.9.1.1)
-- Ocean Solver: MITgcm (version c66h)
-- Driver (coupler): ESMF/NUOPC (version 7.0.0)
+- Atmosphere Solver: WRF (version 4.1.2)
+- Ocean Solver: MITgcm (version c67m)
+- Driver (coupler): ESMF/NUOPC (version 8.0.0)
 
-The features of the system includes:
+Install the coupled model requires MITgcm, WRF, ESMF, and their dependencies. The installation
+instructions are detailed in the following sections. A few examples on the coupled code are also
+presented.
 
-- Multiple coupling time step
-- Multiple execution styles
+Users can also extend this solver, utilities and libraries of this coupled-solver, using some
+pre-requisite knowledge of the underlying method, physics and programming techniques involved.
 
-  * Concurrent Execution
-  * Sequential Execution
+The SKRIPS v1.1 code is available at:
 
-Install the project requires the installation of MITgcm, WRF, ESMF, and their
-dependencies. The instructions on the installation of the model components and
-the coupler are detailed in the following sections. The examples on how to run
-the coupled code and post-process the results are also presented.
+  https://github.com/iurnus/scripps_kaust_model/releases/tag/v1.1
 
-Users can also extend this solver, utilities and libraries of this
-coupled-solver, using some pre-requisite knowledge of the underlying method,
-physics and programming techniques involved.
-
-The coupled code is available at:
-
-  https://github.com/iurnus/scripps_kaust_model.git
-
-Now, let's start from installing and running the coupled code. Have fun! We will start from
-installing the model components (ESMF, MITgcm and WRF). Maybe you are familar with these model
-components, but we made a few modifications couple them. Let's go! 
+Now, let's start from installing the coupled code. Let's go! 
 
 .. toctree::
   :maxdepth: 2
