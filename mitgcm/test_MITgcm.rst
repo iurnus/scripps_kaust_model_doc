@@ -8,16 +8,17 @@ Test MITgcm using barotropic and baroclinic gyros
 Compile the code
 ~~~~~~~~~~~~~~~~
 
-Compile the barotropic tutorial cases without OpenMPI::
+Option 1: Compile the barotropic tutorial cases without OpenMPI (current folder:
+$HOME/scripps_kaust_model-1.1/MITgcm_c67m)::
 
-    cd $MITGCM_DIR/verification/tutorial_barotropic_gyre/build/
+    cd ./verification/tutorial_barotropic_gyre/build/
     ../../../tools/genmake2 "-mods" "../code" 
     make depend 
     make
 
-Compile the baroclinic tutorial cases using OpenMPI::
+Option 2: Compile the baroclinic tutorial cases using OpenMPI::
 
-    cd $MITGCM_DIR/verification/tutorial_baroclinic_gyre/build/
+    cd ./verification/tutorial_baroclinic_gyre/build/
     cp ../code/SIZE.h ../code/SIZE.h_save
     cp ../code/SIZE.h_mpi ../code/SIZE.h
     ../../../tools/genmake2 "-mpi" "-mods" "../code" "-optfile" "/home/cpapadop/MITGCM_WRF/sio_build_options/ring_build_pgi_17.5-0_openmpi_2.1.1_netcdf.3.6.3"

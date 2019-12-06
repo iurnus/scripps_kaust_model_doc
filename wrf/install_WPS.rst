@@ -54,7 +54,7 @@ Select "5" for the supported platform.
 
 Check file "configure.wps", make sure that WRF has been installed in the correct path::
 
-    WRF_DIR = ../WRFV3
+    WRF_DIR = ../WRFV412
 
 Install
 -------

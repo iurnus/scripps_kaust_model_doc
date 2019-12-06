@@ -8,8 +8,8 @@ Test ESMF with applications
 An ESMF application can better test if ESMF is successfully installed and how
 ESMF works as a coupler.
 
-ESMF coupled flow demonstration case
-====================================
+Case 1: ESMF coupled flow demonstration case
+============================================
 
 The coupled flow case and other demonstration cases can be found at:
 
@@ -24,22 +24,15 @@ The tutorials and introductions of the coupled flow case are:
 Compile the demonstration case
 ------------------------------
 
-The demonstration case in our git repository is slightly different from the
-original one, because we have fixed the bug in the test case, modified the
-parameters in the simulations, and added a simple post-processing MATLAB code.
-The location of the demonstration case is:
-*$PROJECT_DIR/esmf_test_application/esmf_test_coupled_flow*, where
-*PROJECT_DIR* is the directory of the project.
+The demonstration case in our git repository is slightly different from the original one, because we
+have fixed the bug in the test case, modified the parameters in the simulations, and added a simple
+post-processing MATLAB code. 
 
-(1) Compile ESMF with NetCDF and OpenMPI.
+Open the demonstration case (current folder: $HOME/scripps_kaust_model-1.1/esmf)::
 
-(2) In the command line, set the makefile of ESMF::
-
-        export ESMFMKFILE=$ESMF_DIR/lib/libg/Linux.pgi.64.openmpi.default/esmf.mk
-
-(3) Make the demonstration case::
- 
-        make
+    cd ../esmf_test_application/esmf_test_coupled_flow
+    # compile the case::
+    make
 
 Run the demonstration case
 --------------------------
@@ -77,22 +70,22 @@ commented out::
     257            !! endif
 
 
-NUOPC prototype code
-====================
+Case 2: NUOPC prototype code
+============================
 
 There are several NUOPC prototype code examples:
 
 https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/
-http://www.earthsystemmodeling.org/esmf_releases/non_public/ESMF_7_0_0/NUOPC_howtodoc/
+http://www.earthsystemmodeling.org/esmf_releases/non_public/ESMF_8_0_0/NUOPC_howtodoc/
 
 The example of an ATM--CON--OCN model based on NUOPC:
 
-https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/tags/ESMF_7_0_0/AtmOcnConProto/
+https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/tags/ESMF_8_0_0/AtmOcnConProto/
 
-We have also added this example case is our project (location:
-*$PROJECT_DIR/esmf_test_application/esmf_test_atm_ocn*). To compile and run
-this example:: 
+We have also added this example case is our project (current folder:
+$HOME/scripps_kaust_model-1.1/esmf_test_application/esmf_test_coupled_flow). To compile and run this
+example:: 
 
-    export ESMFMKFILE=$ESMF_DIR/lib/libg/Linux.pgi.64.openmpi.default/esmf.mk
+    cd ../AtmOcnConProto/
     make
     mpirun -np 6 esmApp

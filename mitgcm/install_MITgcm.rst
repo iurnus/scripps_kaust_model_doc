@@ -5,18 +5,12 @@ Install MITgcm
 Get the code and documentations
 -------------------------------
 
-The MITgcm code is available at:
+Install step 6: Download MITGCM (current folder: $HOME/scripps_kaust_model-1.1/esmf)::
 
-http://mitgcm.org/public/source_code.html
-
-After downloading the code (we are using c66h version of MITgcm, other versions
-should be fine), open the file in *$HOME/scripps_kaust_model/*::
-
-    tar -xf MITgcm_c66h.tar.gz
-
-Enter the folder::
-
-    cd $HOME/scripps_kaust_model/MITgcm_c66h/
+  cd ..
+  wget https://github.com/MITgcm/MITgcm/archive/checkpoint67m.zip
+  unzip checkpoint67m.zip
+  mv MITgcm-checkpoint67m MITgcm_c67m
 
 Compile the code
 ----------------
@@ -29,7 +23,7 @@ Compile the code using default setup
 To compile the code using the default setup is straightforward with only a few steps. First, you
 need to *cd* to one of the cases, for example::
 
-    cd ./verification/tutorial_barotropic_gyre/
+    cd MITgcm_c67m/verification/tutorial_barotropic_gyre/
 
 where $MITGCM_DIR is the location of the MITgcm folder.
 

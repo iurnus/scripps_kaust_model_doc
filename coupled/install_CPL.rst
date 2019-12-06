@@ -1,60 +1,61 @@
 .. _install_cpl:
 
-####################
-Install coupled code
-####################
+########################
+Install the coupled code
+########################
 
-How to install
-==============
+After compiling all three model components, we can try compile the coupled code (current folder:
+$HOME/scripps_kaust_model-1.1/)::
 
-After compiling all three model components, we can try compile the coupled code::
-
-  cd $HOME/scripps_kaust_model/couplers
-  ls -l
+  cd couplers
+  ls 
 
 We can see::
 
-  -rwxrwxr-x  1 ruisun ruisun  438 2019-08-01 08:02 allrun.ring.sh
-  drwxrwxr-x  6 ruisun ruisun  112 2019-08-01 08:02 L1.C1.mitgcm_case_CA2009
-  drwxrwxr-x  4 ruisun ruisun   81 2019-08-01 08:02 L1.C2.esmf_coupled_test
-  drwxrwxr-x  6 ruisun ruisun  110 2019-08-01 08:02 L2.C1.mitgcm_case_CA2009_mpiESMF_1cpu
-  drwxrwxr-x  4 ruisun ruisun   78 2019-08-01 08:02 L2.C2.mitgcm_case_CA2009_mpiESMF_2cpu
-  drwxrwxr-x 13 ruisun ruisun 4096 2019-08-01 08:02 L3.C1.coupled_RS2012_ring
-  drwxrwxr-x 12 ruisun ruisun 4096 2019-08-01 08:02 L3.C2.coupled_CA2018_ring
-  drwxrwxr-x 12 ruisun ruisun 4096 2019-08-01 08:02 L3.C2.coupled_CA2018_shaheen
-  -rw-rw-r--  1 ruisun ruisun 1369 2019-08-01 08:02 README
-  drwxrwxr-x  2 ruisun ruisun 4096 2019-08-01 08:02 script-post
+  -rwxrwxr-x  1 ruisun ruisun  438 2019-12-01 08:02 allrun.ring.sh
+  drwxrwxr-x  6 ruisun ruisun  112 2019-12-01 08:02 L1.C1.mitgcm_case_CA2009
+  drwxrwxr-x  4 ruisun ruisun   81 2019-12-01 08:02 L1.C2.esmf_coupled_test
+  drwxrwxr-x  6 ruisun ruisun  110 2019-12-01 08:02 L2.C1.mitgcm_case_CA2009_mpiESMF_1cpu
+  drwxrwxr-x  4 ruisun ruisun   78 2019-12-01 08:02 L2.C2.mitgcm_case_CA2009_mpiESMF_2cpu
+  drwxrwxr-x 13 ruisun ruisun 4096 2019-12-01 08:02 L3.C1.coupled_RS2012_ring
+  drwxrwxr-x 12 ruisun ruisun 4096 2019-12-01 08:02 L3.C2.coupled_CA2018_ring
+  drwxrwxr-x 12 ruisun ruisun 4096 2019-12-01 08:02 L3.C2.coupled_CA2018_shaheen
+  -rw-rw-r--  1 ruisun ruisun 1369 2019-12-01 08:02 README
+  drwxrwxr-x  2 ruisun ruisun 4096 2019-12-01 08:02 script-post
 
 Enter folder *L3.C1.coupled_RS2012_ring*::
 
   cd L3.C1.coupled_RS2012_ring/
   ls -l
 
-We can see (current folder *$HOME/scripps_kaust_model/couplers/L3.C1.coupled_RS2012_ring/*)::
+We can see ::
 
-  -rwxrwxr-x 1 ruisun ruisun  191 2019-08-01 08:02 allclean.sh
-  -rwxrwxr-x 1 ruisun ruisun  241 2019-08-01 08:02 allrun.sh
-  drwxrwxr-x 2 ruisun ruisun 4096 2019-08-01 08:02 caseInput
-  -rwxrwxr-x 1 ruisun ruisun  159 2019-08-01 08:02 clean.sh
-  drwxrwxr-x 2 ruisun ruisun 4096 2019-08-01 08:02 coupledCode
-  -rwxrwxr-x 1 ruisun ruisun 1274 2019-08-01 08:02 install.sh
-  drwxrwxr-x 4 ruisun ruisun   99 2019-08-01 08:02 latexSummary
-  drwxrwxr-x 2 ruisun ruisun 4096 2019-08-01 08:02 mitCode
-  drwxrwxr-x 2 ruisun ruisun  107 2019-08-01 08:02 mitSettingRS
-  -rw-rw-r-- 1 ruisun ruisun 1480 2019-08-01 08:02 README.install
-  drwxrwxr-x 2 ruisun ruisun  147 2019-08-01 08:02 runCase
-  drwxrwxr-x 2 ruisun ruisun   68 2019-08-01 08:02 runCase.init
-  drwxrwxr-x 3 ruisun ruisun   62 2019-08-01 08:02 runMITtest
-  drwxrwxr-x 2 ruisun ruisun  111 2019-08-01 08:02 runWRFtest
-  drwxrwxr-x 2 ruisun ruisun   86 2019-08-01 08:02 save_nc
-  drwxrwxr-x 2 ruisun ruisun  151 2019-08-01 08:02 utils
+  -rwxrwxr-x 1 ruisun ruisun  191 2019-12-01 08:02 allclean.sh
+  -rwxrwxr-x 1 ruisun ruisun  241 2019-12-01 08:02 allrun.sh
+  drwxrwxr-x 2 ruisun ruisun 4096 2019-12-01 08:02 caseInput
+  -rwxrwxr-x 1 ruisun ruisun  159 2019-12-01 08:02 clean.sh
+  drwxrwxr-x 2 ruisun ruisun 4096 2019-12-01 08:02 coupledCode
+  -rwxrwxr-x 1 ruisun ruisun 1274 2019-12-01 08:02 install.sh
+  drwxrwxr-x 4 ruisun ruisun   99 2019-12-01 08:02 latexSummary
+  drwxrwxr-x 2 ruisun ruisun 4096 2019-12-01 08:02 mitCode
+  drwxrwxr-x 2 ruisun ruisun  107 2019-12-01 08:02 mitSettingRS
+  -rw-rw-r-- 1 ruisun ruisun 1480 2019-12-01 08:02 README.install
+  drwxrwxr-x 2 ruisun ruisun  147 2019-12-01 08:02 runCase
+  drwxrwxr-x 2 ruisun ruisun   68 2019-12-01 08:02 runCase.init
+  drwxrwxr-x 3 ruisun ruisun   62 2019-12-01 08:02 runMITtest
+  drwxrwxr-x 2 ruisun ruisun  111 2019-12-01 08:02 runWRFtest
+  drwxrwxr-x 2 ruisun ruisun   86 2019-12-01 08:02 save_nc
+  drwxrwxr-x 2 ruisun ruisun  151 2019-12-01 08:02 utils
+
+Install step 12: Update the PATH in the coupled model (current folder:
+$HOME/scripps_kaust_model-1.1/L3.C1.coupled_RS2012_ring/)
 
 Update utils/mitgcm_options (line 28 and 29):: 
 
   INCLUDES='-I/usr/local/netcdf/432_pgi133/include -I/usr/local/mpi/pgi13/openmpi-2.0.2/include/'
   LIBS='-L/usr/local/netcdf/432_pgi133/lib/ -L/usr/local/mpi/pgi13/openmpi-2.0.2/lib/'
 
-Update utils/mkmod.sh (from line 217):: 
+Update utils/mkmod.sh (from line 22):: 
 
   set comp     = /usr/local/mpi/pgi13/openmpi-2.0.2/bin/mpif77
   set cccommand = /usr/local/mpi/pgi13/openmpi-2.0.2/bin/mpicc
@@ -63,9 +64,10 @@ Update utils/mkmod.sh (from line 217)::
   set complibs = (-L/usr/local/netcdf/432_pgi133/lib -lnetcdf)
   set compinc = (-I/usr/local/netcdf/432_pgi133/include)
 
-Update utils/install.sh (line 2)::
+Update ./install.sh (line 2 and 3)::
 
   export MPI_HOME="/usr/local/mpi/pgi13/openmpi-2.0.2/include/"
+  export MITGCM_DIR="${HOME}/scripps_kaust_model-1.1/MITgcm_c67m/"
 
 Update coupledCode/wrflib.mk (replace line 24 to 28)::
 
@@ -79,8 +81,8 @@ Run install.sh ::
 
 Enter the correct PATH::
 
-  WRF3911 (with OA coupling) location? :/home/ruisun/scripps_kaust_model/coupler/L3.C1.coupled_RS2012_ring/../../WRFV3911_AO/
-  ESMF location? :/home/ruisun/scripps_kaust_model/coupler/L3.C1.coupled_RS2012_ring/../../esmf/
+  WRF412 (with OA coupling) location? :/home/ruisun/scripps_kaust_model-1.1/coupler/L3.C1.coupled_RS2012_ring/../../WRFV412_AO/
+  ESMF location? :/home/ruisun/scripps_kaust_model-1.1/coupler/L3.C1.coupled_RS2012_ring/../../esmf/
 
 The installer will generate *esmf_application* in folder coupledCode folder (current folder *$HOME/scripps_kaust_model/couplers/L3.C1.coupled_RS2012_ring/*)::
 

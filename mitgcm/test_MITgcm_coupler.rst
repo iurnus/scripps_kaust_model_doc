@@ -8,9 +8,10 @@ MITgcm example case
 Compile the code
 ~~~~~~~~~~~~~~~~
 
-We have an example MITgcm case in our coupled code::
+We have an example MITgcm case in our coupled code (current folder:
+$HOME/scripps_kaust_model-1.1/)::
 
-    cd $PROJECT_DIR/coupler/L1.C1.mitgcm_case_CA2009
+    cd ./coupler/L1.C1.mitgcm_case_CA2009
 
 We have the following files in the test case::
 
@@ -25,13 +26,13 @@ We have the following files in the test case::
 To compile and run this case::
     ./install.sh
 
-
 MITgcm--ESMF coupled case
 -------------------------
 
-The L2C1 case is to test the coupled interface between MITgcm and ESMF::
+The L2C1 case is to test the interface between MITgcm and ESMF (current folder:
+$HOME/scripps_kaust_model-1.1/coupler/L1.C1.mitgcm_case_CA2009)::
 
-    ll $PROJECT_DIR/coupler/L2.C1.mitgcm_case_CA2009_mpiESMF_1cpu
+    cd ../L2.C1.mitgcm_case_CA2009_mpiESMF_1cpu
 
 To compile and run this case::
     ./install.sh

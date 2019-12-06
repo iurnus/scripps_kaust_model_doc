@@ -16,7 +16,7 @@ The earlier releases of ESMF can be found at:
 Install ESMF Using PGI compiler
 ===============================
 
-Install step 2: Download ESMF 8.0.0 (now you are in folder $HOME/scripps_kaust_model-1.1)::
+Install step 2: Download ESMF 8.0.0 (current folder: $HOME/scripps_kaust_model-1.1)::
 
   git clone https://git.code.sf.net/p/esmf/esmf esmf
   cd esmf
@@ -30,7 +30,7 @@ You can find a message ::
 Load the modules
 ================
 
-Install step 3: Load PGI compiler, OpenMPI and NetCDF (now you are in folder
+Install step 3: Load PGI compiler, OpenMPI and NetCDF (current folder:
 $HOME/scripps_kaust_model-1.1/esmf)::
 
   # load pgi compiler, openmpi, netcdf
@@ -52,16 +52,20 @@ $HOME/scripps_kaust_model-1.1/esmf)::
 Usually, I put them in the ~/.bashrc file to reuse them.
 
 Note:
-  (1) the modules (pgi compiler, openmpi, netcdf) have different names for different machines, please load the modules on your machine
-  (2) the paths are also different for different machines
-  (3) in the last line, the path of ESMF should be the path of *libesmf.a* and *esmf.mk* after ESMF is successfully installed
+  1. The modules (pgi compiler, openmpi, netcdf) have different names for different machines, please
+     load the modules on your machine.
+
+  2. The paths are also different for different machines.
+
+  3. In the last line, the path of ESMF should be the path of *libesmf.a* and *esmf.mk* after ESMF
+     is successfully installed.
 
 Configure ESMF
 ==============
 
 I am using a few specific configurations to compile ESMF. 
 
-Install step 4: Set ESMF configurations (now you are in folder
+Install step 4: Set ESMF configurations (current folder
 $HOME/scripps_kaust_model-1.1/esmf)::
 
   # ESMF compile options
@@ -82,20 +86,22 @@ $HOME/scripps_kaust_model-1.1/esmf)::
 
 Again, I put them in the ~/.bashrc file.
 
-Note that:
-  (1) *ESMF_NETCDF_INCLUDE*, *ESMF_NETCDF_LIBPATH*, *ESMF_NETCDF_LIBPATH_PREFIX* should be modified
+Note:
+  1. *ESMF_NETCDF_INCLUDE*, *ESMF_NETCDF_LIBPATH*, *ESMF_NETCDF_LIBPATH_PREFIX* should be modified
   according to the NETCDF setups. 
-  (2) *ESMF_COMPILER=pgi* means I am using PGI compiler. When using other compilers, one needs to
+
+  2. *ESMF_COMPILER=pgi* means I am using PGI compiler. When using other compilers, one needs to
   change this option.
-  (3) The explaination of other configurations is documented in ESMF tutorials.
-  (4) If build_rules.mk file is not modified, you may still compile ESMF successfully. However, you
+
+  3. The explaination of other configurations is documented in ESMF tutorials.
+
+  4. If build_rules.mk file is not modified, you may still compile ESMF successfully. However, you
   will fail when compiling the coupled code.
 
 Compile ESMF
 ============
 
-Install step 5: Compile ESMF (now you are in folder
-$HOME/scripps_kaust_model-1.1/esmf)::
+Install step 5: Compile ESMF (current folder: $HOME/scripps_kaust_model-1.1/esmf)::
 
     # Check the information of necessary configurations
     gmake info &> log.info

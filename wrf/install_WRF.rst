@@ -4,43 +4,24 @@
 Install WRF
 ###########
 
-How to get WRF code
-===================
+Update WRF configurations
+=========================
 
-The WRF code is available at:
+Install step 7: Download WRF v4.1.2 (current folder: $HOME/scripps_kaust_model-1.1/MITgcm_c67m)::
 
-http://www2.mmm.ucar.edu/wrf/users/download/get_source.html
+  cd ..
+  wget https://github.com/wrf-model/WRF/archive/v4.1.2.zip
+  unzip v4.1.2.zip
+  mv WRF-4.1.2 WRFV412_AO
+  # save a copy
+  cp -rf WRFV412_AO WRFV412_AO.org
 
-Register an account, then download the WRF-ARW code, WPS code, WRFDA/WRFPLUS code, and WRF-Chemistry
-code. Currently we are using WRF 3.9.1.1.
+Install step 8: Set the WRF configurations::
+  
+  cd WRFV412_AO
+  ./configure
 
-Install WRF coupled with ESMF, using NetCDF4 and OpenMPI
-========================================================
-
-Open the tar file
------------------
-
-After downloading the WRF 3.9.1.1 (version 3.9 or 3.8 should also be OK), open
-the file in *$HOME/scripps_kaust_model/*::
-
-    tar -xf WRFV3.9.1.1.TAR.gz
-
-Make a copy of the folder::
-
-    cp -rf $HOME/scripps_kaust_model/WRFV3 $HOME/scripps_kaust_model/WRFV3911_AO
-
-
-Configurations
---------------
-Enter the WRF folder::
-
-    cd $HOME/scripps_kaust_model/WRFV3911_AO
-
-Run the configuration file::
-
-   ./configure
-
-You will see 75 options::
+There are 75 WRF configurations.
 
 Please select from among the following Linux x86_64 options::
 
@@ -49,7 +30,7 @@ Please select from among the following Linux x86_64 options::
   9. (serial)  10. (smpar)  11. (dmpar)  12. (dm+sm)   PGI (pgf90/gcc): PGI accelerator
   13. (serial)  14. (smpar)  15. (dmpar)  16. (dm+sm)   INTEL (ifort/icc)
 
-We enter '54' to activate PGI (pgf90/pgcc) + dmpar (distributed memory)::
+I use option '54' to activate PGI (pgf90/pgcc) + dmpar (distributed memory)::
 
   Enter selection [1-75] : 54
 
@@ -61,12 +42,13 @@ We can see a configuration file in the WRF folder::
 
   -rw-rw-r-- 1 ruisun ruisun 20823 2019-08-21 15:45 configure.wrf
 
-Next, we need to edit this configuration file.
-  
-At the beginning of *configure.wrf* (line 16 in my file), add the ESMF_DIR.
+Install step 9: Edit the WRF configurations.
+(current folder: $HOME/scripps_kaust_model-1.1/WRFV412_AO)
+
+At the beginning of *configure.wrf* (line 17 in my file), add the ESMF_DIR.
 Note *ESMF_DIR* must be the real path of the home directory::
 
-  ESMF_DIR=/home/ruisun/scripps_kaust_model/esmf/
+  ESMF_DIR=$HOME/scripps_kaust_model-v1.1/esmf/
 
 Replace the ESMF switches in *configure.wrf* (from line 76 to 96 in my file). Note that the ESMF
 path in *ESMF_IO_INC* and *ESMF_LIB* should be updated accordingly::
@@ -89,73 +71,75 @@ path in *ESMF_IO_INC* and *ESMF_LIB* should be updated accordingly::
   ESMFLIB         = $(ESMF_DIR)/lib/libg/Linux.pgi.64.openmpi.default
   include $(ESMFLIB)/esmf.mk
 
-Add *-DESMFIO* in *ARCHFLAGS* (line 164 in my file). Put it below *-DNETCDF*::
+Add *-DESMFIO* in *ARCHFLAGS* (line 169 in my file). Put it below *-DNETCDF*::
 
   -DNETCDF \
   -DESMFIO \
 
-Modify the ESMF flags, replace (from line 192 to line 195 in my file)::
+Modify the ESMF flags, replace (from line 196 to line 199 in my file)::
 
   ESMF_LIB_FLAGS  =    $(ESMF_LDFLAG)
   ESMF_IO_LIB     =    $(ESMF_F90LINKPATHS) $(ESMF_F90ESMFLINKLIBS) -L$(WRF_SRC_ROOT_DIR)/external/io_esmf -lwrfio_esmf
   ESMF_IO_LIB_EXT =    $(ESMF_IO_LIB)
 
-Add ESMF mod folder in *INCLUDE_MODULES* (from line 196 in my file)::
+Add ESMF mod folder in *INCLUDE_MODULES* (from line 208 in my file)::
 
   -I$(ESMF_DIR)/mod/modg/Linux.pgi.64.openmpi.default \
 
-Add ESMF_DIR in *LIB_EXTERNAL* (from line 221 in my file)::
+Add ESMF_DIR in *LIB_EXTERNAL* (from line 227 in my file)::
   LIB_EXTERNAL = -L$(ESMF_DIR)/lib/libg/Linux.pgi.64.openmpi.default -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/usr/local/netcdf/432_pgi133//lib -lnetcdff -lnetcdf
 
-Install WRF
+Install step 10: Edit ./external/io_esmf/makefile.
+(current folder: $HOME/scripps_kaust_model-1.1/WRFV412_AO)
+   
+Add the following lines at the beginning of the file::
+
+  CPP = /lib/cpp -P
+  FC  = mpif90 -r4 -i4 -w -Mfree -byteswapio
+  ESMF_DIR=$HOME/scripps_kaust_model-v1.1/esmf/
+  ESMF_INCLUDE=${ESMF_DIR}/mod/modg/Linux.pgi.64.openmpi.default/
+  CURRENT_DIR=${ESMF_DIR}/scripps_kaust_model-v1.1/WRFV412_AO/external/io_esmf/
+  INCLUDE_MODULES = -I$(CURRENT_DIR)/../../ \
+                    -I$(CURRENT_DIR)/../../main \
+                    -I$(CURRENT_DIR)/../../external/io_netcdf \
+                    -I$(CURRENT_DIR)/../../external/io_int \
+                    -I$(CURRENT_DIR)/../../frame \
+                    -I$(CURRENT_DIR)/../../share \
+                    -I$(CURRENT_DIR)/../../phys \
+                    -I$(CURRENT_DIR)/../../wrftladj \
+                    -I$(CURRENT_DIR)/../../chem \
+                    -I$(CURRENT_DIR)/../../inc \
+
+Line 40 should be (.F90.o options) ::
+
+   $(FC) -I$(ESMF_INCLUDE) -I$(CURRENT_DIR) -I$(ICLUDE_MODULES) -c -g -I../ioapi_share $*.f
+
+Add the following dependencies (line 47 and 48 in my file, above *module_utility.o*)::
+
+  module_symbols_util.o
+  module_esmf_extensions.o
+
+Compile WRF
 -----------
 
-A few other files need to be copied before installing WRF (current folder $HOME/scripps_kaust_model/WRFV3911_AO/)::
+Install step 11: Copy other files (current folder: $HOME/scripps_kaust_model-1.1/WRFV412_AO)::
 
-   WRF_OPTION_DIR=../installOption_WRF/wrfAO3911Implementations_ring/
-   ln -sf ${WRF_OPTION_DIR}/Makefile.main main/Makefile
-   ln -sf ${WRF_OPTION_DIR}/wrf_test_ESMF.F main/
-   ln -sf ${WRF_OPTION_DIR}/Makefile.wrf Makefile
-   ln -sf ${WRF_OPTION_DIR}/makefile.io_netcdf external/io_netcdf/makefile
-   ln -sf ${WRF_OPTION_DIR}/makefile.io_esmf external/io_esmf/makefile
-   ln -sf ${WRF_OPTION_DIR}/module_domain.F frame/
-   ln -sf ${WRF_OPTION_DIR}/ext_esmf_write_field.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR}/ext_esmf_read_field.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR}/ext_esmf_open_for_read.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR}/ext_esmf_open_for_write.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR}/module_esmf_extensions.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR}/module_diag_rasm.F phys/
-   ln -sf ${WRF_OPTION_DIR}/module_diag_cl.F phys/
-   ln -sf ${WRF_OPTION_DIR}/module_diagnostics_driver.F phys/
-   ln -sf ${WRF_OPTION_DIR}/io_esmf.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR}/Registry.EM Registry/Registry.EM
-   ln -sf ${WRF_OPTION_DIR}/Registry.EM_COMMON_direct Registry/Registry.EM_COMMON
+   WRF_OPTION_DIR0=../installOption_WRF/wrfAO412_shared/
 
-Need to check the makefile for io_esmf (external/io_esmf/makefile).
+   ln -sf ${WRF_OPTION_DIR0}/Makefile.wrf Makefile
+   ln -sf ${WRF_OPTION_DIR0}/module_domain.F frame/
+   ln -sf ${WRF_OPTION_DIR0}/module_diag_rasm.F phys/
+   ln -sf ${WRF_OPTION_DIR0}/input_wrf.F share/
+
+   ln -sf ${WRF_OPTION_DIR0}/ext_esmf_write_field.F90 external/io_esmf/
+   ln -sf ${WRF_OPTION_DIR0}/ext_esmf_read_field.F90 external/io_esmf/
+   ln -sf ${WRF_OPTION_DIR0}/ext_esmf_open_for_read.F90 external/io_esmf/
+   ln -sf ${WRF_OPTION_DIR0}/ext_esmf_open_for_write.F90 external/io_esmf/
+   ln -sf ${WRF_OPTION_DIR0}/module_esmf_extensions.F90 external/io_esmf/
+   ln -sf ${WRF_OPTION_DIR0}/io_esmf.F90 external/io_esmf/
+   ln -sf ${WRF_OPTION_DIR0}/wrf_ESMFMOD.F main/
    
-Start of the file::
-
-   ESMF_DIR=/home/ruisun/scripps_kaust_model/esmf/
-   ESMF_INCLUDE  = ${ESMF_DIR}/mod/modg/Linux.pgi.64.openmpi.default/
-   ESMF_LIBRARY  = ${ESMF_DIR}/lib/libg/Linux.pgi.64.openmpi.default/
-   MAIN_DIR=/home/ruisun/scripps_kaust_model/
-   CURRENT_DIR=/home/ruisun/scripps_kaust_model/WRFV3911_AO/external/io_esmf/
-   NETCDF_INCLUDE=/usr/local/netcdf/432_pgi133/include/
-
-Line 35 needs *NETCDF_INCLUDE* sometimes::
-
-   $(FC) -I$(ESMF_INCLUDE) -I$(MAIN_DIR) -I$(CURRENT_DIR) -I$(NETCDF_INCLUDE) -c -g -I../ioapi_share $*.f
-
-Also need to check the makefile for io_netcdf (external/io_netcdf). Line
-7,8,46,48 need to be updated with the real path of netcdf::
-
-  LIBS    = $(LIB_LOCAL) -L$(NETCDFPATH)/lib -L/usr/local/netcdf/432_pgi133/lib -lnetcdf
-  LIBFFS  = $(LIB_LOCAL) -L$(NETCDFPATH)/lib -L/usr/local/netcdf/432_pgi133/lib -lnetcdf
-
-  $(CPP1) -I/usr/local/netcdf/432_pgi133/include -I$(NETCDFPATH)/include -I../ioapi_share diffwrf.F90 | sed '/integer *, *external.*iargc/d' > diffwrf.f ;\
-  $(CPP1) -I/usr/local/netcdf/432_pgi133/include -I$(NETCDFPATH)/include -I../ioapi_share diffwrf.F90 > diffwrf.f ; \
-
-Now we can start compiling WRF by using (current folder *$HOME/scripps_kaust_model/WRFV3911_AO/*)::
+Now we can start compiling WRF by using::
 
   ./compile em_real &> log.em_real &
 
