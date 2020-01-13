@@ -50,30 +50,35 @@ We can see ::
 Install step 12: Update the PATH in the coupled model (current folder:
 $HOME/scripps_kaust_model-1.1/L3.C1.coupled_RS2012_ring/)
 
-Update utils/mitgcm_options (line 28 and 29):: 
+Update utils/mitgcm_options (line 27 and 28), make sure they are correct:: 
 
-  INCLUDES='-I/usr/local/netcdf/432_pgi133/include -I/usr/local/mpi/pgi13/openmpi-2.0.2/include/'
-  LIBS='-L/usr/local/netcdf/432_pgi133/lib/ -L/usr/local/mpi/pgi13/openmpi-2.0.2/lib/'
+  INCLUDES='-I$SKRIPS_MPI_DIR/include/ $SKRIPS_NETCDF_INCLUDE'
+  LIBS='-L$SKRIPS_MPI_DIR/lib/ $SKRIPS_NETCDF_LIB'
 
 Update utils/mkmod.sh (from line 22):: 
 
-  set comp     = /usr/local/mpi/pgi13/openmpi-2.0.2/bin/mpif77
-  set cccommand = /usr/local/mpi/pgi13/openmpi-2.0.2/bin/mpicc
-  set compopts = (-byteswapio -r8 -Mnodclchk -Mextend -fast -fastsse)
+  set comp         = $SKRIPS_MPI_DIR/mpif77
+  set cccommand    = $SKRIPS_MPI_DIR/mpicc
+  set compopts     = (-byteswapio -r8 -Mnodclchk -Mextend -fast -fastsse)
   set compopts_num = ( $compopts )
-  set complibs = (-L/usr/local/netcdf/432_pgi133/lib -lnetcdf)
-  set compinc = (-I/usr/local/netcdf/432_pgi133/include)
+  set complibs     = ($SKRIPS_NETCFDF_LIB -lnetcdf)
+  set compinc      = ($SKRIPS_NETCFDF_INCLUDE)
 
-Update ./install.sh (line 2 and 3)::
+Update ./install.sh (line 2)::
 
-  export MPI_HOME="/usr/local/mpi/pgi13/openmpi-2.0.2/include/"
-  export MITGCM_DIR="${HOME}/scripps_kaust_model-1.1/MITgcm_c67m/"
+  setenv MITGCM_DIR "${SKRIPS_DIR}/MITgcm_c67m/"
 
 Update coupledCode/wrflib.mk (replace line 24 to 28)::
 
   -L/usr/local/netcdf/432_pgi133/lib \
   -L/opt/pgi/linux86-64/17.5/libso \
   -lesmf  -lmpi -pgcpplibs -ldl -lnetcdff -lnetcdf \
+
+Actually, the *WRF_LIB* variable is defined in WRF. I am using the options when when compiling
+wrf_SST_ESMF.exe, extracted from the WRF log file. If you are running on ring or shaheen, you don't
+need to modify it ::
+
+  mpif90 -o wrf_SST_ESMF.exe -O3 ......
 
 Run install.sh ::
 
