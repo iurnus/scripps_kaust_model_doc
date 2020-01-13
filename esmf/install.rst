@@ -22,7 +22,7 @@ Install step 2: Download ESMF 8.0.0 (current folder: $HOME/scripps_kaust_model-1
   cd esmf
   git checkout ESMF_8_0_0
 
-You can find a message ::
+You can find a message::
 
   HEAD is now at f5d862d... Update the supported platform table for the 8.0.0 release.
 
@@ -39,17 +39,16 @@ $HOME/scripps_kaust_model-1.1/esmf)::
   module load pgi13/netcdf-4.3.2
 
   # update the path of pgi compiler, openmpi, netcdf
-  export NETCDF=/usr/local/netcdf/432_pgi133/
-  export NETCDF_ROOT=/usr/local/netcdf/432_pgi133/
-  export MPI_INC_DIR=/usr/local/mpi/pgi13/openmpi-2.0.2/include/
-  export LD_LIBRARY_PATH=/usr/local/pgi/133/linux86-64/13.3/libso/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-  export LD_LIBRARY_PATH=/usr/local/mpi/pgi13/openmpi-2.0.2/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-  export LD_LIBRARY_PATH=/usr/local/netcdf/432_pgi133/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+  export NETCDF_DIR=/usr/local/netcdf/432_pgi133/
+  export MPI_DIR=/usr/local/mpi/pgi13/openmpi-2.0.2/include/
+  export SKRIPS_DIR=$HOME/scripps_kaust_model-1.1/
+  export SKRIPS_NETCDF_INCLUDE=-I$NETCDF_DIR/include/
+  export SKRIPS_NETCDF_LIB=-L$NETCDF_DIR/lib/
+  export SKRIPS_MPI_DIR=$MPI_DIR
 
-  # add the path of ESMF
-  export LD_LIBRARY_PATH=$HOME/scripps_kaust_model-1.1/esmf/lib/libg/Linux.pgi.64.openmpi.default/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-
-Usually, I put them in the ~/.bashrc file to reuse them.
+Usually, I put them in the ~/.bashrc file to reuse them. The variables *SKRIPS_DIR*,
+*SKRIPS_NETCDF_INCLUDE*, *SKRIPS_NETCDF_LIB*, *SKRIPS_MPI_DIR* will be used to build the coupled
+model.
 
 Note:
   1. The modules (pgi compiler, openmpi, netcdf) have different names for different machines, please
@@ -69,8 +68,9 @@ Install step 4: Set ESMF configurations (current folder
 $HOME/scripps_kaust_model-1.1/esmf)::
 
   # ESMF compile options
-  export ESMF_DIR=$HOME/scripps_kaust_model-1.1/esmf/
-  export ESMFMKFILE=${ESMF_DIR}lib/libg/Linux.pgi.64.openmpi.default/esmf.mk
+  export ESMF_DIR=$SKRIPS_DIR/esmf/
+  export ESMF_LIB=$ESMF_DIR/lib/libg/Linux.intel.64.openmpi.default/
+  export ESMFMKFILE=$ESMF_LIB/esmf.mk
   export ESMF_OS=Linux
   export ESMF_COMPILER=pgi
   export ESMF_COMM=openmpi
@@ -80,15 +80,22 @@ $HOME/scripps_kaust_model-1.1/esmf)::
   export ESMF_BOPT=g
   export ESMF_ABI=64
   export ESMF_YAMLCPP=OFF
-  export ESMF_NETCDF_INCLUDE=/usr/local/netcdf/432_pgi133/include/
-  export ESMF_NETCDF_LIBPATH=/usr/local/netcdf/432_pgi133/lib/
-  export ESMF_NETCDF_LIBPATH_PREFIX="-Wl,-rpath,/usr/local/netcdf/432_pgi133/lib/"
+
+  export ESMF_NETCDF_INCLUDE=$NETCDF_DIR/include/
+  export ESMF_NETCDF_LIBPATH=$NETCDF_DIR/lib/
+  export ESMF_NETCDF_LIBPATH_PREFIX="-Wl,-rpath,$NETCDF_DIR/lib/"
+
+  # add the path of libraries...
+  export LD_LIBRARY_PATH=$NETCDF_DIR/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+  export LD_LIBRARY_PATH=$MPI_DIR/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+  export LD_LIBRARY_PATH=$ESMF_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 
 Again, I put them in the ~/.bashrc file.
 
 Note:
-  1. *ESMF_NETCDF_INCLUDE*, *ESMF_NETCDF_LIBPATH*, *ESMF_NETCDF_LIBPATH_PREFIX* should be modified
-  according to the NETCDF setups. 
+  1. Sometimes NETCDF is compiled separately or PNETCDF is used. If so, *ESMF_NETCDF_INCLUDE*,
+  *ESMF_NETCDF_LIBPATH*, *ESMF_NETCDF_LIBPATH_PREFIX* should be modified according to NETCDF
+  setups. 
 
   2. *ESMF_COMPILER=pgi* means I am using PGI compiler. When using other compilers, one needs to
   change this option.

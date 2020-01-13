@@ -10,8 +10,7 @@ $HOME/scripps_kaust_model-1.1/esmf)::
 Install step 4: Set ESMF configurations (now you are in folder
 $HOME/scripps_kaust_model-1.1/esmf)::
 
-    cp ../installOption_OTH/esmfInstallOptions/configurations.esmf.ring .
-    . configure.esmf.ring
+    . ../installOption_OTH/configurations.esmf.ring
 
 Install step 5: Compile ESMF (now you are in folder
 $HOME/scripps_kaust_model-1.1/esmf)::

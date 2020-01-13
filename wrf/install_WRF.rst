@@ -87,48 +87,24 @@ Add ESMF mod folder in *INCLUDE_MODULES* (from line 208 in my file)::
   -I$(ESMF_DIR)/mod/modg/Linux.pgi.64.openmpi.default \
 
 Add ESMF_DIR in *LIB_EXTERNAL* (from line 227 in my file)::
+
   LIB_EXTERNAL = -L$(ESMF_DIR)/lib/libg/Linux.pgi.64.openmpi.default -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/usr/local/netcdf/432_pgi133//lib -lnetcdff -lnetcdf
 
-Install step 10: Edit ./external/io_esmf/makefile.
-(current folder: $HOME/scripps_kaust_model-1.1/WRFV412_AO)
-   
-Add the following lines at the beginning of the file::
+Add INCLUDE_MODULES when compiling io_esmf (line 372 in my file)::
 
-  CPP = /lib/cpp -P
-  FC  = mpif90 -r4 -i4 -w -Mfree -byteswapio
-  ESMF_DIR=$HOME/scripps_kaust_model-v1.1/esmf/
-  ESMF_INCLUDE=${ESMF_DIR}/mod/modg/Linux.pgi.64.openmpi.default/
-  CURRENT_DIR=${ESMF_DIR}/scripps_kaust_model-v1.1/WRFV412_AO/external/io_esmf/
-  INCLUDE_MODULES = -I$(CURRENT_DIR)/../../ \
-                    -I$(CURRENT_DIR)/../../main \
-                    -I$(CURRENT_DIR)/../../external/io_netcdf \
-                    -I$(CURRENT_DIR)/../../external/io_int \
-                    -I$(CURRENT_DIR)/../../frame \
-                    -I$(CURRENT_DIR)/../../share \
-                    -I$(CURRENT_DIR)/../../phys \
-                    -I$(CURRENT_DIR)/../../wrftladj \
-                    -I$(CURRENT_DIR)/../../chem \
-                    -I$(CURRENT_DIR)/../../inc \
-
-Line 40 should be (.F90.o options) ::
-
-   $(FC) -I$(ESMF_INCLUDE) -I$(CURRENT_DIR) -I$(ICLUDE_MODULES) -c -g -I../ioapi_share $*.f
-
-Add the following dependencies (line 47 and 48 in my file, above *module_utility.o*)::
-
-  module_symbols_util.o
-  module_esmf_extensions.o
+  make FC="$(FC) $(PROMOTION) $(FCDEBUG) $(FCBASEOPTS) $(ESMF_MOD_INC) $(INCLUDE_MODULES)" \
 
 Compile WRF
 -----------
 
 Install step 11: Copy other files (current folder: $HOME/scripps_kaust_model-1.1/WRFV412_AO)::
 
-   WRF_OPTION_DIR0=../installOption_WRF/wrfAO412_shared/
+   WRF_OPTION_DIR0=$HOME/scripps_kaust_model-1.1/installOption_WRF/wrfAO412_shared/
 
    ln -sf ${WRF_OPTION_DIR0}/Makefile.wrf Makefile
    ln -sf ${WRF_OPTION_DIR0}/module_domain.F frame/
    ln -sf ${WRF_OPTION_DIR0}/module_diag_rasm.F phys/
+   ln -sf ${WRF_UPDATE_DIR0}/module_ltng_iccg.F phys/
    ln -sf ${WRF_OPTION_DIR0}/input_wrf.F share/
 
    ln -sf ${WRF_OPTION_DIR0}/ext_esmf_write_field.F90 external/io_esmf/

@@ -31,7 +31,7 @@ Similarly for Shaheen-II, we can run the installer (skip step 8, 9, 10, and 11):
     ./installWRF412_ao_shaheen.sh
 
 If the code is compiled, *real.exe*, *wrf.exe*, *ndown.exe*, and *tc.exe* can be seen in the folder
-WRFV412_ao/main. Here, *412* means WRF412, *ao* means coupled ocean--atmosphere code. To test the
+WRFV412_AO/main. Here, *412* means WRF412, *AO* means coupled ocean--atmosphere code. To test the
 installation of the coupled WRF--ESMF code, a simple test case is available in the :ref:`WRF test,
 real cases<test_wrf_real>`.
 
