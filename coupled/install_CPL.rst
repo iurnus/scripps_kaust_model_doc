@@ -66,7 +66,7 @@ Update utils/mkmod.sh (from line 22)::
 
 Update ./install.sh (line 2)::
 
-  setenv MITGCM_DIR "${SKRIPS_DIR}/MITgcm_c67m/"
+  export MITGCM_DIR=${SKRIPS_DIR}/MITgcm_c67m/
 
 Update coupledCode/wrflib.mk (replace line 24 to 28)::
 
