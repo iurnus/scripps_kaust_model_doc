@@ -104,7 +104,7 @@ Install step 11: Copy other files (current folder: $HOME/scripps_kaust_model-1.1
    ln -sf ${WRF_OPTION_DIR0}/Makefile.wrf Makefile
    ln -sf ${WRF_OPTION_DIR0}/module_domain.F frame/
    ln -sf ${WRF_OPTION_DIR0}/module_diag_rasm.F phys/
-   ln -sf ${WRF_UPDATE_DIR0}/module_ltng_iccg.F phys/
+   ln -sf ${WRF_OPTION_DIR0}/module_ltng_iccg.F phys/
    ln -sf ${WRF_OPTION_DIR0}/input_wrf.F share/
 
    ln -sf ${WRF_OPTION_DIR0}/ext_esmf_write_field.F90 external/io_esmf/
@@ -113,7 +113,7 @@ Install step 11: Copy other files (current folder: $HOME/scripps_kaust_model-1.1
    ln -sf ${WRF_OPTION_DIR0}/ext_esmf_open_for_write.F90 external/io_esmf/
    ln -sf ${WRF_OPTION_DIR0}/module_esmf_extensions.F90 external/io_esmf/
    ln -sf ${WRF_OPTION_DIR0}/io_esmf.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR0}/wrf_ESMFMOD.F main/
+   ln -sf ${WRF_OPTION_DIR0}/wrf_ESMFMod.F main/
    
 Now we can start compiling WRF by using::
 
