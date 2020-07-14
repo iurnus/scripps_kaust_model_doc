@@ -47,7 +47,7 @@ are available in the L3.C3 case for shaheen@kaust)::
   17 echo "running coupled MITgcm--WRF simulation.."
   18 mpirun -np 4 esmf_application &> log.esmf
 
-The *namelist.nc* file controls the coupled run::
+The *namelist.rc* file controls the coupled run::
 
   Debuglevel: 0
   ## mode 1 = sequential mode
