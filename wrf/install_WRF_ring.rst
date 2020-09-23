@@ -8,8 +8,8 @@ Install WRF on ring/shaheen
 Configuring and Installing the code
 -----------------------------------
 
-The configurations are prepared for ring@ucsd.edu and Shaheen-II. They are saved in
-./installOption_WRF (current folder: $HOME/scripps_kaust_model-1.1/)::
+The configurations are prepared for ring at UCSD and Shaheen-II. They are saved in
+./installOption_WRF (current working directory: $HOME/scripps_kaust_model-1.1/)::
 
    ll installOption_WRF/*.sh
 
@@ -18,9 +18,9 @@ You'll find the following installers for WRF4.1.2::
    installOption_WRF/installWRF412_ao_ring.sh
    installOption_WRF/installWRF412_ao_shaheen.sh
 
-To install WRF on ring@ucsd.edu, we can run the installer (skip step 8, 9, 10, and 11)::
+To install WRF on ring at UCSD, we can run the installer (skip step 8, 9, 10, and 11)::
   
-    # on ring@ucsd.edu
+    # on ring
     cp installOption_WRF/installWRF412_ao_ring.sh .
     ./installWRF412_ao_ring.sh
 

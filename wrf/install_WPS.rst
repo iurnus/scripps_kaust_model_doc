@@ -7,18 +7,14 @@ How to get WPS code
 
 The WPS code is available at:
 
-http://www2.mmm.ucar.edu/wrf/users/download/get_source.html
-
-Register an account, then download the WRF-ARW code, WPS code, WRFDA/WRFPLUS code, and WRF-Chemistry
-code. 
+https://github.com/wrf-model/WPS
 
 Install WPS using the default compiler
 ======================================
 
 Setup JASPER
 ------------
-First, we need to install jasper, libpng and zlib. Then, put their path to the bashrc (or you can do
-it in the command line)::
+First, we may need to install jasper, libpng and zlib. Then, put their path to ~/.bashrc::
 
     export JASPERINC=/project_shared/Libraries/jasper-1.900.1_gnu_fortran_4.8.5-11/include/
     export JASPERINC="${JASPERINC} -I/project_shared/Libraries/libpng-1.6.30_gnu_fortran_4.8.5-11/include/"

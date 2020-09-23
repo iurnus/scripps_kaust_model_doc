@@ -5,7 +5,7 @@ Install MITgcm
 Get the code and documentations
 -------------------------------
 
-Install step 6: Download MITGCM (current folder: $HOME/scripps_kaust_model-1.1/esmf)::
+Install step 6: Download MITGCM (current working directory: $HOME/scripps_kaust_model-1.1/esmf)::
 
   cd ..
   wget https://github.com/MITgcm/MITgcm/archive/checkpoint67m.zip
@@ -35,8 +35,7 @@ Then, run the following commands to compile using GNU without MPI (default gfort
     make
 
 After the code is successfully built, an executable file *mitgcmuv* can be seen in the *build*
-folder. Using the default compiler is very simple, but sometimes the user would need to add more
-options when compiling the code.
+folder. 
 
 Compile the code using PGI and OpenMPI
 ======================================

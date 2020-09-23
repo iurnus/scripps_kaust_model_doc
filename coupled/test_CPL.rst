@@ -7,7 +7,7 @@ Run the coupled case
 Case initialization
 ===================
 
-To test the coupled case, enter *runCase.init* folder (current folder:
+To test the coupled case, enter *runCase.init* folder (current working directory:
 $HOME/scripps_kaust_model-1.1/couplers/L3.C1.coupled_RS2012_ring/)::
 
   [ruisun@acc00]~/scripps_kaust_model_test/coupler/L3.C1.coupled_RS2012_ring$ cd runCase.init/
@@ -27,8 +27,8 @@ Enter the *runCase* folder and run the test case::
   [ruisun@acc00]~/.../coupler/L3.C1.coupled_RS2012_ring/runCase.init$ cd ../runCase/
   [ruisun@acc00]~/.../coupler/L3.C1.coupled_RS2012_ring/runCase$ ./Allrun
 
-In the Allrun file, MATLAB is required for pre-processing (The python scripts
-are available in the L3.C3 case for shaheen@kaust)::
+In the Allrun file, MATLAB is required for pre-processing (the python scripts
+are available in the L3.C3 case for Shaheen-II at KAUST)::
 
   \3 ln -sf ../caseInput/* .
   \4 
@@ -66,7 +66,7 @@ The *namelist.rc* file controls the coupled run::
   EndYear:    2012
   EndMonth:     06
   EndDay:       01
-  EndHour:      00
+  EndHour:      06
   EndMinute:    00
   EndSecond:    00
   

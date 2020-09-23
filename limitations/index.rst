@@ -14,6 +14,9 @@ The limitations of the code are:
   developers are still trying to make the code to cover all the modeling conditions in MITgcm.
 - The WRF implements are based on WRF I/O streams. The implementations may change the I/O streams of
   WRF (io_esmf) and disable the modeling of some cases in the WRF tutorial.
+- The start/stop time of MITgcm, WRF, and ESMF are set up separately. If they are not consistent,
+  there might be errors reported. For example, if the stop time in MITgcm is earlier than ESMF, the
+  diagnostic package will first report an error and stops the coupled run. 
 
 Known issues
 ============

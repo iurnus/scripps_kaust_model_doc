@@ -16,7 +16,7 @@ The earlier releases of ESMF can be found at:
 Install ESMF Using PGI compiler
 ===============================
 
-Install step 2: Download ESMF 8.0.0 (current folder: $HOME/scripps_kaust_model-1.1)::
+Install step 2: Download ESMF 8.0.0 (current working directory: $HOME/scripps_kaust_model-1.1)::
 
   git clone https://git.code.sf.net/p/esmf/esmf esmf
   cd esmf
@@ -30,7 +30,7 @@ You can find a message::
 Load the modules
 ================
 
-Install step 3: Load PGI compiler, OpenMPI and NetCDF (current folder:
+Install step 3: Load PGI compiler, OpenMPI and NetCDF (current working directory:
 $HOME/scripps_kaust_model-1.1/esmf)::
 
   # load pgi compiler, openmpi, netcdf
@@ -40,7 +40,8 @@ $HOME/scripps_kaust_model-1.1/esmf)::
 
   # update the path of pgi compiler, openmpi, netcdf
   export NETCDF_DIR=/usr/local/netcdf/432_pgi133/
-  export MPI_DIR=/usr/local/mpi/pgi13/openmpi-2.0.2/include/
+  export MPI_DIR=/usr/local/mpi/pgi13/openmpi-2.0.2/
+
   export SKRIPS_DIR=$HOME/scripps_kaust_model-1.1/
   export SKRIPS_NETCDF_INCLUDE=-I$NETCDF_DIR/include/
   export SKRIPS_NETCDF_LIB=-L$NETCDF_DIR/lib/
@@ -64,7 +65,7 @@ Configure ESMF
 
 I am using a few specific configurations to compile ESMF. 
 
-Install step 4: Set ESMF configurations (current folder
+Install step 4: Set ESMF configurations (current working directory: 
 $HOME/scripps_kaust_model-1.1/esmf)::
 
   # ESMF compile options
@@ -108,7 +109,7 @@ Note:
 Compile ESMF
 ============
 
-Install step 5: Compile ESMF (current folder: $HOME/scripps_kaust_model-1.1/esmf)::
+Install step 5: Compile ESMF (current working directory: $HOME/scripps_kaust_model-1.1/esmf)::
 
     # Check the information of necessary configurations
     gmake info &> log.info

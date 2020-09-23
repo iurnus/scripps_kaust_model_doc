@@ -14,7 +14,7 @@ Install step 1: Download this version from Github::
   cd scripps_kaust_model-1.1
   ls -l
 
-You will see the following folders and files (current folder: $HOME/scripps_kaust_model-1.1)::
+You will see the following folders and files (current working directory: $HOME/scripps_kaust_model-1.1)::
 
   -rwxrwxr-x  1 ruisun ruisun  132 2019-11-26 17:18 Allclean.sh
   -rwxrwxr-x  1 ruisun ruisun 4150 2019-11-26 17:18 Allmake.ring.sh
@@ -26,8 +26,7 @@ You will see the following folders and files (current folder: $HOME/scripps_kaus
   drwxrwxr-x  2 ruisun ruisun   52 2019-11-26 17:18 license_statements
   -rw-rw-r--  1 ruisun ruisun 2946 2019-11-26 17:18 README.md
 
-I have tested SKRIPS on two computers and saved two makefiles. For ring@ucsd.edu (PGI compiler), I
-would use::
+I have tested SKRIPS on two computers. For ring at UCSD (PGI compiler), I would use::
 
   ./Allmake.ring.sh
 
@@ -35,8 +34,8 @@ For Shaheen-II at KAUST (Cray XC CLE/Linux x86_64, Xeon ifort compiler), I would
 
   ./Allmake.shaheen.sh
 
-If you are not using ring@ucsd.edu or Shaheen-II, the two makefiles would not work. Please follow
-the detailed instruction below:
+If you are not using ring or Shaheen-II, they would not work. Please follow the detailed instruction
+below:
 
 .. toctree::
    :maxdepth: 1

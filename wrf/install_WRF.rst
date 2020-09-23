@@ -7,7 +7,8 @@ Install WRF
 Update WRF configurations
 =========================
 
-Install step 7: Download WRF v4.1.2 (current folder: $HOME/scripps_kaust_model-1.1/MITgcm_c67m)::
+Install step 7: Download WRF v4.1.2 (current working directory:
+$HOME/scripps_kaust_model-1.1/MITgcm_c67m)::
 
   cd ..
   wget https://github.com/wrf-model/WRF/archive/v4.1.2.zip
@@ -43,7 +44,7 @@ We can see a configuration file in the WRF folder::
   -rw-rw-r-- 1 ruisun ruisun 20823 2019-08-21 15:45 configure.wrf
 
 Install step 9: Edit the WRF configurations.
-(current folder: $HOME/scripps_kaust_model-1.1/WRFV412_AO)
+(current working directory: $HOME/scripps_kaust_model-1.1/WRFV412_AO)
 
 At the beginning of *configure.wrf* (line 17 in my file), add the ESMF_DIR.
 Note *ESMF_DIR* must be the real path of the home directory::
@@ -76,35 +77,41 @@ Add *-DESMFIO* in *ARCHFLAGS* (line 169 in my file). Put it below *-DNETCDF*::
   -DNETCDF \
   -DESMFIO \
 
-Modify the ESMF flags, replace (from line 196 to line 199 in my file)::
+Modify the ESMF flags, replace (from line 198 to line 199 in my file)::
 
-  ESMF_LIB_FLAGS  =    $(ESMF_LDFLAG)
   ESMF_IO_LIB     =    $(ESMF_F90LINKPATHS) $(ESMF_F90ESMFLINKLIBS) -L$(WRF_SRC_ROOT_DIR)/external/io_esmf -lwrfio_esmf
   ESMF_IO_LIB_EXT =    $(ESMF_IO_LIB)
 
-Add ESMF mod folder in *INCLUDE_MODULES* (from line 208 in my file)::
-
-  -I$(ESMF_DIR)/mod/modg/Linux.pgi.64.openmpi.default \
-
 Add ESMF_DIR in *LIB_EXTERNAL* (from line 227 in my file)::
 
-  LIB_EXTERNAL = -L$(ESMF_DIR)/lib/libg/Linux.pgi.64.openmpi.default -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/usr/local/netcdf/432_pgi133//lib -lnetcdff -lnetcdf
+  LIB_EXTERNAL = -L$(ESMF_LIB) -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/usr/local/netcdf/432_pgi133//lib -lnetcdff -lnetcdf
 
 Add INCLUDE_MODULES when compiling io_esmf (line 372 in my file)::
 
   make FC="$(FC) $(PROMOTION) $(FCDEBUG) $(FCBASEOPTS) $(ESMF_MOD_INC) $(INCLUDE_MODULES)" \
 
+Then, save *configure.wrf* file after the edit.
+
+Finally, save part of the configuration file in another file (current working
+directory: $HOME/scripps_kaust_model-1.1/WRFV412_AO)::
+
+  linenumber=$(grep -n "bundled:" configure.wrf | cut -d : -f 1)
+  head -n $((linenumber-1)) configure.wrf > configure.wrf_cpl
+
+The generated *configure.wrf_cpl* file will be used to compile the coupled model.
+
 Compile WRF
 -----------
 
-Install step 11: Copy other files (current folder: $HOME/scripps_kaust_model-1.1/WRFV412_AO)::
+Install step 11: Copy other files (current working directory:
+$HOME/scripps_kaust_model-1.1/WRFV412_AO)::
 
    WRF_OPTION_DIR0=$HOME/scripps_kaust_model-1.1/installOption_WRF/wrfAO412_shared/
 
    ln -sf ${WRF_OPTION_DIR0}/Makefile.wrf Makefile
    ln -sf ${WRF_OPTION_DIR0}/module_domain.F frame/
    ln -sf ${WRF_OPTION_DIR0}/module_diag_rasm.F phys/
-   ln -sf ${WRF_UPDATE_DIR0}/module_ltng_iccg.F phys/
+   ln -sf ${WRF_OPTION_DIR0}/module_ltng_iccg.F phys/
    ln -sf ${WRF_OPTION_DIR0}/input_wrf.F share/
 
    ln -sf ${WRF_OPTION_DIR0}/ext_esmf_write_field.F90 external/io_esmf/
@@ -113,14 +120,11 @@ Install step 11: Copy other files (current folder: $HOME/scripps_kaust_model-1.1
    ln -sf ${WRF_OPTION_DIR0}/ext_esmf_open_for_write.F90 external/io_esmf/
    ln -sf ${WRF_OPTION_DIR0}/module_esmf_extensions.F90 external/io_esmf/
    ln -sf ${WRF_OPTION_DIR0}/io_esmf.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR0}/wrf_ESMFMOD.F main/
+   ln -sf ${WRF_OPTION_DIR0}/wrf_ESMFMod.F main/
    
 Now we can start compiling WRF by using::
 
   ./compile em_real &> log.em_real &
-
-Need to compile two times. The first compile will not be successful because *io_esmf* is not
-successfully compiled.
 
 After WRF is successfully compiled, you will see a few \*.exe files::
 

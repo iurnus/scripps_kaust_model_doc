@@ -5,17 +5,16 @@ Test ESMF
 Test ESMF with applications
 ===========================
 
-An ESMF application can better test if ESMF is successfully installed and how
-ESMF works as a coupler.
+An ESMF application can better test ESMF.
 
 Case 1: ESMF coupled flow demonstration case
 ============================================
 
-The coupled flow case and other demonstration cases can be found at:
+The demonstration cases can be found at:
 
 https://www.earthsystemcog.org/projects/esmf/external_demos
 
-The tutorials and introductions of the coupled flow case are:
+The tutorial of the demonstration case can be found at:
 
 (a) PDF: https://www.earthsystemcog.org/site_media/projects/esmf/ESMF_CoupledFlow.pdf
 
@@ -24,11 +23,11 @@ The tutorials and introductions of the coupled flow case are:
 Compile the demonstration case
 ------------------------------
 
-The demonstration case in our git repository is slightly different from the original one, because we
-have fixed the bug in the test case, modified the parameters in the simulations, and added a simple
+The demonstration case in our git repository is slightly different from the original one. We have
+fixed the bug in the test case, modified the parameters in the simulations, and added a simple
 post-processing MATLAB code. 
 
-Open the demonstration case (current folder: $HOME/scripps_kaust_model-1.1/esmf)::
+Open the demonstration case (current working directory: $HOME/scripps_kaust_model-1.1/esmf)::
 
     cd ../esmf_test_application/esmf_test_coupled_flow
     # compile the case::
@@ -51,17 +50,15 @@ The demonstration case generates a series of output files::
     U_velocity.nc     - NetCDF file containing time series of U velocity component.
     V_velocity.nc     - NetCDF file containing time series of V velocity component.
 
-* All output data files are removed by the "dust" Makefile target.
-* The "clean" Makefile target removes all object, module and the executable file.
-* The "distclean" Makefile target combines the "dust" and "clean" targets.
+* All output data files are removed by the "make dust".
+* "make clean" removes all object, module and the executable file.
+* "make distclean" combines the "dust" and "clean" targets.
 
 
 Notes
 -----
 
-In the original demonstration case, there seems to be no coupling between the
-flow and the injector. Hence, the following lines in CouplerMod.F90 file are
-commented out::
+Compared to the original version, the following lines in CouplerMod.F90 file are commented out::
 
     253            ! check isneeded flag here
     254            !! if (.not. isFieldNeeded(importState, datanames(i), rc=rc)) then 
@@ -78,11 +75,11 @@ There are several NUOPC prototype code examples:
 https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/
 http://www.earthsystemmodeling.org/esmf_releases/non_public/ESMF_8_0_0/NUOPC_howtodoc/
 
-The example of an ATM--CON--OCN model based on NUOPC:
+This is an example of ATM--CON--OCN model based on NUOPC:
 
 https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/tags/ESMF_8_0_0/AtmOcnConProto/
 
-We have also added this example case is our project (current folder:
+We have also added this example case to our project (current working directory:
 $HOME/scripps_kaust_model-1.1/esmf_test_application/esmf_test_coupled_flow). To compile and run this
 example:: 
 

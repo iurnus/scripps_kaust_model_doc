@@ -8,7 +8,7 @@ Test MITgcm using barotropic and baroclinic gyros
 Compile the code
 ~~~~~~~~~~~~~~~~
 
-Option 1: Compile the barotropic tutorial cases without OpenMPI (current folder:
+Option 1: Compile the barotropic tutorial cases without OpenMPI (current working directory:
 $HOME/scripps_kaust_model-1.1/MITgcm_c67m)::
 
     cd ./verification/tutorial_barotropic_gyre/build/
@@ -132,33 +132,3 @@ To plot the MITgcm results using python::
     results = MITgcmutils.rdmds('$MITGCM_RESULTS_DIR/U')
     plt.contourf(mitgcm_meshX,mitgcm_meshY,results[0,:,:])
 
-Test MITgcm using global case
------------------------------
-
-This is an MITgcm test case *global_ocean.cs32x15* of 4x4 global simulation
-with seasonal forcing.  (The mesh resolution is Nx*Ny = 90x40 in both
-directions.)
-
-The input surface fluxes are from the monthly means of the NCEP climatology,
-including the wind stress, heat flux, salinity flux, e.t.c.
-
-Currently the results from the MITgcm solver and MITgcm—ESMF coupled solver are
-identical because the coupled solver does not provide “new” information on the
-input values.
-
-.. |logo31| image:: global_depth.png
-   :width: 300px
-.. |logo32| image:: global_theta0001.png
-   :width: 300px
-.. |logo33| image:: global_uv0001.png
-   :width: 300px
-
-+------------------------------+------------------------------+  
-| Depth of the ocean           + Sea Surface Temperature      |
-+------------------------------+------------------------------+
-| |logo31|                     + |logo32|                     |
-+------------------------------+------------------------------+
-| Current velocity quiver plot |                              |
-+------------------------------+------------------------------+
-| |logo33|                     |                              |
-+------------------------------+------------------------------+

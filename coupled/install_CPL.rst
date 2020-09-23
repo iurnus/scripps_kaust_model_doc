@@ -4,8 +4,8 @@
 Install the coupled code
 ########################
 
-After compiling all three model components, we can try compile the coupled code (current folder:
-$HOME/scripps_kaust_model-1.1/)::
+After compiling all three model components, we can try compile the coupled code (current working
+directory: $HOME/scripps_kaust_model-1.1/)::
 
   cd couplers
   ls 
@@ -23,7 +23,7 @@ We can see::
   -rw-rw-r--  1 ruisun ruisun 1369 2019-12-01 08:02 README
   drwxrwxr-x  2 ruisun ruisun 4096 2019-12-01 08:02 script-post
 
-Enter folder *L3.C1.coupled_RS2012_ring*::
+Enter folder *L3.C1.coupled_RS2012_ring* (Level 3, Case 1, Red Sea)::
 
   cd L3.C1.coupled_RS2012_ring/
   ls -l
@@ -47,15 +47,15 @@ We can see ::
   drwxrwxr-x 2 ruisun ruisun   86 2019-12-01 08:02 save_nc
   drwxrwxr-x 2 ruisun ruisun  151 2019-12-01 08:02 utils
 
-Install step 12: Update the PATH in the coupled model (current folder:
+Install step 12: Update the PATH in the coupled model (current working directory:
 $HOME/scripps_kaust_model-1.1/L3.C1.coupled_RS2012_ring/)
 
-Update utils/mitgcm_options (line 27 and 28), make sure they are correct:: 
+Check utils/mitgcm_options (line 27 and 28), make sure they are correct:: 
 
   INCLUDES='-I$SKRIPS_MPI_DIR/include/ $SKRIPS_NETCDF_INCLUDE'
   LIBS='-L$SKRIPS_MPI_DIR/lib/ $SKRIPS_NETCDF_LIB'
 
-Update utils/mkmod.sh (from line 22):: 
+Check utils/mkmod.sh (from line 22):: 
 
   set comp         = $SKRIPS_MPI_DIR/mpif77
   set cccommand    = $SKRIPS_MPI_DIR/mpicc
@@ -68,18 +68,6 @@ Update ./install.sh (line 2)::
 
   export MITGCM_DIR=${SKRIPS_DIR}/MITgcm_c67m/
 
-Update coupledCode/wrflib.mk (replace line 24 to 28)::
-
-  -L/usr/local/netcdf/432_pgi133/lib \
-  -L/opt/pgi/linux86-64/17.5/libso \
-  -lesmf  -lmpi -pgcpplibs -ldl -lnetcdff -lnetcdf \
-
-Actually, the *WRF_LIB* variable is defined in WRF. I am using the options when when compiling
-wrf_SST_ESMF.exe, extracted from the WRF log file. If you are running on ring or shaheen, you don't
-need to modify it ::
-
-  mpif90 -o wrf_SST_ESMF.exe -O3 ......
-
 Run install.sh ::
 
   ./install.sh
@@ -89,7 +77,8 @@ Enter the correct PATH::
   WRF412 (with OA coupling) location? :/home/ruisun/scripps_kaust_model-1.1/coupler/L3.C1.coupled_RS2012_ring/../../WRFV412_AO/
   ESMF location? :/home/ruisun/scripps_kaust_model-1.1/coupler/L3.C1.coupled_RS2012_ring/../../esmf/
 
-The installer will generate *esmf_application* in folder coupledCode folder (current folder *$HOME/scripps_kaust_model/couplers/L3.C1.coupled_RS2012_ring/*)::
+The installer will generate *esmf_application* in folder coupledCode folder (current working
+directory: *$HOME/scripps_kaust_model/couplers/L3.C1.coupled_RS2012_ring/*)::
 
   [ruisun@acc00]~/scripps_kaust_model/coupler/L3.C1.coupled_RS2012_ring$ cd coupledCode/
   [ruisun@acc00]~/.../coupler/L3.C1.coupled_RS2012_ring/coupledCode$ ls
