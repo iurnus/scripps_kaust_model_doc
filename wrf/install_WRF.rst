@@ -84,7 +84,7 @@ Modify the ESMF flags, replace (from line 198 to line 199 in my file)::
 
 Add ESMF_DIR in *LIB_EXTERNAL* (from line 227 in my file)::
 
-  LIB_EXTERNAL = -L$(ESMF_LIB) -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/usr/local/netcdf/432_pgi133//lib -lnetcdff -lnetcdf
+  LIB_EXTERNAL = $(ESMF_LIB)/libesmf.a -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/usr/local/netcdf/432_pgi133//lib -lnetcdff -lnetcdf
 
 Add INCLUDE_MODULES when compiling io_esmf (line 372 in my file)::
 
