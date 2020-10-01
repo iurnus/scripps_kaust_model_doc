@@ -49,7 +49,7 @@ Install step 9: Edit the WRF configurations.
 At the beginning of *configure.wrf* (line 17 in my file), add the ESMF_DIR.
 Note *ESMF_DIR* must be the real path of the home directory::
 
-  ESMF_DIR=$HOME/scripps_kaust_model-v1.1/esmf/
+  ESMF_DIR=$HOME/scripps_kaust_model-1.1/esmf/
 
 Replace the ESMF switches in *configure.wrf* (from line 76 to 96 in my file). Note that the ESMF
 path in *ESMF_IO_INC* and *ESMF_LIB* should be updated accordingly::
