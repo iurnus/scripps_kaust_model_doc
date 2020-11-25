@@ -14,7 +14,7 @@ supports the new components by using the ESMF coupler and the NUOPC layer.
 
 The designed modeling system currently includes the following models:
 
-- Atmosphere Solver: WRF (version 4.1.2)
+- Atmosphere Solver: WRF (version 4.1.3)
 - Ocean Solver: MITgcm (version c67m)
 - Driver (coupler): ESMF/NUOPC (version 8.0.0)
 

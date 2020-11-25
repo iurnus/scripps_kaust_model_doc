@@ -13,25 +13,25 @@ The configurations are prepared for ring at UCSD and Shaheen-II. They are saved 
 
    ll installOption_WRF/*.sh
 
-You'll find the following installers for WRF4.1.2::
+You'll find the following installers for WRF4.1.3::
 
-   installOption_WRF/installWRF412_ao_ring.sh
-   installOption_WRF/installWRF412_ao_shaheen.sh
+   installOption_WRF/installWRF413_ao_ring.sh
+   installOption_WRF/installWRF413_ao_shaheen.sh
 
 To install WRF on ring at UCSD, we can run the installer (skip step 8, 9, 10, and 11)::
   
     # on ring
-    cp installOption_WRF/installWRF412_ao_ring.sh .
-    ./installWRF412_ao_ring.sh
+    cp installOption_WRF/installWRF413_ao_ring.sh .
+    ./installWRF413_ao_ring.sh
 
 Similarly for Shaheen-II, we can run the installer (skip step 8, 9, 10, and 11)::
 
     # on Shaheen-II
-    cp installOption_WRF/installWRF412_ao_shaheen.sh .
-    ./installWRF412_ao_shaheen.sh
+    cp installOption_WRF/installWRF413_ao_shaheen.sh .
+    ./installWRF413_ao_shaheen.sh
 
 If the code is compiled, *real.exe*, *wrf.exe*, *ndown.exe*, and *tc.exe* can be seen in the folder
-WRFV412_AO/main. Here, *412* means WRF412, *AO* means coupled ocean--atmosphere code. To test the
+WRFV413_AO/main. Here, *413* means WRF413, *AO* means coupled ocean--atmosphere code. To test the
 installation of the coupled WRF--ESMF code, a simple test case is available in the :ref:`WRF test,
 real cases<test_wrf_real>`.
 
