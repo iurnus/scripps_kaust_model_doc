@@ -7,19 +7,19 @@ Install WRF
 Update WRF configurations
 =========================
 
-Install step 7: Download WRF v4.1.2 (current working directory:
+Install step 7: Download WRF v4.1.3 (current working directory:
 $HOME/scripps_kaust_model-1.1/MITgcm_c67m)::
 
   cd ..
-  wget https://github.com/wrf-model/WRF/archive/v4.1.2.zip
-  unzip v4.1.2.zip
-  mv WRF-4.1.2 WRFV412_AO
+  wget https://github.com/wrf-model/WRF/archive/v4.1.3.zip
+  unzip v4.1.3.zip
+  mv WRF-4.1.3 WRFV413_AO
   # save a copy
-  cp -rf WRFV412_AO WRFV412_AO.org
+  cp -rf WRFV413_AO WRFV413_AO.org
 
 Install step 8: Set the WRF configurations::
   
-  cd WRFV412_AO
+  cd WRFV413_AO
   ./configure
 
 There are 75 WRF configurations.
@@ -44,7 +44,7 @@ We can see a configuration file in the WRF folder::
   -rw-rw-r-- 1 ruisun ruisun 20823 2019-08-21 15:45 configure.wrf
 
 Install step 9: Edit the WRF configurations.
-(current working directory: $HOME/scripps_kaust_model-1.1/WRFV412_AO)
+(current working directory: $HOME/scripps_kaust_model-1.1/WRFV413_AO)
 
 At the beginning of *configure.wrf* (line 17 in my file), add the ESMF_DIR.
 Note *ESMF_DIR* must be the real path of the home directory::
@@ -93,7 +93,7 @@ Add INCLUDE_MODULES when compiling io_esmf (line 372 in my file)::
 Then, save *configure.wrf* file after the edit.
 
 Finally, save part of the configuration file in another file (current working
-directory: $HOME/scripps_kaust_model-1.1/WRFV412_AO)::
+directory: $HOME/scripps_kaust_model-1.1/WRFV413_AO)::
 
   linenumber=$(grep -n "bundled:" configure.wrf | cut -d : -f 1)
   head -n $((linenumber-1)) configure.wrf > configure.wrf_cpl
@@ -104,9 +104,9 @@ Compile WRF
 -----------
 
 Install step 11: Copy other files (current working directory:
-$HOME/scripps_kaust_model-1.1/WRFV412_AO)::
+$HOME/scripps_kaust_model-1.1/WRFV413_AO)::
 
-   WRF_OPTION_DIR0=$HOME/scripps_kaust_model-1.1/installOption_WRF/wrfAO412_shared/
+   WRF_OPTION_DIR0=$HOME/scripps_kaust_model-1.1/installOption_WRF/wrfAO413_shared/
 
    ln -sf ${WRF_OPTION_DIR0}/Makefile.wrf Makefile
    ln -sf ${WRF_OPTION_DIR0}/module_domain.F frame/
