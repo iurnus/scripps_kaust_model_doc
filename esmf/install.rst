@@ -122,8 +122,6 @@ If ESMF8.0.0 is successfully built, all the unit tests should pass. We can also 
 code when a few unit tests failed. On ESMF official website, some unit tests could also fail.
 Currently we don't know which specific tests must pass for the coupled code.
 
-The perfect 
-
-summary on the ESMF website is: 
+The complete summary on the ESMF website is: 
 https://www.earthsystemcog.org/projects/esmf/platforms_8_0_0
 http://www.earthsystemmodeling.org/download/platforms/reports/800/800_Discover_pgi-17.7.0.html
