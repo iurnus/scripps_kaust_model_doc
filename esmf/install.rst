@@ -49,7 +49,9 @@ OpenMPI and NetCDF (current working directory: $HOME/scripps_kaust_model-1.1/esm
   export NETCDF_INC=/usr/local/netcdf/432_pgi133/include/
   export NETCDF_LIB=/usr/local/netcdf/432_pgi133/lib/
   export MPI_DIR=/usr/local/mpi/pgi13/openmpi-2.0.2/
+  export MPI_INC=/usr/local/mpi/pgi13/openmpi-2.0.2/include/
   export MPI_LIB=/usr/local/mpi/pgi13/openmpi-2.0.2/lib/
+
   export ESMF_DIR=$SKRIPS_DIR/esmf/
   export WRF_DIR=$SKRIPS_DIR/WRF412_AO/
   export MITGCM_DIR=$SKRIPS_DIR/MITgcm_c67m/
