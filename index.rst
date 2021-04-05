@@ -5,10 +5,10 @@
 
 
 ####################################################################
-Documentation of SKRIPPS-KAUST Regional Integrated Prediction System
+Documentation of Scripps-KAUST Regional Integrated Prediction System
 ####################################################################
 
-This is a documentation for the SCRIPPS-KAUST Regional Integrated Prediction System (SKRIPS).  This
+This is a documentation for the Scripps-KAUST Regional Integrated Prediction System (SKRIPS).  This
 model is designed to be a state-of-the-art coupled atmosphere-ocean modeling system. It also
 supports the new components by using the ESMF coupler and the NUOPC layer.
 
