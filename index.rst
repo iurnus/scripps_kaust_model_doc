@@ -5,7 +5,7 @@
 
 
 ####################################################################
-Documentation of Scripps-KAUST Regional Integrated Prediction System
+Documentation of Scripps-KAUST Regional Integrated Prediction System (SKRIPS)
 ####################################################################
 
 This is a documentation for the Scripps-KAUST Regional Integrated Prediction System (SKRIPS).  This
