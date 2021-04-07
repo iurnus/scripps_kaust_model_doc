@@ -2,19 +2,20 @@
 Install the model components
 ############################
 
-The official repository of SKRIPS 1.1 is maintained on Github::
+The official repository of SKRIPS 1.2 is maintained on Github::
 
-  https://github.com/iurnus/scripps_kaust_model/releases/tag/v1.1
+  https://github.com/iurnus/scripps_kaust_model/releases/tag/v1.2
 
 Install step 1: Download this version from Github::
 
   cd $HOME
-  wget https://github.com/iurnus/scripps_kaust_model/archive/v1.1.zip
-  unzip v1.1.zip
-  cd scripps_kaust_model-1.1
+  wget https://github.com/iurnus/scripps_kaust_model/archive/v1.2.zip
+  unzip v1.2.zip
+  mv scripps_kaust_model-1.2 scripps_kaust_model
+  cd scripps_kaust_model
   ls -l
 
-You will see the following folders and files (current working directory: $HOME/scripps_kaust_model-1.1)::
+You will see the following folders and files (current working directory: $HOME/scripps_kaust_model)::
 
   -rwxrwxr-x  1 ruisun ruisun  132 2019-11-26 17:18 Allclean.sh
   -rwxrwxr-x  1 ruisun ruisun 4150 2019-11-26 17:18 Allmake.ring.sh

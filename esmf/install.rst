@@ -16,7 +16,7 @@ The earlier releases of ESMF can be found at:
 Install ESMF Using PGI compiler
 ===============================
 
-Install step 2: Download ESMF 8.0.0 (current working directory: $HOME/scripps_kaust_model-1.1)::
+Install step 2: Download ESMF 8.0.0 (current working directory: $HOME/scripps_kaust_model)::
 
   git clone https://git.code.sf.net/p/esmf/esmf esmf
   cd esmf
@@ -36,7 +36,7 @@ At this step, we need to load the modules and set the system variables to instal
   vim ~/.bashrc
 
 Install step 3.1: In the ~/.bashrc file, add the following lines to load PGI compiler, 
-OpenMPI and NetCDF (current working directory: $HOME/scripps_kaust_model-1.1/esmf)::
+OpenMPI and NetCDF (current working directory: $HOME/scripps_kaust_model/esmf)::
 
   # load pgi compiler, openmpi, netcdf
   module load pgi13/compiler-13.3
@@ -44,7 +44,7 @@ OpenMPI and NetCDF (current working directory: $HOME/scripps_kaust_model-1.1/esm
   module load pgi13/netcdf-4.3.2
 
   # update the path of pgi compiler, openmpi, netcdf
-  export SKRIPS_DIR=$HOME/scripps_kaust_model-1.1/
+  export SKRIPS_DIR=$HOME/scripps_kaust_model/
   export NETCDF_DIR=/usr/local/netcdf/432_pgi133/
   export NETCDF_INC=/usr/local/netcdf/432_pgi133/include/
   export NETCDF_LIB=/usr/local/netcdf/432_pgi133/lib/
@@ -66,7 +66,7 @@ Note:
   3. The paths are also different for different machines.
 
 Install step 3.2: In the ~/.bashrc file, set ESMF configurations (current working directory: 
-$HOME/scripps_kaust_model-1.1/esmf)::
+$HOME/scripps_kaust_model/esmf)::
 
   # ESMF compile options
   export ESMF_OS=Linux
@@ -86,7 +86,7 @@ Notes::
   3. The explaination of other configurations is documented in ESMF tutorials.
 
 Install step 3.3: In the ~/.bashrc file, set the variables used in SKRIPS model and ESMF 
-(current working directory: $HOME/scripps_kaust_model-1.1/esmf)::
+(current working directory: $HOME/scripps_kaust_model/esmf)::
   
   export SKRIPS_NETCDF_INCLUDE=-I$NETCDF_INC
   export SKRIPS_NETCDF_LIB=-L$NETCDF_LIB
@@ -109,7 +109,7 @@ Finally, **Close the ~/.bashrc file and activate the changes**::
 Compile ESMF
 ============
 
-Install step 5: Compile ESMF (current working directory: $HOME/scripps_kaust_model-1.1/esmf)::
+Install step 5: Compile ESMF (current working directory: $HOME/scripps_kaust_model/esmf)::
 
     # Check the information of necessary configurations
     gmake info &> log.info

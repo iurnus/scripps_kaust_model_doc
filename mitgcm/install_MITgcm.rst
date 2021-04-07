@@ -5,7 +5,7 @@ Install MITgcm
 Get the code and documentations
 -------------------------------
 
-Install step 6: Download MITGCM (current working directory: $HOME/scripps_kaust_model-1.1/esmf)::
+Install step 6: Download MITGCM (current working directory: $HOME/scripps_kaust_model/esmf)::
 
   cd ..
   wget https://github.com/MITgcm/MITgcm/archive/checkpoint67m.zip

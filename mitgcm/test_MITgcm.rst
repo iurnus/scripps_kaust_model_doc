@@ -9,7 +9,7 @@ Compile the code
 ~~~~~~~~~~~~~~~~
 
 Option 1: Compile the barotropic tutorial cases without OpenMPI (current working directory:
-$HOME/scripps_kaust_model-1.1/MITgcm_c67m)::
+$HOME/scripps_kaust_model/MITgcm_c67m)::
 
     cd ./verification/tutorial_barotropic_gyre/build/
     ../../../tools/genmake2 "-mods" "../code" 

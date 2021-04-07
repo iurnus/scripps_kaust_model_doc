@@ -8,7 +8,7 @@ Update WRF configurations
 =========================
 
 Install step 7: Download WRF v4.1.3 (current working directory:
-$HOME/scripps_kaust_model-1.1/MITgcm_c67m)::
+$HOME/scripps_kaust_model/MITgcm_c67m)::
 
   cd ..
   wget https://github.com/wrf-model/WRF/archive/v4.1.3.zip
@@ -44,12 +44,12 @@ We can see a configuration file in the WRF folder::
   -rw-rw-r-- 1 ruisun ruisun 20823 2019-08-21 15:45 configure.wrf
 
 Install step 9: Edit the WRF configurations.
-(current working directory: $HOME/scripps_kaust_model-1.1/WRFV413_AO)
+(current working directory: $HOME/scripps_kaust_model/WRFV413_AO)
 
 At the beginning of *configure.wrf* (line 17 in my file), add the ESMF_DIR.
 Note *ESMF_DIR* must be the real path of the home directory::
 
-  ESMF_DIR=$HOME/scripps_kaust_model-1.1/esmf/
+  ESMF_DIR=$HOME/scripps_kaust_model/esmf/
 
 Replace the ESMF switches in *configure.wrf* (from line 76 to 96 in my file). Note that the ESMF
 path in *ESMF_IO_INC* and *ESMF_LIB* should be updated accordingly::
@@ -93,7 +93,7 @@ Add INCLUDE_MODULES when compiling io_esmf (line 372 in my file)::
 Then, save *configure.wrf* file after the edit.
 
 Finally, save part of the configuration file in another file (current working
-directory: $HOME/scripps_kaust_model-1.1/WRFV413_AO)::
+directory: $HOME/scripps_kaust_model/WRFV413_AO)::
 
   linenumber=$(grep -n "bundled:" configure.wrf | cut -d : -f 1)
   head -n $((linenumber-1)) configure.wrf > configure.wrf_cpl
@@ -104,9 +104,9 @@ Compile WRF
 -----------
 
 Install step 11: Copy other files (current working directory:
-$HOME/scripps_kaust_model-1.1/WRFV413_AO)::
+$HOME/scripps_kaust_model/WRFV413_AO)::
 
-   WRF_OPTION_DIR0=$HOME/scripps_kaust_model-1.1/installOption_WRF/wrfAO413_shared/
+   WRF_OPTION_DIR0=$HOME/scripps_kaust_model/installOption_WRF/wrfAO413_shared/
 
    ln -sf ${WRF_OPTION_DIR0}/Makefile.wrf Makefile
    ln -sf ${WRF_OPTION_DIR0}/module_domain.F frame/

@@ -8,7 +8,7 @@ Case initialization
 ===================
 
 To test the coupled case, enter *runCase.init* folder (current working directory:
-$HOME/scripps_kaust_model-1.1/couplers/L3.C1.coupled_RS2012_ring/)::
+$HOME/scripps_kaust_model/couplers/L3.C1.coupled_RS2012_ring/)::
 
   [ruisun@acc00]~/scripps_kaust_model_test/coupler/L3.C1.coupled_RS2012_ring$ cd runCase.init/
   [ruisun@acc00]~/.../coupler/L3.C1.coupled_RS2012_ring/runCase.init$ ls

@@ -4,9 +4,9 @@
    contain the root `toctree` directive.
 
 
-####################################################################
+#############################################################################
 Documentation of Scripps-KAUST Regional Integrated Prediction System (SKRIPS)
-####################################################################
+#############################################################################
 
 This is a documentation for the Scripps-KAUST Regional Integrated Prediction System (SKRIPS).  This
 model is designed to be a state-of-the-art coupled atmosphere-ocean modeling system. It also
@@ -25,9 +25,9 @@ presented.
 Users can also extend this solver, utilities and libraries of this coupled-solver, using some
 pre-requisite knowledge of the underlying method, physics and programming techniques involved.
 
-The SKRIPS v1.1 code is available at:
+The SKRIPS v1.2 code is available at:
 
-  https://github.com/iurnus/scripps_kaust_model/releases/tag/v1.1
+  https://github.com/iurnus/scripps_kaust_model/releases/tag/v1.2
 
 Now, let's start from installing the coupled code. Let's go! 
 

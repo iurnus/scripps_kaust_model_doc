@@ -27,7 +27,7 @@ The demonstration case in our git repository is slightly different from the orig
 fixed the bug in the test case, modified the parameters in the simulations, and added a simple
 post-processing MATLAB code. 
 
-Open the demonstration case (current working directory: $HOME/scripps_kaust_model-1.1/esmf)::
+Open the demonstration case (current working directory: $HOME/scripps_kaust_model/esmf)::
 
     cd ../esmf_test_application/esmf_test_coupled_flow
     # compile the case::
@@ -80,7 +80,7 @@ This is an example of ATM--CON--OCN model based on NUOPC:
 https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/tags/ESMF_8_0_0/AtmOcnConProto/
 
 We have also added this example case to our project (current working directory:
-$HOME/scripps_kaust_model-1.1/esmf_test_application/esmf_test_coupled_flow). To compile and run this
+$HOME/scripps_kaust_model/esmf_test_application/esmf_test_coupled_flow). To compile and run this
 example:: 
 
     cd ../AtmOcnConProto/

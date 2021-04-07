@@ -5,7 +5,7 @@ Install the coupled code
 ########################
 
 After compiling all three model components, we can try compile the coupled code (current working
-directory: $HOME/scripps_kaust_model-1.1/)::
+directory: $HOME/scripps_kaust_model/)::
 
   cd couplers
   ls 
@@ -48,7 +48,7 @@ We can see ::
   drwxrwxr-x 2 ruisun ruisun  151 2019-12-01 08:02 utils
 
 Install step 12: Update the PATH in the coupled model (current working directory:
-$HOME/scripps_kaust_model-1.1/L3.C1.coupled_RS2012_ring/)
+$HOME/scripps_kaust_model/L3.C1.coupled_RS2012_ring/)
 
 Check utils/mitgcm_options (line 27 and 28), make sure they are correct:: 
 
@@ -74,8 +74,8 @@ Run install.sh ::
 
 Enter the correct PATH::
 
-  WRF412 (with OA coupling) location? :/home/ruisun/scripps_kaust_model-1.1/coupler/L3.C1.coupled_RS2012_ring/../../WRFV412_AO/
-  ESMF location? :/home/ruisun/scripps_kaust_model-1.1/coupler/L3.C1.coupled_RS2012_ring/../../esmf/
+  WRF412 (with OA coupling) location? :/home/ruisun/scripps_kaust_model/coupler/L3.C1.coupled_RS2012_ring/../../WRFV412_AO/
+  ESMF location? :/home/ruisun/scripps_kaust_model/coupler/L3.C1.coupled_RS2012_ring/../../esmf/
 
 The installer will generate *esmf_application* in folder coupledCode folder (current working
 directory: *$HOME/scripps_kaust_model/couplers/L3.C1.coupled_RS2012_ring/*)::
