@@ -21,13 +21,13 @@ You'll find the following installers for WRF4.1.3::
 To install WRF on ring at UCSD, we can run the installer (skip step 8, 9, 10, and 11)::
   
     # on ring
-    cp installOption_WRF/installWRF413_ao_ring.sh .
+    cd installOption_WRF
     ./installWRF413_ao_ring.sh
 
 Similarly for Shaheen-II, we can run the installer (skip step 8, 9, 10, and 11)::
 
     # on Shaheen-II
-    cp installOption_WRF/installWRF413_ao_shaheen.sh .
+    cd installOption_WRF
     ./installWRF413_ao_shaheen.sh
 
 If the code is compiled, *real.exe*, *wrf.exe*, *ndown.exe*, and *tc.exe* can be seen in the folder
