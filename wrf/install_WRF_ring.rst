@@ -9,7 +9,7 @@ Configuring and Installing the code
 -----------------------------------
 
 The configurations are prepared for ring at UCSD and Shaheen-II. They are saved in
-./installOption_WRF (current working directory: $HOME/scripps_kaust_model-1.1/)::
+./installOption_WRF (current working directory: $HOME/scripps_kaust_model/)::
 
    ll installOption_WRF/*.sh
 
