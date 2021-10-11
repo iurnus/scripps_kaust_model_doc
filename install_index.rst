@@ -93,10 +93,13 @@ In the ~/.bashrc_skrips file, we have::
   export LD_LIBRARY_PATH=$MPI_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
   export LD_LIBRARY_PATH=$ESMF_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
   
-Please make sure the paths for the model components, NETCDF, MPI, and WW3 are correct, although WW3 is not necessary.
+1. Please make sure the paths for the model components, NETCDF, MPI, and WW3 are correct, although WW3 is not necessary.
 We will discuss the ESMF setups later. 
+2. To install the coupled model on ring@ucsd, please use bashrc\_ring
+3. To install the coupled model on Shaheen, please use bashrc\_shaheen
 
-Please follow the detailed instruction below:
+
+Now we can start install the module components and the coupled model:
 
 .. toctree::
    :maxdepth: 1
