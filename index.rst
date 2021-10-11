@@ -4,22 +4,22 @@
    contain the root `toctree` directive.
 
 
-#############################################################################
-Documentation of Scripps-KAUST Regional Integrated Prediction System (SKRIPS)
-#############################################################################
+##########################################################################
+User Guide of Scripps-KAUST Regional Integrated Prediction System (SKRIPS)
+##########################################################################
 
-This is a documentation for the Scripps-KAUST Regional Integrated Prediction System (SKRIPS).  This
-model is designed to be a state-of-the-art coupled atmosphere-ocean modeling system. It also
-supports the new components by using the ESMF coupler and the NUOPC layer.
+This is a user guide of Scripps-KAUST Regional Integrated Prediction System (SKRIPS). The SKRIPS
+model is designed to be a state-of-the-art coupled atmosphere-ocean modeling system. 
 
-The designed modeling system currently includes the following models:
+The SKRIPS model currently includes the following models:
 
 - Atmosphere Solver: WRF (version 4.1.3)
 - Ocean Solver: MITgcm (version c67m)
+- Wave Solver: WaveWatch III (version 6.07.1)
 - Driver (coupler): ESMF/NUOPC (version 8.0.0)
 
-Install the coupled model requires MITgcm, WRF, ESMF, and their dependencies. The installation
-instructions are detailed in the following sections. A few examples on the coupled code are also
+Install the coupled model requires MITgcm, WRF, WW3, ESMF, and their dependencies. This user guide 
+details how to install and test the model components. A few examples on the coupled code are also
 presented.
 
 Users can also extend this solver, utilities and libraries of this coupled-solver, using some
