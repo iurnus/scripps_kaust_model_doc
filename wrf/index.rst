@@ -19,10 +19,6 @@ capabilities, including:
    :titlesonly:
 
 
-   Install WRF solver (general)<install_WRF>
-   Install WRF solver on ring<install_WRF_ring>
+   Install WRF solver <install_WRF>
    Test WRF using real cases<test_WRF_real>
    (optional) Install WPS for pre-processing<install_WPS>
-   (optional) Install NCL for post-processing<install_NCL>
-   (optional) Pre-processing using WPS<pre_WPS>
-   (optional) Post-processing using NCL<post_NCL>
