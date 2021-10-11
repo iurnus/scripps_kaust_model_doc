@@ -43,8 +43,8 @@ You'll have to activate the bashrc setups every time you want to run SKRIPS mode
 
 The output is::
  
-  loading SKRIPS model
-  SKRIPS_DIR is: /cw3e/mead/projects/csg102/rus043/scripps_kaust_model/
+Setting up the bashrc for SKRIPS model...
+SKRIPS_DIR is: /cw3e/mead/projects/csg102/rus043/scripps_kaust_model/
   
 In the ~/.bashrc_skrips file, we have::
 
