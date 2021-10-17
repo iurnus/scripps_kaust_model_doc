@@ -7,12 +7,24 @@ Install WW3
 Update WW3 configurations
 =========================
 
-Install step ?: Download WW3 v6.07.1 (current working directory:
-$HOME/scripps_kaust_model/)::
+Install step 5.1: Download WW3 v6.07.1::
 
-  cd ..
+  cd $SKRIPS_DIR
   wget https://github.com/NOAA-EMC/WW3/archive/refs/tags/6.07.1.zip
   unzip 6.07.1.zip
-  mv WRF-4.1.3 WRFV413_AO
+  mv WW3-6.07.1 ww3_607
   # save a copy
-  cp -rf WRFV413_AO WRFV413_AO.org
+  cp -rf ww3_607 ww3_607.org
+
+
+Install step 5.2: Set the auxiliary FORTRAN and C compiler::
+  
+  cd ww3_607
+  w3_setup $WW3_DIR/model -c intel
+
+Install step 5.3: Compile WaveWatch III::
+
+  cd $SKRIPS_DIR
+  cd installOption_WW3
+  ./install_ww3_comet.sh
+  
