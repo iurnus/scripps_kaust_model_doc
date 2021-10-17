@@ -2,9 +2,10 @@
 Install and test WRF
 ####################
 
-The WRF ARW model is a fully compressible, nonhydrostatic model (with a hydrostatic option). The WRF
-ARW model contains initialization programs (ideal.exe and real.exe), a numerical integration program
-(wrf.exe), and a program to do one-way nesting (ndown.exe). The WRF 3 supports a variety of
+The WRF ARW model is a fully compressible, nonhydrostatic model (with a
+hydrostatic option). The WRF ARW model contains initialization programs
+(ideal.exe and real.exe), a numerical integration program (wrf.exe), and a
+program to do one-way nesting (ndown.exe). The WRF 3 supports a variety of
 capabilities, including:
 
 * Real-data and idealized simulations
@@ -20,5 +21,5 @@ capabilities, including:
 
 
    Install WRF solver <install_WRF>
-   Test WRF using real cases<test_WRF_real>
    (optional) Install WPS for pre-processing<install_WPS>
+   (optional) Running WPS for pre-processing<pre_WPS>

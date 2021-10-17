@@ -7,10 +7,9 @@ Install WRF
 Update WRF configurations
 =========================
 
-Install step 7: Download WRF v4.1.3 (current working directory:
-$HOME/scripps_kaust_model/MITgcm_c67m)::
+Install step 4.1: Download WRF v4.1.3::
 
-  cd ..
+  cd $SKRIPS_DIR
   wget https://github.com/wrf-model/WRF/archive/v4.1.3.zip
   unzip v4.1.3.zip
   mv WRF-4.1.3 WRFV413_AO

@@ -31,8 +31,8 @@ You can find a message::
 Examine the bashrc file
 =======================
 
-Install step 3.2: In the ~/.bashrc_skrips file, the ESMF configurations (current working directory: 
-$HOME/scripps_kaust_model/esmf)::
+Install step 2.2: In the ~/.bashrc_skrips file, we have the ESMF configurations
+(current working directory: $SKRIPS_DIR/esmf)::
 
   # ESMF compile options
   export ESMF_OS=Linux
@@ -56,7 +56,7 @@ Notes::
 Compile ESMF
 ============
 
-Install step 3.3: Compile ESMF (current working directory: $HOME/scripps_kaust_model/esmf)::
+Install step 2.2: Compile ESMF (current working directory: $SKRIPS_DIR/esmf)::
 
     # Check the information of necessary configurations
     gmake info &> log.info
