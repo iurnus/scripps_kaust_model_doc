@@ -23,13 +23,13 @@ Install step 1.1: Download SKRIPS version from Github::
 
 You will see the following folders and files::
 
-  drwxrwxr-x 10 ruisun ruisun 4096 2021-11-26 17:18 coupler
-  drwxrwxr-x  4 ruisun ruisun   59 2021-11-26 17:18 esmf_test_application
-  drwxrwxr-x  5 ruisun ruisun  140 2021-11-26 17:18 installOption_OTH
-  drwxrwxr-x  5 ruisun ruisun  149 2021-11-26 17:18 installOption_WRF
-  drwxrwxr-x  5 ruisun ruisun  149 2021-11-26 17:18 installOption_WW3
-  drwxrwxr-x  2 ruisun ruisun   52 2021-11-26 17:18 license_statements
-  -rw-rw-r--  1 ruisun ruisun 2946 2021-11-26 17:18 README.md
+  drwxr-sr-x  8 rus043 csg102 57344 Oct  4 10:56 coupler
+  drwxr-sr-x  4 rus043 csg102 57344 Oct  4 10:56 esmf_test_application
+  drwxr-sr-x  4 rus043 csg102 57344 Oct 11 14:05 installOption_OTH
+  drwxr-sr-x  6 rus043 csg102 57344 Oct 11 09:12 installOption_WRF
+  drwxr-sr-x  6 rus043 csg102 57344 Oct 10 23:39 installOption_WW3
+  drwxr-sr-x  2 rus043 csg102 57344 Oct  4 10:56 license_statements
+  -rw-r--r--  1 rus043 csg102  2597 Oct 11 11:03 README.md
 
 Install step 1.2: Create a bashrc file for SKRIPS model::
 
@@ -92,6 +92,9 @@ In the ~/.bashrc_skrips file, we have::
   export ESMFMKFILE=$ESMF_LIB/esmf.mk
   
   # Others
+  export SKRIPS_NETCDF_INCLUDE=-I`nc-config --includedir`
+  export SKRIPS_NETCDF_LIB=-L`nc-config --libdir`
+
   export LD_LIBRARY_PATH=$NETCDF_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
   export LD_LIBRARY_PATH=$MPI_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
   export LD_LIBRARY_PATH=$ESMF_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
