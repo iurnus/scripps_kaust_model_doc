@@ -188,7 +188,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'SKRIPS.tex', u'Documentation of the Scripps-KAUST Regional Integrated Prediction System (SKRIPS)',
-   u'Rui Sun, Aneesh C. Subramanian, \\\ Bruce D. Cornuelle, Ibrahim Hoteit, \\\ Matthew R. Mazloff, Art J. Miller',
+   u'Rui Sun, Aneesh C. Subramanian, \\\ Bruce D. Cornuelle, Matthew R. Mazloff, \\\ Arthur J. Miller, Ibrahim Hoteit',
    'manual'),
 ]
 
@@ -219,7 +219,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'SKRIPS', u'Documentation of the Scripps-KAUST Regional Integrated Prediction System (SKRIPS)',
-     [u'R. Sun, A. C. Subramanian, B. D. Cornenulle, , I. Hoteit, M. R. Mazloff, A. J. Miller'], 1)
+     [u'R. Sun, A. C. Subramanian, B. D. Cornenulle, M. R. Mazloff, A. J. Miller, I. Hoteit'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -233,8 +233,8 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'SKRIPS', u'Documentation of the Scripps-KAUST Regional Integrated Prediction System (SKRIPS)',
-   u'R. Sun, A. C. Subramanian, B. D. Cornenulle, I. Hoteit, M. R. Mazloff, A. J. Miller',
-   'SKRIPS v1.2', 'SKRIPS', 'Miscellaneous'),
+   u'R. Sun, A. C. Subramanian, B. D. Cornenulle, M. R. Mazloff, A. J. Miller, I. Hoteit',
+   'SKRIPS v2.0', 'SKRIPS', 'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.

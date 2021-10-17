@@ -8,8 +8,9 @@
 User Guide of Scripps-KAUST Regional Integrated Prediction System (SKRIPS)
 ##########################################################################
 
-This is a user guide of Scripps-KAUST Regional Integrated Prediction System (SKRIPS). The SKRIPS
-model is designed to be a state-of-the-art coupled atmosphere-ocean modeling system. 
+This is the user guide of Scripps-KAUST Regional Integrated Prediction System
+(SKRIPS). The SKRIPS model is designed to be a state-of-the-art coupled
+atmosphere-ocean modeling system. 
 
 The SKRIPS model currently includes the following models:
 
@@ -18,16 +19,17 @@ The SKRIPS model currently includes the following models:
 - Wave Solver: WaveWatch III (version 6.07.1)
 - Driver (coupler): ESMF/NUOPC (version 8.0.0)
 
-Install the coupled model requires MITgcm, WRF, WW3, ESMF, and their dependencies. This user guide 
-details how to install and test the model components. A few examples on the coupled code are also
-presented.
+Install the coupled model requires MITgcm, WRF, WW3, ESMF, and their
+dependencies. This user guide details how to install the SKRIPS model and these
+model components. A few examples on the coupled code are also presented.
 
-Users can also extend this solver, utilities and libraries of this coupled-solver, using some
-pre-requisite knowledge of the underlying method, physics and programming techniques involved.
+Users can also extend this solver, utilities and libraries of this
+coupled-solver, using some pre-requisite knowledge of the underlying method,
+physics and programming techniques involved.
 
-The SKRIPS v1.2 code is available at:
+The SKRIPS v2.0 code is available at:
 
-  https://github.com/iurnus/scripps_kaust_model/releases/tag/v1.2
+  https://github.com/iurnus/scripps_kaust_model/releases/tag/v2.0
 
 Now, let's start from installing the coupled code. Let's go! 
 

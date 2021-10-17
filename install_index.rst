@@ -2,24 +2,26 @@
 Install the model components
 ############################
 
-The official repository of SKRIPS 1.2 is maintained on Github::
+The official repository of SKRIPS v2.0 is maintained on Github::
 
-  https://github.com/iurnus/scripps_kaust_model/releases/tag/v1.2
+  https://github.com/iurnus/scripps_kaust_model/releases/tag/v2.0
 
-I am now trying to install SKRIPS on the SDSC supercomputer COMET. To install the SKRIPS model 
-in the mead system (/cw3e/mead/projects/csg102/rus043/scripps_kaust_model/), we have to download 
+Now I am using the SDSC supercomputer COMET as an example. To install the
+SKRIPS model in the mead system
+(/cw3e/mead/projects/csg102/rus043/scripps_kaust_model/), we have to download
 the SKRIPS model and set up the bashrc file.
 
-Install step 1: Download SKRIPS version from Github::
+Install step 1.1: Download SKRIPS version from Github::
 
+  # I am using my work folder as an example
   cd /cw3e/mead/projects/csg102/rus043/
-  wget https://github.com/iurnus/scripps_kaust_model/archive/v1.2.zip
-  unzip v1.2.zip
-  mv scripps_kaust_model-1.2 scripps_kaust_model
+  wget https://github.com/iurnus/scripps_kaust_model/archive/v2.0.zip
+  unzip v2.0.zip
+  mv scripps_kaust_model-2.0 scripps_kaust_model
   cd scripps_kaust_model
   ls -l
 
-You will see the following folders and files (current working directory: $HOME/scripps_kaust_model)::
+You will see the following folders and files::
 
   drwxrwxr-x 10 ruisun ruisun 4096 2021-11-26 17:18 coupler
   drwxrwxr-x  4 ruisun ruisun   59 2021-11-26 17:18 esmf_test_application
@@ -29,7 +31,7 @@ You will see the following folders and files (current working directory: $HOME/s
   drwxrwxr-x  2 ruisun ruisun   52 2021-11-26 17:18 license_statements
   -rw-rw-r--  1 ruisun ruisun 2946 2021-11-26 17:18 README.md
 
-Install step 2: Create a bashrc file for SKRIPS model::
+Install step 1.2: Create a bashrc file for SKRIPS model::
 
   cp ./installOption_OTH/bashrc_comet ~/.bashrc_skrips
   
@@ -37,7 +39,8 @@ Then, add the following line to ~/.bashrc file::
   
   alias load_skrips="source ~/.bashrc_skrips" 
   
-You'll have to activate the bashrc setups every time you want to run SKRIPS model::
+You'll have to activate the bashrc setups every time you want to run SKRIPS
+model::
   
   load_skrips
 
