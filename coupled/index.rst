@@ -11,4 +11,4 @@ The coupled code is compiled based on all three model components.
 
    Install coupled code <install_CPL>
    Test coupled code <test_CPL>
-   Test coupled code with WaveWatch III <install_CPL_WW3>
+   Test coupled code with WaveWatch III <test_CPL_WW3>
