@@ -4,13 +4,12 @@
 Install the coupled code
 ########################
 
-After compiling all three model components, we can try compile the coupled code (current working
-directory: $HOME/scripps_kaust_model/)::
+After compiling all three model components, we can try compile the coupled code ::
 
-  cd couplers
+  cd $SKRIPS_DIR/couplers
   ls 
 
-We can see::
+We can see ::
 
   -rwxrwxr-x  1 ruisun ruisun  438 2019-12-01 08:02 allrun.ring.sh
   drwxrwxr-x  6 ruisun ruisun  112 2019-12-01 08:02 L1.C1.mitgcm_case_CA2009
@@ -47,35 +46,25 @@ We can see ::
   drwxrwxr-x 2 ruisun ruisun   86 2019-12-01 08:02 save_nc
   drwxrwxr-x 2 ruisun ruisun  151 2019-12-01 08:02 utils
 
-Install step 12: Update the PATH in the coupled model (current working directory:
-$HOME/scripps_kaust_model/L3.C1.coupled_RS2012_ring/)
+Install step 12: Update the PATH in the coupled model
 
 Check utils/mitgcm_options (line 27 and 28), make sure they are correct:: 
 
-  INCLUDES='-I$SKRIPS_MPI_DIR/include/ $SKRIPS_NETCDF_INCLUDE'
-  LIBS='-L$SKRIPS_MPI_DIR/lib/ $SKRIPS_NETCDF_LIB'
+  INCLUDES='-I$MPI_DIR/include/ $SKRIPS_NETCDF_INCLUDE'
+  LIBS='-L$MPI_DIR/lib/ $SKRIPS_NETCDF_LIB'
 
 Check utils/mkmod.sh (from line 22):: 
 
-  set comp         = $SKRIPS_MPI_DIR/mpif77
-  set cccommand    = $SKRIPS_MPI_DIR/mpicc
+  set comp         = $MPI_DIR/mpif77
+  set cccommand    = $MPI_DIR/mpicc
   set compopts     = (-byteswapio -r8 -Mnodclchk -Mextend -fast -fastsse)
   set compopts_num = ( $compopts )
   set complibs     = ($SKRIPS_NETCFDF_LIB -lnetcdf)
   set compinc      = ($SKRIPS_NETCFDF_INCLUDE)
 
-Update ./install.sh (line 2)::
-
-  export MITGCM_DIR=${SKRIPS_DIR}/MITgcm_c67m/
-
 Run install.sh ::
 
   ./install.sh
-
-Enter the correct PATH::
-
-  WRF412 (with OA coupling) location? :/home/ruisun/scripps_kaust_model/coupler/L3.C1.coupled_RS2012_ring/../../WRFV412_AO/
-  ESMF location? :/home/ruisun/scripps_kaust_model/coupler/L3.C1.coupled_RS2012_ring/../../esmf/
 
 The installer will generate *esmf_application* in folder coupledCode folder (current working
 directory: *$HOME/scripps_kaust_model/couplers/L3.C1.coupled_RS2012_ring/*)::
