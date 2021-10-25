@@ -9,5 +9,6 @@ The coupled code is compiled based on all three model components.
    :titlesonly:
 
 
-   Install coupled code (general) <install_CPL>
+   Install coupled code <install_CPL>
    Test coupled code <test_CPL>
+   Test coupled code with WaveWatch III <install_CPL_WW3>
