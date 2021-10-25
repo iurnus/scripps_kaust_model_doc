@@ -25,11 +25,9 @@ Enter the *runCase* folder and run the test case::
   [ruisun@acc00]~/.../coupler/L4.C1.coupled_RS2012_ring/runCase.init$ cd ../runCase/
   [ruisun@acc00]~/.../coupler/L4.C1.coupled_RS2012_ring/runCase$ ./Allrun
 
-Similar with the L3C1 case, the *namelist.rc* file controls the coupled run.
+Similar with the L3C1 case, the *namelist.rc* file controls the coupled run::
 
   DebugLevel:     0
-  useWaveStress:  0
-  useStokesDrift: 0
    
   ## mode 1 = sequential mode
   ## mode 2 = concurrent mode
