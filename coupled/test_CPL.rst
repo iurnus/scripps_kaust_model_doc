@@ -7,15 +7,13 @@ Run the coupled case
 Case initialization
 ===================
 
-To test the coupled case, enter *runCase.init* folder (current working directory:
-$HOME/scripps_kaust_model/couplers/L3.C1.coupled_RS2012_ring/)::
+To test the coupled case, enter *runCase.init* folder ::
 
-  [ruisun@acc00]~/scripps_kaust_model_test/coupler/L3.C1.coupled_RS2012_ring$ cd runCase.init/
+  [ruisun@acc00]~/scripps_kaust_model/coupler/L3.C1.coupled_RS2012_ring$ cd runCase.init/
   [ruisun@acc00]~/.../coupler/L3.C1.coupled_RS2012_ring/runCase.init$ ls
   Allclean  Allrun  namelist.input  README
 
-
-Initialize the test case::
+Initialize the test case ::
 
   [ruisun@acc00]~/.../coupler/L3.C1.coupled_RS2012_ring/runCase.init$ ./Allrun
 
@@ -76,5 +74,19 @@ The *namelist.rc* file controls the coupled run::
   ATMStepSeconds: 60
   ## OCNStepSeconds is the time step for MITgcm
   OCNStepSeconds: 60
-  ## The wave model has not implemented yet
+  ## The wave model is not activated
   WAVStepSeconds: 60
+
+In namelist.input file, I added the following lines to control the input and output from ESMF ::
+
+  ## auxinput5_interval_s sets the coupling interval for ESMF inputs
+  30  auxinput5_inname                    = 'wrfin_esmf',
+  31  auxinput5_interval_s                = 60,
+  32  auxinput5_end_d                     = 60,
+  33  io_form_auxinput5                   = 7,
+  ## auxhist5_interval_s sets the coupling interval for ESMF outputs
+  34  auxhist5_outname                    = 'wrfout_esmf',
+  35  auxhist5_interval_s                 = 60,
+  36  auxhist5_end_d                      = 60,
+  37  io_form_auxhist5                    = 7,
+
