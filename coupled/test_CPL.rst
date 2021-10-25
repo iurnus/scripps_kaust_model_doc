@@ -77,7 +77,7 @@ The *namelist.rc* file controls the coupled run::
   ## The wave model is not activated
   WAVStepSeconds: 60
 
-In namelist.input file, I added the following lines to control the input and output from ESMF ::
+In namelist.input file, I added the following lines to control the input and output from ESMF::
 
   ## auxinput5_interval_s sets the coupling interval for ESMF inputs
   30  auxinput5_inname                    = 'wrfin_esmf',
