@@ -19,13 +19,9 @@ Install ESMF Using PGI compiler
 Install step 3.1: Download ESMF 8.0.0::
 
   cd $SKRIPS_DIR
-  git clone https://git.code.sf.net/p/esmf/esmf esmf
-  cd esmf
-  git checkout ESMF_8_0_0
-
-You can find a message::
-
-  HEAD is now at f5d862d... Update the supported platform table for the 8.0.0 release.
+  wget https://github.com/esmf-org/esmf/archive/refs/tags/ESMF_8_0_0.zip
+  unzip ESMF_8_0_0.zip
+  mv esmf-ESMF_8_0_0/ esmf
 
 
 Examine the bashrc file
