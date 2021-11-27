@@ -19,7 +19,8 @@ Update the configurations. First open **configure**, update line 154 to add the 
 
 Then change the makefile. Open **geogrid/src/Makefile** and **metgrid/src/Makefile**, remove **MPI_LIB** in line 19 of both makefiles (because they are in conflict with our setup for the coupled model)::
   
-  ~~$(MPI_LIB)~~
+  $(WRF_LIB)
+  # $(MPI_LIB)
 
 Configuring
 -----------
