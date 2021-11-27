@@ -72,7 +72,7 @@ Install step 4.3: Edit the WRF configurations.
 At the beginning of *configure.wrf* (line 17 in my file), add the ESMF_DIR.
 Note *ESMF_DIR* must be the real path of the home directory::
 
-  ESMF_DIR=$HOME/scripps_kaust_model/esmf/
+  ESMF_DIR=$SKRIPS_DIR/esmf/
 
 Replace the ESMF switches in *configure.wrf* (from line 76 to 96 in my file). Note that the ESMF
 path in *ESMF_IO_INC* and *ESMF_LIB* should be updated accordingly::
@@ -86,14 +86,13 @@ path in *ESMF_IO_INC* and *ESMF_LIB* should be updated accordingly::
   # select -I options for external/io_esmf vs. external/esmf_time_f90
   ESMF_IO_INC         = -I$(WRF_SRC_ROOT_DIR)/external/io_esmf
   # select -I options for separately installed ESMF library, if present
-  ESMF_MOD_INC        = -I$(ESMF_DIR)/mod/modg/Linux.pgi.64.openmpi.default -I$(WRF_SRC_ROOT_DIR)/main $(ESMF_IO_INC)
+  ESMF_MOD_INC        = -I$(ESMF_MOD) -I$(WRF_SRC_ROOT_DIR)/main $(ESMF_IO_INC)
   # select cpp token for external/io_esmf vs. external/esmf_time_f90
   ESMF_IO_DEFS        = -DESMFIO
   # select build target for external/io_esmf vs. external/esmf_time_f90
   ESMF_TARGET         = wrfio_esmf
   # add the lib of ESMF
-  ESMFLIB         = $(ESMF_DIR)/lib/libg/Linux.pgi.64.openmpi.default
-  include $(ESMFLIB)/esmf.mk
+  include $(ESMF_LIB)/esmf.mk
 
 Add *-DESMFIO* in *ARCHFLAGS* (line 169 in my file). Put it below *-DNETCDF*::
 
@@ -116,7 +115,7 @@ Add INCLUDE_MODULES when compiling io_esmf (line 372 in my file)::
 Then, save *configure.wrf* file after the edit.
 
 Finally, save part of the configuration file in another file (current working
-directory: $HOME/scripps_kaust_model/WRFV413_AO)::
+directory: $SKRIPS_DIR/WRFV413_AO)::
 
   linenumber=$(grep -n "bundled:" configure.wrf | cut -d : -f 1)
   head -n $((linenumber-1)) configure.wrf > configure.wrf_cpl
