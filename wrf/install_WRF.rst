@@ -4,8 +4,32 @@
 Install WRF
 ###########
 
-Update WRF configurations
-=========================
+Install WRF on Shaheen or COMET
+===============================
+
+To install WRF on Shaheen or COMET, it is much easier. First download WRF::
+
+  cd $SKRIPS_DIR
+  wget https://github.com/wrf-model/WRF/archive/v4.1.3.zip
+  unzip v4.1.3.zip
+  mv WRF-4.1.3 WRFV413_AO
+  # save a copy
+  cp -rf WRFV413_AO WRFV413_AO.org
+
+Then run the installer::
+  
+  cd installOption_WRF
+  ## FOR SHAHEEN
+  ./installWRF413_ao_shaheen.sh
+  ## FOR COMET
+  ./installWRF413_ao_shaheen.sh
+
+
+Install WRF on other machines
+=============================
+
+Download and configure WRF
+--------------------------
 
 Install step 4.1: Download WRF v4.1.3::
 
@@ -140,26 +164,6 @@ After WRF is successfully compiled, you will see a few \*.exe files::
   -rwxrwxr-x 1 ruisun ruisun 62036118 2019-08-01 05:00 main/real.exe
   -rwxrwxr-x 1 ruisun ruisun 61985460 2019-08-01 05:00 main/tc.exe
   -rwxrwxr-x 1 ruisun ruisun 68344825 2019-08-01 05:00 main/wrf.exe
-
-
-Install WRF on Shaheen or COMET
-===============================
-
-To install WRF on Shaheen or COMET, it is much easier. First download WRF::
-
-  cd $SKRIPS_DIR
-  wget https://github.com/wrf-model/WRF/archive/v4.1.3.zip
-  unzip v4.1.3.zip
-  mv WRF-4.1.3 WRFV413_AO
-  # save a copy
-  cp -rf WRFV413_AO WRFV413_AO.org
-
-Then run the installer::
-  cd installOption_WRF
-  ## FOR SHAHEEN
-  ./installWRF413_ao_shaheen.sh
-  ## FOR COMET
-  ./installWRF413_ao_shaheen.sh
 
 
 
