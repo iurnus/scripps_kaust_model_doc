@@ -16,7 +16,7 @@ Install step 4.1: Download WRF v4.1.3::
   # save a copy
   cp -rf WRFV413_AO WRFV413_AO.org
 
-Install step 8: Set the WRF configurations::
+Install step 4.2: Set the WRF configurations::
   
   cd WRFV413_AO
   ./configure
@@ -42,8 +42,8 @@ We can see a configuration file in the WRF folder::
 
   -rw-rw-r-- 1 ruisun ruisun 20823 2019-08-21 15:45 configure.wrf
 
-Install step 9: Edit the WRF configurations.
-(current working directory: $HOME/scripps_kaust_model/WRFV413_AO)
+Install step 4.3: Edit the WRF configurations.
+(current working directory: $SKRIPS_DIR/WRFV413_AO)
 
 At the beginning of *configure.wrf* (line 17 in my file), add the ESMF_DIR.
 Note *ESMF_DIR* must be the real path of the home directory::
@@ -102,25 +102,33 @@ The generated *configure.wrf_cpl* file will be used to compile the coupled model
 Compile WRF
 -----------
 
-Install step 11: Copy other files (current working directory:
-$HOME/scripps_kaust_model/WRFV413_AO)::
+Install step 4.4: Copy other files and install WRF (current working directory:
+$SKRIPS_DIR/WRFV413_AO)::
 
-   WRF_OPTION_DIR0=$HOME/scripps_kaust_model/installOption_WRF/wrfAO413_shared/
+   WRF_OPTION_DIR0=$SKRIPS_DIR/wrfAO413_shared/
 
-   ln -sf ${WRF_OPTION_DIR0}/Makefile.wrf Makefile
-   ln -sf ${WRF_OPTION_DIR0}/module_domain.F frame/
-   ln -sf ${WRF_OPTION_DIR0}/module_diag_rasm.F phys/
-   ln -sf ${WRF_OPTION_DIR0}/module_ltng_iccg.F phys/
-   ln -sf ${WRF_OPTION_DIR0}/input_wrf.F share/
-
-   ln -sf ${WRF_OPTION_DIR0}/ext_esmf_write_field.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR0}/ext_esmf_read_field.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR0}/ext_esmf_open_for_read.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR0}/ext_esmf_open_for_write.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR0}/module_esmf_extensions.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR0}/io_esmf.F90 external/io_esmf/
-   ln -sf ${WRF_OPTION_DIR0}/wrf_ESMFMod.F main/
+   ln -sf ${WRF_UPDATE_DIR0}/Makefile.wrf Makefile
+   ln -sf ${WRF_UPDATE_DIR0}/Registry.EM Registry/
    
+   ln -sf ${WRF_UPDATE_DIR0}/ext_esmf_write_field.F90 external/io_esmf/
+   ln -sf ${WRF_UPDATE_DIR0}/ext_esmf_read_field.F90 external/io_esmf/
+   ln -sf ${WRF_UPDATE_DIR0}/ext_esmf_open_for_read.F90 external/io_esmf/
+   ln -sf ${WRF_UPDATE_DIR0}/ext_esmf_open_for_write.F90 external/io_esmf/
+   ln -sf ${WRF_UPDATE_DIR0}/module_esmf_extensions.F90 external/io_esmf/
+   ln -sf ${WRF_UPDATE_DIR0}/io_esmf.F90 external/io_esmf/
+   
+   ln -sf ${WRF_UPDATE_DIR0}/module_diag_rasm.F phys/
+   ln -sf ${WRF_UPDATE_DIR0}/module_ltng_iccg.F phys/
+   ln -sf ${WRF_UPDATE_DIR0}/module_sf_ruclsm.F phys/
+   ln -sf ${WRF_UPDATE_DIR0}/module_sf_sfclayrev.F phys/
+   ln -sf ${WRF_UPDATE_DIR0}/module_surface_driver.F phys/
+   ln -sf ${WRF_UPDATE_DIR0}/module_sf_mynn.F phys/
+   
+   ln -sf ${WRF_UPDATE_DIR0}/input_wrf.F share/
+   ln -sf ${WRF_UPDATE_DIR0}/module_domain.F frame/
+   ln -sf ${WRF_UPDATE_DIR0}/module_first_rk_step_part1.F dyn_em/
+   ln -sf ${WRF_UPDATE_DIR0}/wrf_ESMFMod.F main/
+ 
 Now we can start compiling WRF by using::
 
   ./compile em_real &> log.em_real &
@@ -133,9 +141,32 @@ After WRF is successfully compiled, you will see a few \*.exe files::
   -rwxrwxr-x 1 ruisun ruisun 61985460 2019-08-01 05:00 main/tc.exe
   -rwxrwxr-x 1 ruisun ruisun 68344825 2019-08-01 05:00 main/wrf.exe
 
+
+Install WRF on Shaheen or COMET
+===============================
+
+To install WRF on Shaheen or COMET, it is much easier. First download WRF::
+
+  cd $SKRIPS_DIR
+  wget https://github.com/wrf-model/WRF/archive/v4.1.3.zip
+  unzip v4.1.3.zip
+  mv WRF-4.1.3 WRFV413_AO
+  # save a copy
+  cp -rf WRFV413_AO WRFV413_AO.org
+
+Then run the installer::
+  cd installOption_WRF
+  ## FOR SHAHEEN
+  ./installWRF413_ao_shaheen.sh
+  ## FOR COMET
+  ./installWRF413_ao_shaheen.sh
+
+
+
 Other guidance to compile WRF
------------------------------
+=============================
 
 There is another guidance to compile WRF available at:
 http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php
+
 
