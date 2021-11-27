@@ -89,6 +89,7 @@ In the ~/.bashrc_skrips file, we have::
   export ESMF_ABI=64
   export ESMF_YAMLCPP=OFF
   export ESMF_LIB=$ESMF_DIR/lib/lib$ESMF_BOPT/$ESMF_OS.$ESMF_COMPILER.$ESMF_ABI.$ESMF_COMM.default/
+  export ESMF_MOD=$ESMF_DIR/mod/mod$ESMF_BOPT/$ESMF_OS.$ESMF_COMPILER.$ESMF_ABI.$ESMF_COMM.default/
   export ESMFMKFILE=$ESMF_LIB/esmf.mk
   
   # Others
