@@ -2,27 +2,24 @@
 Install WPS
 ###########
 
-How to get WPS code
-===================
+Install WPS on Shaheen or COMET
+===============================
 
-The WPS code is available at:
+Download WPS::
 
-https://github.com/wrf-model/WPS
+  cd $SKRIPS_DIR
+  wget https://github.com/wrf-model/WPS/archive/refs/tags/v4.1.zip
+  unzip v4.1.zip
+  mv WPS-4.1 WPSV41
+  cd WPSV41
 
-Install WPS using the default compiler
-======================================
+Update the configurations. First open **configure**, update line 154 to add the WRF directory::
+  
+  standard_wrf_dirs="WRF WRF-4.0.3 WRF-4.0.2 WRF-4.0.1 WRF-4.0 WRFV3 WRFV413_AO"
 
-Setup JASPER
-------------
-First, we may need to install jasper, libpng and zlib. Then, put their path to ~/.bashrc::
-
-    export JASPERINC=/project_shared/Libraries/jasper-1.900.1_gnu_fortran_4.8.5-11/include/
-    export JASPERINC="${JASPERINC} -I/project_shared/Libraries/libpng-1.6.30_gnu_fortran_4.8.5-11/include/"
-    export JASPERINC="${JASPERINC} -I/project_shared/Libraries/zlib-1.2.11_gnu_fortran_4.8.5-11/include/"
-    export JASPERLIB=/project_shared/Libraries/jasper-1.900.1_gnu_fortran_4.8.5-11/lib/
-    export JASPERLIB="${JASPERLIB} -L/project_shared/Libraries/libpng-1.6.30_gnu_fortran_4.8.5-11/lib/"
-    export JASPERLIB="${JASPERLIB} -L/project_shared/Libraries/zlib-1.2.11_gnu_fortran_4.8.5-11/lib/"
-
+Then change the makefile. Open **geogrid/src/Makefile** and **metgrid/src/Makefile**, remove **MPI_LIB** in line 19 of both makefiles (because they are in conflict with our setup for the coupled model)::
+  
+  ~~$(MPI_LIB)~~
 
 Configuring
 -----------
@@ -46,11 +43,7 @@ The screen would say::
     (and some more options)
     Enter selection [1-51] :
 
-Select "5" for the supported platform.
-
-Check file "configure.wps", make sure that WRF has been installed in the correct path::
-
-    WRF_DIR = ../WRFV412
+I select "17" for COMET and "37" for Shaheen.
 
 Install
 -------
@@ -59,11 +52,4 @@ Run the compile command for the real applications::
 
     ./compile &> log.compile &
 
-If the code is compiled, *geogrid.exe*, *metgrid.exe* and *ungrib.exe* can be seen in the folder
-**WPS_DIR**. Here, **WPS_DIR** is the directory of the WPS software that is installed.
-
-Test the installation
----------------------
-
-Testing the WPS pre-processing code is detailed in :ref:`pre-precessing using WPS<pre_wps>`.
-
+If the code is compiled, *geogrid.exe*, *metgrid.exe* and *ungrib.exe* can be seen in the current folder.
