@@ -26,7 +26,11 @@ Use mpif90 and mpicc for COMET::
   
   Auxiliary FORTRAN compiler [gfortran] : mpif90
   Auxiliary C compiler [gcc] : mpicc
-
+  
+Use ifort and cc for Shaheen::
+  
+  Auxiliary FORTRAN compiler [gfortran] : ifort
+  Auxiliary C compiler [gcc] : cc
 
 Install step 5.3: Compile WaveWatch III::
 
