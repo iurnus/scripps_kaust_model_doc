@@ -97,7 +97,7 @@ In the ~/.bashrc_skrips file, we have::
   export SKRIPS_NETCDF_LIB=-L`nc-config --libdir`
 
   export LD_LIBRARY_PATH=$NETCDF_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-  export LD_LIBRARY_PATH=$MPI_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+  export LD_LIBRARY_PATH=$SKRIPS_MPI_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
   export LD_LIBRARY_PATH=$ESMF_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
   
 1. Please make sure the paths for the model components, NETCDF, MPI, and WW3 are correct, although WW3 is not necessary.
