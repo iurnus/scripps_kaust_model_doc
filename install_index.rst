@@ -68,9 +68,9 @@ In the ~/.bashrc_skrips file, we have::
   export NETCDF_DIR=/opt/netcdf/4.6.1/intel/intelmpi/
   export NETCDF_INC=/opt/netcdf/4.6.1/intel/intelmpi/include/
   export NETCDF_LIB=/opt/netcdf/4.6.1/intel/intelmpi/lib/
-  export MPI_DIR=$MPIHOME
-  export MPI_INC=$MPIHOME/include/
-  export MPI_LIB=$MPIHOME/lib/
+  export SKRIPS_MPI_DIR=$MPIHOME
+  export SKRIPS_MPI_INC=$MPIHOME/include/
+  export SKRIPS_MPI_LIB=$MPIHOME/lib/
 
   # For WW3
   export WWATCH3_NETCDF=NC4
