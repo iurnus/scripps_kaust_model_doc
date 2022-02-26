@@ -22,7 +22,9 @@ Then run the installer::
   ## FOR SHAHEEN
   ./installWRF413_ao_shaheen.sh
   ## FOR COMET
-  ./installWRF413_ao_shaheen.sh
+  ## ./installWRF413_ao_comet.sh
+  ## FOR RING
+  ## ./installWRF413_ao_ring.sh
 
 
 Install WRF on other machines
@@ -31,7 +33,7 @@ Install WRF on other machines
 Download and configure WRF
 --------------------------
 
-Install step 4.1: Download WRF v4.1.3::
+Install step 4.1: Download WRF::
 
   cd $SKRIPS_DIR
   wget https://github.com/wrf-model/WRF/archive/v4.1.3.zip
@@ -66,8 +68,7 @@ We can see a configuration file in the WRF folder::
 
   -rw-rw-r-- 1 ruisun ruisun 20823 2019-08-21 15:45 configure.wrf
 
-Install step 4.3: Edit the WRF configurations.
-(current working directory: $SKRIPS_DIR/WRFV413_AO)
+Install step 4.3: Edit the WRF configurations:
 
 At the beginning of *configure.wrf* (line 17 in my file), add the ESMF_DIR.
 Note *ESMF_DIR* must be the real path of the home directory::
