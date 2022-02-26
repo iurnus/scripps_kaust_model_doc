@@ -17,11 +17,6 @@ Update the configurations. First open **configure**, update line 154 to add the 
   
   standard_wrf_dirs="WRF WRF-4.0.3 WRF-4.0.2 WRF-4.0.1 WRF-4.0 WRFV3 WRFV413_AO"
 
-Then change the makefile. Open **geogrid/src/Makefile** and **metgrid/src/Makefile**, remove **MPI_LIB** in line 19 of both makefiles (because they are in conflict with our setup for the coupled model)::
-  
-  $(WRF_LIB)
-  # $(MPI_LIB)
-
 Configuring
 -----------
 
