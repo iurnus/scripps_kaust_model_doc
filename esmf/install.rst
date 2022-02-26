@@ -27,8 +27,7 @@ Install step 3.1: Download ESMF 8.0.0::
 Examine the bashrc file
 =======================
 
-Install step 2.2: In the ~/.bashrc_skrips file, we have the ESMF configurations
-(current working directory: $SKRIPS_DIR/esmf)::
+Install step 2.2: In the ~/.bashrc_skrips file, we have the ESMF configurations::
 
   # ESMF compile options
   export ESMF_OS=Linux
@@ -53,7 +52,9 @@ Notes::
 Compile ESMF
 ============
 
-Install step 2.2: Compile ESMF (current working directory: $SKRIPS_DIR/esmf)::
+Install step 2.2: Compile ESMF::
+
+    cd $SKRIPS_DIR/esmf
 
     # Check the information of necessary configurations
     gmake info &> log.info
