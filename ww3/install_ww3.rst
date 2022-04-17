@@ -41,5 +41,6 @@ Install step 5.3: Compile WaveWatch III::
 Notes
 =====
 
-When using Shaheen, I would use ifort and cc as the auxiliary compilers.
-When using ring, Step 5.2 I would use "w3_setup $WW3_DIR/model"
+1. When using Shaheen, I would use ifort and cc as the auxiliary compilers.
+
+2. When using ring, Step 5.2 I would use "w3_setup $WW3_DIR/model"
