@@ -1,5 +1,5 @@
 ############################
-Limitations and known issues
+Limitations and Known Issues
 ############################
 
 Limitations
