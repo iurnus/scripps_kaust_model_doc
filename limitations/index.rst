@@ -23,3 +23,11 @@ Known issues
 
 There are currently no major issues with the code. If the user have any issues with the code, please
 contact: Rui Sun (rus043@ucsd.edu) or Aneesh Subramanian (aneeshcs@gmail.com)
+
+When debuging the code, please see here:
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   debug SKRIPS <debug>
