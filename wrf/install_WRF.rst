@@ -20,9 +20,9 @@ Then run the installer::
   
   cd installOption_WRF
   ## FOR SHAHEEN
-  ./installWRF413_ao_shaheen.sh
+  ## ./installWRF413_ao_shaheen.sh
   ## FOR COMET
-  ## ./installWRF413_ao_comet.sh
+  ./installWRF413_ao_comet.sh
   ## FOR RING
   ## ./installWRF413_ao_ring.sh
 
