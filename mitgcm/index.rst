@@ -14,5 +14,5 @@ domain decomposition.
    :titlesonly:
 
 
-   install MITgcm <install_MITgcm>
-   test MITgcm <test_MITgcm_coupler>
+   Install MITgcm <install_MITgcm>
+   Test MITgcm <test_MITgcm_coupler>
