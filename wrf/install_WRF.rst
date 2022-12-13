@@ -56,9 +56,9 @@ Please select from among the following Linux x86_64 options::
   9. (serial)  10. (smpar)  11. (dmpar)  12. (dm+sm)   PGI (pgf90/gcc): PGI accelerator
   13. (serial)  14. (smpar)  15. (dmpar)  16. (dm+sm)   INTEL (ifort/icc)
 
-I use option '54' to activate PGI (pgf90/pgcc) + dmpar (distributed memory)::
+I use option '15' to activate Intel compiler on COMET (use 54 for ring; use 50 for shaheen)::
 
-  Enter selection [1-75] : 54
+  Enter selection [1-75] : 15
 
 For the nesting option, we use 1 (basic) in our test::
 
