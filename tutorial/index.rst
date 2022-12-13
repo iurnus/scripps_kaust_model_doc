@@ -13,6 +13,6 @@ to run the coupled-solver based on existing MITgcm and WRF cases.
    :titlesonly:
 
 
-   introduction of the tutorial cases<tutorial_intro>
-   run the simulation of Red Sea region<tutorial_rs>
-   run the simulation of California region<tutorial_ca>
+   Introduction of the tutorial cases<tutorial_intro>
+   Run the simulation of Red Sea region<tutorial_rs>
+   Run the simulation of California region<tutorial_ca>
