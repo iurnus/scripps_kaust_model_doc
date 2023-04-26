@@ -1,6 +1,14 @@
-Make sure python and sphinx are installed.
+View Documentation Online
+-------------------------
 
-To compile the documentation to html:
+The online version of this documentation is available on [readthedocs](https://skrips.readthedocs.io/en/latest/).
+
+
+Compile HTML version
+--------------------
+To compile this documentation off-line, please make sure python and sphinx are installed.
+
+To make the html version:
 
 ```
 make html
@@ -8,10 +16,13 @@ make html
 
 Open _build/html/index.html to read.
 
-To compile the documentation to pdf:
+Compile PDF version
+--------------------
+
+To make the pdf version, make sure that latex is installed:
 
 ```
 make latexpdf
 ```
 
-Open _build/html/SCAO.pdf to read.
+Open _build/html/SKRIPS.pdf to read.
