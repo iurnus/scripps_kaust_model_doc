@@ -5,7 +5,15 @@ Test ESMF
 Test ESMF with applications
 ===========================
 
-An ESMF application can better test ESMF.
+Compared with the unit test cases, an ESMF application can better test ESMF.
+Here we are presenting two example cases that demonstrate ESMF. In addition to
+the examples, we also have two ESMF test cases in the coupler folder
+*coupler/L1.C2.esmf_coupled_test* and *coupler/L1.C3.esmf_interpl_test*.
+
+**WARNING**
+ESMF seems to move their project to GitHub, and some links listed below may not
+work properly. Their GitHub page offers all documentation and technical
+support: https://github.com/esmf-org/esmf.
 
 Case 1: ESMF coupled flow demonstration case
 ============================================
@@ -73,7 +81,7 @@ Case 2: NUOPC prototype code
 There are several NUOPC prototype code examples:
 
 https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/
-http://www.earthsystemmodeling.org/esmf_releases/non_public/ESMF_8_0_0/NUOPC_howtodoc/
+https://github.com/esmf-org/nuopc-app-prototypes
 
 This is an example of ATM--CON--OCN model based on NUOPC:
 

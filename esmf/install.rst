@@ -1,6 +1,6 @@
-######################
-Install ESMF (general)
-######################
+############
+Install ESMF
+############
 
 Download ESMF
 =============
@@ -16,7 +16,7 @@ The earlier releases of ESMF can be found at:
 Install ESMF Using PGI compiler
 ===============================
 
-Install step 3.1: Download ESMF 8.0.0::
+Install step 2.1: Download ESMF 8.0.0::
 
   cd $SKRIPS_DIR
   wget https://github.com/esmf-org/esmf/archive/refs/tags/ESMF_8_0_0.zip
@@ -43,11 +43,14 @@ Install step 2.2: In the ~/.bashrc_skrips file, we have the ESMF configurations:
   export ESMF_MOD=$ESMF_DIR/mod/mod$ESMF_BOPT/$ESMF_OS.$ESMF_COMPILER.$ESMF_ABI.$ESMF_COMM.default/
   export ESMFMKFILE=$ESMF_LIB/esmf.mk
 
-Notes::
+To install ESMF on a different machine or using different configurations, one
+must update these ESMF options.
 
-  1. *ESMF_COMPILER=intel* means I am using Intel compiler. 
-  2. *ESMF_COMM=intelmpi* means I am using Intel MPI. 
-  3. The explaination of other configurations is documented in ESMF user guide.
+Several Notes::
+
+1. *ESMF_COMPILER=intel* means I am using Intel compiler. 
+2. *ESMF_COMM=intelmpi* means I am using Intel MPI. 
+3. The explaination of other configurations is documented in ESMF user guide.
 
 Compile ESMF
 ============
@@ -65,9 +68,10 @@ Install step 2.2: Compile ESMF::
     # If it is the first time ESMF is installed, make sure to test ESMF using::
     gmake all_tests &> log.all_tests
 
-If ESMF8.0.0 is successfully built, all the unit tests should pass. We can also compile the coupled
-code when a few unit tests failed. On ESMF official website, some unit tests could also fail.
-Currently we don't know which specific tests must pass for the coupled code.
+If ESMF is successfully built, all the unit tests should pass. However, we can
+also compile the coupled code when a few unit tests failed. On ESMF official
+website, some unit tests could also fail on specific machines. Currently we
+don't know which specific tests must pass for the coupled code.
 
 The complete summary on the ESMF website is: 
 https://www.earthsystemcog.org/projects/esmf/platforms_8_0_0

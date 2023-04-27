@@ -4,10 +4,12 @@
 Install WRF
 ###########
 
-Install WRF on Shaheen or COMET
-===============================
+Install WRF on COMET
+====================
 
-To install WRF on Shaheen or COMET, it is much easier. First download WRF::
+We have prepared the installer for install WRF on COMET/Shaheen/ring.
+
+Install step 4.1: Download WRF::
 
   cd $SKRIPS_DIR
   wget https://github.com/wrf-model/WRF/archive/v4.1.3.zip
@@ -16,7 +18,7 @@ To install WRF on Shaheen or COMET, it is much easier. First download WRF::
   # save a copy
   cp -rf WRFV413_AO WRFV413_AO.org
 
-Then run the installer::
+Step 4.2: Run the installer::
   
   cd installOption_WRF
   ## FOR SHAHEEN
@@ -26,6 +28,10 @@ Then run the installer::
   ## FOR RING
   ## ./installWRF413_ao_ring.sh
 
+In the installer, we have updated the WRF configurations files and generated
+the scripts. However, we did not provide this for other computers. The user
+must update the WRF configurations related to ESMF setups following the
+instruction below.  
 
 Install WRF on other machines
 =============================
@@ -68,15 +74,16 @@ We can see a configuration file in the WRF folder::
 
   -rw-rw-r-- 1 ruisun ruisun 20823 2019-08-21 15:45 configure.wrf
 
-Install step 4.3: Edit the WRF configurations:
+Install step 4.3: Edit the WRF configurations for the coupled model:
 
-At the beginning of *configure.wrf* (line 17 in my file), add the ESMF_DIR.
-Note *ESMF_DIR* must be the real path of the home directory::
+At the beginning of *configure.wrf* (line 17 in my file), add the *ESMF_DIR*,
+which is the path of the ESMF directory::
 
   ESMF_DIR=$SKRIPS_DIR/esmf/
 
-Replace the ESMF switches in *configure.wrf* (from line 76 to 96 in my file). Note that the ESMF
-path in *ESMF_IO_INC* and *ESMF_LIB* should be updated accordingly::
+Replace the ESMF switches in *configure.wrf* (from line 76 to 96 in my file).
+Check ESMF path *ESMF_MOD* and *ESMF_LIB* defined in *bashrc\_skrips* (in Step
+1)::
 
   #### ESMF switches                 ####
   #### These are set up by Config.pl ####
@@ -105,7 +112,7 @@ Modify the ESMF flags, replace (from line 198 to line 199 in my file)::
   ESMF_IO_LIB     =    $(ESMF_F90LINKPATHS) $(ESMF_F90ESMFLINKLIBS) -L$(WRF_SRC_ROOT_DIR)/external/io_esmf -lwrfio_esmf
   ESMF_IO_LIB_EXT =    $(ESMF_IO_LIB)
 
-Add ESMF_DIR in *LIB_EXTERNAL* (from line 227 in my file)::
+Add *ESMF_LIB* in *LIB_EXTERNAL* (from line 227 in my file)::
 
   LIB_EXTERNAL = $(ESMF_LIB)/libesmf.a -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/usr/local/netcdf/432_pgi133//lib -lnetcdff -lnetcdf
 
@@ -115,13 +122,15 @@ Add INCLUDE_MODULES when compiling io_esmf (line 372 in my file)::
 
 Then, save *configure.wrf* file after the edit.
 
-Finally, save part of the configuration file in another file (current working
-directory: $SKRIPS_DIR/WRFV413_AO)::
+Finally, the coupler need these WRF variables. Now save the variables of the
+configuration file in another file (current working directory:
+$SKRIPS_DIR/WRFV413_AO)::
 
   linenumber=$(grep -n "bundled:" configure.wrf | cut -d : -f 1)
   head -n $((linenumber-1)) configure.wrf > configure.wrf_cpl
 
-The generated *configure.wrf_cpl* file will be used to compile the coupled model.
+The generated *configure.wrf_cpl* file will be used to compile the coupled
+model.
 
 Compile WRF
 -----------
@@ -173,4 +182,19 @@ Other guidance to compile WRF
 There is another guidance to compile WRF available at:
 http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php
 
+
+Known issues
+============
+
+(1) By default WRF outputs the relative wind speed. To get the absolute wind
+speed, one must add the relative wind to ocean current velocity in the coupled
+simulations.
+
+(2) In the coupled model, we used RRTMG because it can output the surface
+radiative fluxes. Other options do not explicitly output the surface radiative
+fluxes.
+
+(3) The WRF output to ESMF uses auxhist5 (auxiliary history output 5) in WRF.
+It is in conflict with the diagnostics of Regional Arctic System Model (RASM)
+in WRF.
 

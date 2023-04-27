@@ -35,16 +35,20 @@ Install step 1.2: Create a bashrc file for SKRIPS model::
 
   cp ./installOption_OTH/bashrc_comet ~/.bashrc_skrips
   
+Here I am copying the bashrc file that I used for COMET. There are also bashrc
+files for other machines that can be used in *installOption_OTH* folder.
+
 Then, add the following line to ~/.bashrc file::
   
   alias load_skrips="source ~/.bashrc_skrips" 
   
-You'll have to activate the bashrc setups every time you want to run SKRIPS
-model::
+Now activate the bashrc setups in the command line. Also, you need to activate
+the bachrc setups when you want to run SKRIPS model, otherwise the Linux system
+will not remember what you did::
   
   load_skrips
 
-The output is::
+After the bashrc file is successfully loaded. We get the following output::
  
   Setting up the bashrc for SKRIPS model...
   SKRIPS_DIR is: /cw3e/mead/projects/csg102/rus043/scripps_kaust_model/
@@ -100,13 +104,14 @@ In the ~/.bashrc_skrips file, we have::
   export LD_LIBRARY_PATH=$SKRIPS_MPI_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
   export LD_LIBRARY_PATH=$ESMF_LIB/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
   
-1. Please make sure the paths for the model components, NETCDF, MPI, and WW3 are correct, although WW3 is not necessary.
-We will discuss the ESMF setups later. 
-2. To install the coupled model on ring@ucsd, please use bashrc\_ring
-3. To install the coupled model on Shaheen, please use bashrc\_shaheen
+When you want to install the SKRIPS model on another machine::
 
+1. Please make sure the paths for the model components, NETCDF, MPI, WW3, and ESMF are correct. The ESMF setups will be detailed in latter sections.
+2. WW3 is not necessary for running the coupled model. 
+3. To install the coupled model on ring@ucsd, please use installOption\_OTH/bashrc\_ring.
+4. To install the coupled model on Shaheen, please use installOption\_OTH/bashrc\_shaheen.
 
-Now we can start install the module components and the coupled model:
+Now we can start install the module components and the coupled model.
 
 .. toctree::
    :maxdepth: 1
