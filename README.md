@@ -26,3 +26,10 @@ make latexpdf
 ```
 
 Open _build/html/SKRIPS.pdf to read.
+
+Other tutorials
+---------------
+
+There are some tutorials with more specific information about running WRF. Please refer to [other tutorials](https://github.com/iurnus/coupled_model_other_docs).
+
+
