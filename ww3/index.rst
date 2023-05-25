@@ -14,5 +14,5 @@ description of WAVEWATCH III® .
    :titlesonly:
 
 
-   Install WW3 solver <install_ww3>
+   Install WW3 <install_ww3>
    Test WW3 <test_ww3>

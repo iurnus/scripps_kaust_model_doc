@@ -20,6 +20,6 @@ capabilities, including:
    :titlesonly:
 
 
-   Install WRF solver <install_WRF>
+   Install WRF <install_WRF>
    (optional) Install WPS for pre-processing<install_WPS>
-   (optional) Running WPS for pre-processing<pre_WPS>
+   (optional) Run WPS for pre-processing<pre_WPS>
