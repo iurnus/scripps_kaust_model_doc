@@ -48,9 +48,9 @@ must update these ESMF options.
 
 Several Notes::
 
-1. *ESMF_COMPILER=intel* means I am using Intel compiler. 
-2. *ESMF_COMM=intelmpi* means I am using Intel MPI. 
-3. The explaination of other configurations is documented in ESMF user guide.
+  1. *ESMF_COMPILER=intel* means I am using Intel compiler. 
+  2. *ESMF_COMM=intelmpi* means I am using Intel MPI. 
+  3. The explaination of other configurations is documented in ESMF user guide.
 
 Compile ESMF
 ============
