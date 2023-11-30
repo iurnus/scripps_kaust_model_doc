@@ -97,11 +97,15 @@ In data file, I added the following lines to control coupling scheme for MITgcm:
   ## Option 1: use LF16-MA;
   ## Option 2: use LF16-EN;
   ## Option 3: use LF17;
+  ## Option 5: use LF17, but with parameterized wave;
   42  langmuirScheme = 0,
   ## Option 0: do not activate the Stokes-Coriolis or Stokes advection;
   ## Option 1: use Stokes-Coriolis and Stokes advection;
   ## To activate Stokes advection, MITgcm MUST have multiDimAdvection = .TRUE.
   ## To activate Stokes-Coriolis, MITgcm MUST have vectorInvariantMomentum = .FALSE.
+  ## stokesProfile = 0: no stokes profile (turn off stokesCoriolis and stokesAdvection)
+  ## stokesProfile = 1: use Eq. (7) in Breivik 2014 paper (https://doi.org/10.1175/JPO-D-14-0020.1)
+  ## stokesProfile = 2: use Eq. (16) in Breivik 2014 paper
   43  stokesProfile = 0,
   44  stokesCoriolis = 0,
   45  stokesAdvection = 0,
