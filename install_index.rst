@@ -52,8 +52,6 @@ After the bashrc file is successfully loaded, we can see the following message::
 
 In the ~/.bashrc_skrips file, we have::
 
-echo "Setting up the bashrc for SKRIPS model..."
-
   # Location of the modules
   export SKRIPS_DIR=$HOME/scripps_kaust_model/
   export ESMF_DIR=$SKRIPS_DIR/esmf/
