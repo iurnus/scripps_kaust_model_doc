@@ -2,32 +2,28 @@
 Install the model components
 ############################
 
-The official repository of SKRIPS v2.0 is maintained on Github::
+The official repository of SKRIPS v2.01 is maintained on Github::
 
-  https://github.com/iurnus/scripps_kaust_model/releases/tag/v2.0
+  https://github.com/iurnus/scripps_kaust_model/releases/tag/v2.01
 
-Now I am using the SDSC supercomputer COMET as an example. To install the
-SKRIPS model in the mead system
-(/cw3e/mead/projects/csg102/rus043/scripps_kaust_model/), we have to download
-the SKRIPS model and set up the bashrc file.
+Now I am using the SDSC supercomputer EXPANSE as an example. To install the
+SKRIPS model (for example, in /expanse/nfs/cw3e/csg/102/rus043/scripps_kaust_model/), 
+we have to download the SKRIPS model and set up the bashrc file.
 
 Install step 1.1: Download SKRIPS version from Github::
 
   # I am using my work folder as an example
-  cd /cw3e/mead/projects/csg102/rus043/
-  wget https://github.com/iurnus/scripps_kaust_model/archive/v2.0.zip
-  unzip v2.0.zip
-  mv scripps_kaust_model-2.0 scripps_kaust_model
+  cd /expanse/nfs/cw3e/csg/102/rus043/
+  wget https://github.com/iurnus/scripps_kaust_model/archive/v2.01.zip
+  unzip v2.01.zip
+  mv scripps_kaust_model-2.01 scripps_kaust_model
   cd scripps_kaust_model
   ls -l
 
 You will see the following folders and files::
 
   drwxr-sr-x  8 rus043 csg102 57344 Oct  4 10:56 coupler
-  drwxr-sr-x  4 rus043 csg102 57344 Oct  4 10:56 esmf_test_application
-  drwxr-sr-x  4 rus043 csg102 57344 Oct 11 14:05 installOption_OTH
-  drwxr-sr-x  6 rus043 csg102 57344 Oct 11 09:12 installOption_WRF
-  drwxr-sr-x  6 rus043 csg102 57344 Oct 10 23:39 installOption_WW3
+  drwxr-sr-x  4 rus043 csg102 57344 Oct  4 10:56 esmf_test
   drwxr-sr-x  2 rus043 csg102 57344 Oct  4 10:56 license_statements
   -rw-r--r--  1 rus043 csg102  2597 Oct 11 11:03 README.md
 
