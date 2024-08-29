@@ -22,24 +22,25 @@ Install step 1.1: Download SKRIPS version from Github::
 
 You will see the following folders and files::
 
-  drwxr-sr-x  8 rus043 csg102 57344 Oct  4 10:56 coupler
-  drwxr-sr-x  4 rus043 csg102 57344 Oct  4 10:56 esmf_test
-  drwxr-sr-x  2 rus043 csg102 57344 Oct  4 10:56 license_statements
-  -rw-r--r--  1 rus043 csg102  2597 Oct 11 11:03 README.md
+  drwxr-xr-x 12 rus043 ddp181   13 Aug 29 15:00 coupler
+  drwxr-xr-x  4 rus043 ddp181    4 Aug 29 15:00 esmf_test
+  drwxr-xr-x  2 rus043 ddp181    5 Aug 29 15:00 license_statements
+  -rw-r--r--  1 rus043 ddp181 4239 Aug 29 15:00 README.md
+  drwxr-xr-x  6 rus043 ddp181    6 Aug 29 15:00 scripts
 
 Install step 1.2: Create a bashrc file for SKRIPS model::
 
-  cp ./installOption_OTH/bashrc_comet ~/.bashrc_skrips
+  cp ./scripts/bashrc/bashrc_expanse ~/.bashrc_skrips
   
-Here I am copying the bashrc file that I used for COMET. There are also bashrc
-files for other machines that can be used in *installOption_OTH* folder.
+Here I am copying the bashrc file that I used for EXPANSE. There are also bashrc
+files for other machines that can be used in *scripts* folder.
 
 Then, add the following line to ~/.bashrc file::
   
   alias load_skrips="source ~/.bashrc_skrips" 
   
-Now activate the bashrc setups in the command line. Also, you need to activate
-the bachrc setups when you want to run SKRIPS model, otherwise the Linux system
+Now activate the bashrc setups in the command line. **Note that you need to activate
+the bachrc setups every time when you want to run SKRIPS model**, otherwise the Linux system
 will not remember what you did::
   
   load_skrips
