@@ -8,14 +8,14 @@ Install WPS on Shaheen or COMET
 Download WPS::
 
   cd $SKRIPS_DIR
-  wget https://github.com/wrf-model/WPS/archive/refs/tags/v4.1.zip
-  unzip v4.1.zip
-  mv WPS-4.1 WPSV41
-  cd WPSV41
+  wget https://github.com/wrf-model/WPS/archive/refs/tags/v4.5.zip
+  unzip v4.5.zip
+  mv WPS-4.5 WPSV45
+  cd WPSV45
 
 Update the configurations. First open **configure**, update line 154 to add the WRF directory::
   
-  standard_wrf_dirs="WRF WRF-4.0.3 WRF-4.0.2 WRF-4.0.1 WRF-4.0 WRFV3 WRFV413_AO"
+  standard_wrf_dirs="WRF WRF-4.0.3 WRF-4.0.2 WRF-4.0.1 WRF-4.0 WRFV3 WRFV451_AO"
 
 Configuring
 -----------
@@ -39,7 +39,7 @@ The screen would say::
     (and some more options)
     Enter selection [1-51] :
 
-I select "17" for COMET and "37" for Shaheen.
+I select "1" for kala, "17" for EXPANSE, and "37" for Shaheen.
 
 Install
 -------

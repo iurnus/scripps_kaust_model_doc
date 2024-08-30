@@ -7,26 +7,26 @@ Install WRF
 Install WRF on COMET
 ====================
 
-We have prepared the installer for install WRF on COMET/Shaheen/ring.
+We have prepared the installer for install WRF on kala/Shaheen/expanse.
 
 Install step 4.1: Download WRF::
 
   cd $SKRIPS_DIR
-  wget https://github.com/wrf-model/WRF/archive/v4.1.3.zip
-  unzip v4.1.3.zip
-  mv WRF-4.1.3 WRFV413_AO
+  wget https://github.com/wrf-model/WRF/archive/v4.5.1.zip
+  unzip v4.5.1.zip
+  mv WRF-4.5.1 WRFV451_AO
   # save a copy
-  cp -rf WRFV413_AO WRFV413_AO.org
+  cp -rf WRFV451_AO WRFV451_AO.org
 
 Step 4.2: Run the installer::
   
-  cd installOption_WRF
+  cd scripts/wrf/
   ## FOR SHAHEEN
-  ## ./installWRF413_ao_shaheen.sh
-  ## FOR COMET
-  ./installWRF413_ao_comet.sh
-  ## FOR RING
-  ## ./installWRF413_ao_ring.sh
+  ## ./installWRF451_ao_shaheen.sh
+  ## FOR EXPANSE
+  ## ./installWRF451_ao_expanse.sh
+  ## FOR KALA
+  ./installWRF451_ao_kala.sh
 
 In the installer, we have updated the WRF configurations files and generated
 the scripts. However, we did not provide this for other computers. The user
@@ -42,18 +42,18 @@ Download and configure WRF
 Install step 4.1: Download WRF::
 
   cd $SKRIPS_DIR
-  wget https://github.com/wrf-model/WRF/archive/v4.1.3.zip
-  unzip v4.1.3.zip
-  mv WRF-4.1.3 WRFV413_AO
+  wget https://github.com/wrf-model/WRF/archive/v4.5.1.zip
+  unzip v4.5.1.zip
+  mv WRF-4.5.1 WRFV451_AO
   # save a copy
-  cp -rf WRFV413_AO WRFV413_AO.org
+  cp -rf WRFV451_AO WRFV451_AO.org
 
 Install step 4.2: Set the WRF configurations::
   
   cd WRFV413_AO
   ./configure
 
-There are 75 WRF configurations.
+There are 79 WRF configurations.
 
 Please select from among the following Linux x86_64 options::
 
@@ -62,9 +62,9 @@ Please select from among the following Linux x86_64 options::
   9. (serial)  10. (smpar)  11. (dmpar)  12. (dm+sm)   PGI (pgf90/gcc): PGI accelerator
   13. (serial)  14. (smpar)  15. (dmpar)  16. (dm+sm)   INTEL (ifort/icc)
 
-I use option '15' to activate Intel compiler on COMET (use 54 for ring; use 50 for shaheen)::
+I use option '34' to activate Intel compiler on COMET (use 15 for expanse; use 50 for shaheen)::
 
-  Enter selection [1-75] : 15
+  Enter selection [1-75] : 34
 
 For the nesting option, we use 1 (basic) in our test::
 
@@ -72,7 +72,7 @@ For the nesting option, we use 1 (basic) in our test::
 
 We can see a configuration file in the WRF folder::
 
-  -rw-rw-r-- 1 ruisun ruisun 20823 2019-08-21 15:45 configure.wrf
+  -rw-r--r--  1 rus043 mazloff-lab 21185 Aug 30 13:05 configure.wrf
 
 Install step 4.3: Edit the WRF configurations for the coupled model:
 
@@ -94,7 +94,7 @@ Check ESMF path *ESMF_MOD* and *ESMF_LIB* defined in *bashrc\_skrips* (in Step
   # select -I options for external/io_esmf vs. external/esmf_time_f90
   ESMF_IO_INC         = -I$(WRF_SRC_ROOT_DIR)/external/io_esmf
   # select -I options for separately installed ESMF library, if present
-  ESMF_MOD_INC        = -I$(ESMF_MOD) -I$(WRF_SRC_ROOT_DIR)/main $(ESMF_IO_INC)
+  ESMF_MOD_INC        = -I$(ESMF_MOD) -I$(WRF_SRC_ROOT_DIR)/main -I$(WRF_SRC_ROOT_DIR)/frame $(ESMF_IO_INC)
   # select cpp token for external/io_esmf vs. external/esmf_time_f90
   ESMF_IO_DEFS        = -DESMFIO
   # select build target for external/io_esmf vs. external/esmf_time_f90
@@ -102,19 +102,19 @@ Check ESMF path *ESMF_MOD* and *ESMF_LIB* defined in *bashrc\_skrips* (in Step
   # add the lib of ESMF
   include $(ESMF_LIB)/esmf.mk
 
-Add *-DESMFIO* in *ARCHFLAGS* (line 169 in my file). Put it below *-DNETCDF*::
+Add *-DESMFIO* in *ARCHFLAGS* (line 188 in my file). Put it below *-DNETCDF*::
 
   -DNETCDF \
   -DESMFIO \
 
-Modify the ESMF flags, replace (from line 198 to line 199 in my file)::
+Modify the ESMF flags, replace (from line 222 to line 223 in my file)::
 
   ESMF_IO_LIB     =    $(ESMF_F90LINKPATHS) $(ESMF_F90ESMFLINKLIBS) -L$(WRF_SRC_ROOT_DIR)/external/io_esmf -lwrfio_esmf
   ESMF_IO_LIB_EXT =    $(ESMF_IO_LIB)
 
-Add *ESMF_LIB* in *LIB_EXTERNAL* (from line 227 in my file)::
+Add *ESMF_LIB* in *LIB_EXTERNAL* (from line 124 in my file)::
 
-  LIB_EXTERNAL = $(ESMF_LIB)/libesmf.a -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/usr/local/netcdf/432_pgi133//lib -lnetcdff -lnetcdf
+  LIB_EXTERNAL = $(ESMF_LIB)/libesmf.a -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/home/rus043/libraries/netcdf-build-fortran/lib -lnetcdff
 
 Add INCLUDE_MODULES when compiling io_esmf (line 372 in my file)::
 
@@ -138,7 +138,7 @@ Compile WRF
 Install step 4.4: Copy other files and install WRF (current working directory:
 $SKRIPS_DIR/WRFV413_AO)::
 
-   WRF_OPTION_DIR0=$SKRIPS_DIR/wrfAO413_shared/
+   WRF_OPTION_DIR0=$SKRIPS_DIR/scripts/wrf/wrfAO451_shared/
 
    ln -sf ${WRF_UPDATE_DIR0}/Makefile.wrf Makefile
    ln -sf ${WRF_UPDATE_DIR0}/Registry.EM Registry/
@@ -169,11 +169,10 @@ Now we can start compiling WRF by using::
 After WRF is successfully compiled, you will see a few \*.exe files::
 
   $ ls -l main/*.exe
-  -rwxrwxr-x 1 ruisun ruisun 70086798 2019-08-01 05:00 main/ndown.exe
-  -rwxrwxr-x 1 ruisun ruisun 62036118 2019-08-01 05:00 main/real.exe
-  -rwxrwxr-x 1 ruisun ruisun 61985460 2019-08-01 05:00 main/tc.exe
-  -rwxrwxr-x 1 ruisun ruisun 68344825 2019-08-01 05:00 main/wrf.exe
-
+  -rwxr-xr-x 1 rus043 mazloff-lab 47660776 Aug 30 14:47 main/ndown.exe
+  -rwxr-xr-x 1 rus043 mazloff-lab 47726416 Aug 30 14:47 main/real.exe
+  -rwxr-xr-x 1 rus043 mazloff-lab 46968840 Aug 30 14:47 main/tc.exe
+  -rwxr-xr-x 1 rus043 mazloff-lab 55731328 Aug 30 14:45 main/wrf.exe
 
 
 Other guidance to compile WRF

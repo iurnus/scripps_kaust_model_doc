@@ -21,13 +21,15 @@ Install step 5.2: Set the auxiliary FORTRAN and C compiler::
   
   cd ww3_607
   w3_setup $WW3_DIR/model -c intel
+  # sometimes we need to specify the WW3 switch:
+  # w3_setup $WW3_DIR/model -c intel -s Ifremer2
     
 Use ifort and cc for Shaheen::
   
   Auxiliary FORTRAN compiler [gfortran] : ifort
   Auxiliary C compiler [gcc] : cc
 
-Use mpif90 and mpicc for COMET::
+Use mpif90 and mpicc for kala or EXPANSE::
   
   Auxiliary FORTRAN compiler [gfortran] : mpif90
   Auxiliary C compiler [gcc] : mpicc
@@ -35,8 +37,8 @@ Use mpif90 and mpicc for COMET::
 Install step 5.3: Compile WaveWatch III::
 
   cd $SKRIPS_DIR
-  cd installOption_WW3
-  ./install_ww3_comet.sh
+  cd scripts/ww3
+  ./install_ww3_kala.sh
   
 Notes
 =====

@@ -121,10 +121,10 @@ In the ~/.bashrc_skrips file, we have::
   
 When you want to install the SKRIPS model on another machine::
 
-1. Please make sure the paths for the model components, NETCDF, MPI, WW3, and ESMF are correct. The ESMF setups will be detailed in latter sections.
-2. WW3 is not necessary for running the coupled model. 
-3. To install the coupled model on SDSC expanse, please use scripts/bashrc\_expanse.
-4. To install the coupled model on Shaheen III, please use scripts/bashrc\_shaheen.
+  1. Please make sure the paths for the model components, NETCDF, MPI, WW3, and ESMF are correct.
+  2. WW3 is not necessary for running the coupled model. 
+  3. To install the coupled model on SDSC expanse, please use scripts/bashrc\_expanse.
+  4. To install the coupled model on Shaheen III, please use scripts/bashrc\_shaheen.
 
 Now we can start install the module components and the coupled model.
 
