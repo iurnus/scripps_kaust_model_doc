@@ -7,7 +7,7 @@ Run the coupled case
 Case initialization
 ===================
 
-To test the coupled case, enter *runCase.init* folder ::
+To test the coupled case, enter ``runCase.init`` folder ::
 
   [ruisun@acc00]~/scripps_kaust_model/coupler/L3.C1.coupled_RS2012_ring$ cd runCase.init/
   [ruisun@acc00]~/.../coupler/L3.C1.coupled_RS2012_ring/runCase.init$ ls
@@ -20,13 +20,25 @@ Initialize the test case ::
 Run the coupled case
 ====================
 
-Enter the *runCase* folder and run the test case::
+.. note::
+   I assume the user is familiar with both MITgcm and WRF. Before running the
+   coupled simulations. Please make sure that the WRF and MITgcm setups are the
+   same as the coupled model, including ``data``,``data.exf``,``data.cal`` for
+   MITgcm and ``namelist.input`` for WRF.
+
+Enter the ``runCase`` folder and run the test case::
 
   [ruisun@acc00]~/.../coupler/L3.C1.coupled_RS2012_ring/runCase.init$ cd ../runCase/
   [ruisun@acc00]~/.../coupler/L3.C1.coupled_RS2012_ring/runCase$ ./Allrun
 
-In the Allrun file, MATLAB is required for pre-processing (the python scripts
-are available in the L3.C3 case for Shaheen-II at KAUST)::
+If the coupled code is compiled successfully, the coupled model will run and
+generate coupled simulation results.
+
+Something more about the coupled model
+======================================
+
+In the ``Allrun`` file, MATLAB is required for pre-processing (the python scripts
+are available in the L3.C3 case for SHAHEEN at KAUST)::
 
   \3 ln -sf ../caseInput/* .
   \4 
@@ -45,7 +57,7 @@ are available in the L3.C3 case for Shaheen-II at KAUST)::
   17 echo "running coupled MITgcm--WRF simulation.."
   18 mpirun -np 4 esmf_application &> log.esmf
 
-The *namelist.rc* file controls the coupled run::
+The ``namelist.rc`` file controls the coupled run::
 
   Debuglevel: 0
   ## mode 1 = sequential mode

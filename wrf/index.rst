@@ -4,9 +4,9 @@ Install and test WRF
 
 The WRF ARW model is a fully compressible, nonhydrostatic model (with a
 hydrostatic option). The WRF ARW model contains initialization programs
-(ideal.exe and real.exe), a numerical integration program (wrf.exe), and a
-program to do one-way nesting (ndown.exe). The WRF 3 supports a variety of
-capabilities, including:
+(``ideal.exe`` and ``real.exe``), a numerical integration program
+(``wrf.exe``), and a program to do one-way nesting (``ndown.exe``). The WRF
+supports a variety of capabilities, including:
 
 * Real-data and idealized simulations
 * Various lateral boundary condition options for both real-data and idealized simulations

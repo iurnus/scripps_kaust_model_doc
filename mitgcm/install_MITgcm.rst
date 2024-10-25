@@ -5,27 +5,35 @@ Install MITgcm
 Get the code and documentations
 -------------------------------
 
-Install step 3: Download MITGCM::
+Install step 3: Download MITgcm::
 
   cd $SKRIPS_DIR
   wget https://github.com/MITgcm/MITgcm/archive/checkpoint68r.zip
   unzip checkpoint68r.zip
   mv MITgcm-checkpoint68r MITgcm_c68r
 
-Compile the code (using default setup)
---------------------------------------
+MITgcm tutorial case
+--------------------
 
-To compile the code using the default setup is straightforward::
+The MITgcm user guide is available here:
 
-    cd MITgcm_c68r/verification/tutorial_barotropic_gyre/
+   https://mitgcm.readthedocs.io/en/latest/index.html
 
-Then, run the following commands to compile using default compiler without MPI::
+To compile and run MITgcm, please refer to Chapter 3 and 4:
 
-    cd build
-    ../../../tools/genmake2 "-mods" "../code" 
-    make depend 
-    make
+   https://mitgcm.readthedocs.io/en/latest/getting_started/getting_started.html
 
-After the code is successfully built, an executable file *mitgcmuv* can be seen in the *build*
-folder.
+   https://mitgcm.readthedocs.io/en/latest/examples/examples.html
+
+For example, for the MITgcm barotropic gyre case, you can try the following
+commands to compile it without MPI::
+ 
+     cd $SKRIPS_DIR/MITgcm_c68r/verification/tutorial_barotropic_gyre/
+     cd build
+     ../../../tools/genmake2 "-mods" "../code" 
+     make depend 
+     make
+
+After the code is successfully built, an executable file ``mitgcmuv`` can be
+seen in the ``build`` folder.
 

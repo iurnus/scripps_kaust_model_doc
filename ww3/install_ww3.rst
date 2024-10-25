@@ -16,7 +16,6 @@ Install step 5.1: Download WW3 v6.07.1::
   # save a copy
   cp -rf ww3_607 ww3_607.org
 
-
 Install step 5.2: Set the auxiliary FORTRAN and C compiler::
   
   cd ww3_607
@@ -24,12 +23,12 @@ Install step 5.2: Set the auxiliary FORTRAN and C compiler::
   # sometimes we need to specify the WW3 switch:
   # w3_setup $WW3_DIR/model -c intel -s Ifremer2
     
-Use ifort and cc for Shaheen::
+Use ``ifort`` and ``cc`` for SHAHEEN III::
   
   Auxiliary FORTRAN compiler [gfortran] : ifort
   Auxiliary C compiler [gcc] : cc
 
-Use mpif90 and mpicc for kala or EXPANSE::
+Use ``mpif90`` and ``mpicc`` for kala or EXPANSE::
   
   Auxiliary FORTRAN compiler [gfortran] : mpif90
   Auxiliary C compiler [gcc] : mpicc

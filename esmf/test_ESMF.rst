@@ -6,14 +6,14 @@ Test ESMF with applications
 ===========================
 
 Compared with the unit test cases, an ESMF application can better test ESMF.
-Here we are presenting two example cases that demonstrate ESMF. In addition to
-the examples, we also have two ESMF test cases in the coupler folder
-*coupler/L1.C2.esmf_coupled_test* and *coupler/L1.C3.esmf_interpl_test*.
+Here we are presenting two example ESMF cases. In addition to these examples, we
+also have two ESMF test cases in the coupler folder
+``$SKRIPS_DIR/coupler/L1.C2.esmf_coupled_test`` and ``$SKRIPS_DIR/coupler/L1.C3.esmf_interpl_test``.
 
-**WARNING**
-ESMF seems to move their project to GitHub, and some links listed below may not
-work properly. Their GitHub page offers all documentation and technical
-support: https://github.com/esmf-org/esmf.
+.. warning::
+  The ESMF group starts to move their project to GitHub. Because of this, some
+  links listed below may not work properly. Their GitHub page should have all
+  documentation and technical support: https://github.com/esmf-org/esmf.
 
 Case 1: ESMF coupled flow demonstration case
 ============================================
@@ -35,7 +35,7 @@ The demonstration case in our git repository is slightly different from the orig
 fixed the bug in the test case, modified the parameters in the simulations, and added a simple
 post-processing MATLAB code. 
 
-Open the demonstration case (current working directory: $HOME/scripps_kaust_model/esmf)::
+Open the demonstration case (current working directory: ``$HOME/scripps_kaust_model/esmf``)::
 
     cd ../esmf_test_application/esmf_test_coupled_flow
     # compile the case::
@@ -63,10 +63,9 @@ The demonstration case generates a series of output files::
 * "make distclean" combines the "dust" and "clean" targets.
 
 
-Notes
------
+.. note::
 
-Compared to the original version, the following lines in CouplerMod.F90 file are commented out::
+  Compared to the original version, the following lines in CouplerMod.F90 file are commented out::
 
     253            ! check isneeded flag here
     254            !! if (.not. isFieldNeeded(importState, datanames(i), rc=rc)) then 
@@ -80,17 +79,17 @@ Case 2: NUOPC prototype code
 
 There are several NUOPC prototype code examples:
 
-https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/
-https://github.com/esmf-org/nuopc-app-prototypes
+    https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/
+    https://github.com/esmf-org/nuopc-app-prototypes
 
 This is an example of ATM--CON--OCN model based on NUOPC:
 
-https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/tags/ESMF_8_0_0/AtmOcnConProto/
+    https://sourceforge.net/p/esmfcontrib/svn/HEAD/tree/NUOPC/tags/ESMF_8_0_0/AtmOcnConProto/
+    https://github.com/esmf-org/nuopc-app-prototypes/tree/develop/AtmOcnProto
 
-We have also added this example case to our project (current working directory:
-$HOME/scripps_kaust_model/esmf_test_application/esmf_test_coupled_flow). To compile and run this
+We have also added this example case to our repository. To compile and run this
 example:: 
 
-    cd ../AtmOcnConProto/
+    cd $SKRIPS_DIR/esmf_test/esmf_test_atm_ocn/
     make
     mpirun -np 6 esmApp

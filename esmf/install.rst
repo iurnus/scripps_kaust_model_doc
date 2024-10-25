@@ -13,8 +13,8 @@ The earlier releases of ESMF can be found at:
 
     http://earthsystemmodeling.org/download/
 
-Install ESMF Using PGI compiler
-===============================
+Install ESMF on kala (with GNU compiler)
+========================================
 
 Install step 2.1: Download ESMF 8.6.0::
 
@@ -23,11 +23,11 @@ Install step 2.1: Download ESMF 8.6.0::
   unzip v8.6.0.zip
   mv esmf-8.6.0 esmf
 
-
 Examine the bashrc file
 =======================
 
-Install step 2.2: In the ~/.bashrc_skrips file, we have the ESMF configurations::
+Install step 2.2: In the ``~/.bashrc_skrips`` file, we use the following ESMF
+configurations::
 
   # ESMF compile options
   export ESMF_OS=Linux
@@ -50,14 +50,15 @@ Install step 2.2: In the ~/.bashrc_skrips file, we have the ESMF configurations:
   export ESMF_TESTHARNESS_FIELD=RUN_ESMF_TestHarnessField_default
   export ESMF_TESTWITHTHREADS=OFF
 
-To install ESMF on a different machine or using different configurations, one
-must update these ESMF options.
+To install ESMF on a different machine, one must check if these options are in
+conflict with the system environment:
 
-Notes::
+.. note::
 
-  1. *ESMF_COMPILER=gfortran* means I am using gfortran compiler. 
-  2. *ESMF_COMM=openmpi* means I am using OpenMPI. 
-  3. The explaination of other configurations is documented in ESMF user guide.
+  #. *ESMF_COMPILER=gfortran* means I am using gfortran compiler. 
+  #. *ESMF_COMM=openmpi* means I am using OpenMPI. 
+  #. *ESMF_TEST\** options are used for testing the compiled ESMF libraries.
+  #. The explaination of other configurations is documented in ESMF user guide.
 
 Compile ESMF
 ============
@@ -76,10 +77,10 @@ Install step 2.2: Compile ESMF::
     gmake all_tests &> log.all_tests
 
 If ESMF is successfully built, all the unit tests should pass. However, we can
-also compile the coupled code when a few unit tests failed. On ESMF official
-website, some unit tests could also fail on specific machines. Currently we
-don't know which specific tests must pass for the coupled code.
+also compile the coupled code when a few unit tests are failed. On ESMF
+official website, some unit tests could also fail on specific machines.
+Currently we don't know which specific tests must pass for the coupled code.
 
-The summary of ESMF releases is available here: 
-https://earthsystemmodeling.org/release/platforms_8_6_0
-https://earthsystemmodeling.org/static/releases.html
+More summaries of ESMF releases are available here: 
+    https://earthsystemmodeling.org/release/platforms_8_6_0
+    https://earthsystemmodeling.org/static/releases.html

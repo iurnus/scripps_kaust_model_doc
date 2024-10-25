@@ -8,36 +8,39 @@
 User Guide of Scripps-KAUST Regional Integrated Prediction System (SKRIPS)
 ##########################################################################
 
-This is the user guide of Scripps-KAUST Regional Integrated Prediction System
-(SKRIPS). The SKRIPS model is designed to be a tool for coupled
-atmosphere-ocean simulation and data assimlation. 
+The Scripps-KAUST Regional Integrated Prediction System (SKRIPS) is an
+open-source model for coupled atmosphere-ocean simulations.
 
-The SKRIPS model currently includes the following models:
 
-- Atmosphere Solver: WRF (version 4.5.1)
+The SKRIPS model is intended to compile and run on many different Unix/Linux
+operating systems with little or no change. Minimally, you will need the
+fortran compiler, MPI, netCDF libraries, and up to 10 Gb of disk space for
+installing all these components:
+
+- Atmosphere Solver: WRF (version 4.5.2)
 - Ocean Solver: MITgcm (version c68r)
 - Wave Solver: WaveWatch III (version 6.07.1)
 - Driver (coupler): ESMF/NUOPC (version 8.6.0)
-
-Install the coupled model requires MITgcm, WRF, WW3, ESMF, and their
-dependencies. This user guide details how to install the SKRIPS model and these
-model components. A few examples on the coupled code are also presented.
-
-Users can also extend this solver, utilities and libraries of this
-coupled-solver, using some pre-requisite knowledge of the underlying method,
-physics and programming techniques involved.
 
 The SKRIPS v2.01 code is available at:
 
   https://github.com/iurnus/scripps_kaust_model/releases/tag/v2.01
 
-Now, let's start from installing the coupled code. Let's go! 
-
+Getting Started
+---------------
 .. toctree::
   :maxdepth: 2
   :titlesonly:
 
-  Install model components <install_index>
-  Coupled simulation tutorial <tutorial/index>
+  How to install the model components <install_index>
+  How to run coupled simulations <tutorial/index>
+
+
+For developers
+--------------
+.. toctree::
+  :maxdepth: 2
+  :titlesonly:
+
   Introduction of implementations <implementations/index>
   Limitations and known issues <limitations/index>

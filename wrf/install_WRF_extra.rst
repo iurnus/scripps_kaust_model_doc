@@ -1,87 +1,14 @@
-.. _install_wrf:
-
-###########
-Install WRF
-###########
-
-Install WRF on kala
-===================
-
-We have prepared the installer for install WRF on kala or SHAHEEN III or SDSC Expanse.
-
-Install step 4.1(a): Download WRF::
-
-  cd $SKRIPS_DIR
-  # there are some issues with 'source code' version
-  # wget https://github.com/wrf-model/WRF/archive/refs/tags/v4.5.2.zip
-
-  # use the other version
-  wget https://github.com/wrf-model/WRF/releases/download/v4.5.2/v4.5.2.zip
-  unzip v4.5.2.zip
-  tar -xvf v4.5.2.tar
-  mv WRF-4.5.2 WRFV452_AO
-  # save a copy
-  cp -rf WRFV452_AO WRFV452_AO.org
-
-Step 4.2(a): Run the installer::
-  
-  cd scripts/wrf/
-  ## FOR SHAHEEN
-  ## ./installWRF452_ao_shaheen.sh
-  ## FOR EXPANSE
-  ## ./installWRF452_ao_expanse.sh
-  ## FOR KALA
-  ## ./installWRF452_ao_kala.sh
-  ## FOR GENERAL MACHINE
-  ./installWRF452_ao_general.sh
-
-The installer will check the location of WRF::
-
-  WRF DIR is: /home/rus043/scripps_kaust_model//WRFV452_AO/
-  Continue with this WRF DIR? (Y/N): Y
-
-Then it will ask you to select the WRF configurations. It is same as running
-``./configure`` in WRF directory::
-
-    Please select from among the following Linux x86_64 options:
-    1. (serial)   2. (smpar)   3. (dmpar)   4. (dm+sm)   PGI (pgf90/gcc)
-    5. (serial)   6. (smpar)   7. (dmpar)   8. (dm+sm)   PGI (pgf90/pgcc): SGI MPT
-    9. (serial)  10. (smpar)  11. (dmpar)  12. (dm+sm)   PGI (pgf90/gcc): PGI accelerator
-    13. (serial)  14. (smpar)  15. (dmpar)  16. (dm+sm)   INTEL (ifort/icc)
-
-For my Linux machine kala, I have NetCDF and other dependences installed using
-GNU compiler. Then I use option ``34`` to activate GNU compiler (use 15 for
-expanse; use 50 for shaheen)::
-
-  Enter selection [1-75] : 34
-
-For the nesting option, we use 1 (basic) in our test::
-
-  Compile for nesting? (1=basic, 2=preset moves, 3=vortex following) [default 1]: 1
-
-After entering all these information for WRF. The installer will try installing
-WRF on the machine with ESMF. After WRF is successfully compiled, you will see
-a few executables::
-
-  $ ls -l main/*.exe
-  -rwxr-xr-x 1 rus043 mazloff-lab 47660776 Aug 30 14:47 main/ndown.exe
-  -rwxr-xr-x 1 rus043 mazloff-lab 47726416 Aug 30 14:47 main/real.exe
-  -rwxr-xr-x 1 rus043 mazloff-lab 46968840 Aug 30 14:47 main/tc.exe
-  -rwxr-xr-x 1 rus043 mazloff-lab 55731328 Aug 30 14:45 main/wrf.exe
-
-.. note::
-
-  1. We can see a ``configure.wrf`` file in the WRF folder about the configurations.
-  2. The log file saved as ``log.em_real`` in the WRF folder.
+.. _install_wrf_extra:
 
 
-About the installer
-===================
+Install WRF on other machines (user may need to edit WRF configuration file)
+============================================================================
 
 Because the coupled model uses ESMF libraries. We must compile ESMF altogether
-with WRF. Although we don't want the user to make any changes, it could be
-possible that the user need to edit the WRF configuration file and compile WRF
-step by step. Here is the detailed instruction. 
+with WRF. Although we don't want the user to make any changes, we could not
+figure out a better way to generate the configuration file. The user may follow
+the following instruction to edit the WRF configuration file and compile WRF
+step by step.  
 
 
 Download and configure WRF
@@ -102,7 +29,7 @@ Install step 4.2.1(b): Set the WRF configurations::
   cd WRFV452_AO
   ./configure
 
-After running ``./configure``, there are several WRF configurations for us to select
+After running ``./configure``, there are 79 WRF configurations for us to select
 from::
 
     Please select from among the following Linux x86_64 options:
@@ -193,23 +120,13 @@ The generated ``configure.wrf_cpl`` file will be used to compile the coupled
 model.
 
 Install step 4.2.3(b): Copy other files and install WRF (current working directory:
-$SKRIPS_DIR/WRFV452_AO)::
-   
-   # These lines are used to generate configure.wrf. 
-   # They are commented out in the step-by-step instruction.
-   # ln -sf ${WRF_UPDATE_DIR0}/Config.pl arch/
-   # ln -sf ${WRF_UPDATE_DIR0}/preample arch/
-   # ln -sf ${WRF_UPDATE_DIR0}/postample arch/
-   # # WRF configure=34, then nesting=1
-   # echo "choosing 34th option to compile WRF"
-   # echo "nesting option is 1 (normal)"
-   # printf '34\n1\n' | ./configure &> log.configure
+$SKRIPS_DIR/WRFV413_AO)::
 
-   echo "copying other files to compile ESMF--WRF"
-   # ln -sf ${WRF_UPDATE_DIR1}/configure.wrf configure.wrf
+   WRF_OPTION_DIR0=$SKRIPS_DIR/scripts/wrf/wrfAO452_shared/
+
    ln -sf ${WRF_UPDATE_DIR0}/Makefile.wrf Makefile
    ln -sf ${WRF_UPDATE_DIR0}/Registry.EM Registry/
-
+   
    ln -sf ${WRF_UPDATE_DIR0}/ext_esmf_write_field.F90 external/io_esmf/
    ln -sf ${WRF_UPDATE_DIR0}/ext_esmf_read_field.F90 external/io_esmf/
    ln -sf ${WRF_UPDATE_DIR0}/ext_esmf_open_for_read.F90 external/io_esmf/
@@ -233,7 +150,7 @@ Now we can start compiling WRF by using::
 
   ./compile em_real &> log.em_real &
 
-After WRF is successfully compiled, you will see the same executables::
+After WRF is successfully compiled, you will see a few executables::
 
   $ ls -l main/*.exe
   -rwxr-xr-x 1 rus043 mazloff-lab 47660776 Aug 30 14:47 main/ndown.exe

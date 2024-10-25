@@ -22,12 +22,12 @@ We can see ::
   -rw-rw-r--  1 ruisun ruisun 1369 2019-12-01 08:02 README
   drwxrwxr-x  2 ruisun ruisun 4096 2019-12-01 08:02 script-post
 
-Enter folder *L3.C1.coupled_RS2012_ring* (Level 3, Case 1, Red Sea)::
+Enter folder ``L3.C1.coupled_RS2012_ring`` (Level 3, Case 1, Red Sea)::
 
   cd L3.C1.coupled_RS2012_ring/
   ls -l
 
-We can see ::
+We can see::
 
   -rwxrwxr-x 1 ruisun ruisun  191 2019-12-01 08:02 allclean.sh
   -rwxrwxr-x 1 ruisun ruisun  241 2019-12-01 08:02 allrun.sh
@@ -46,14 +46,12 @@ We can see ::
   drwxrwxr-x 2 ruisun ruisun   86 2019-12-01 08:02 save_nc
   drwxrwxr-x 2 ruisun ruisun  151 2019-12-01 08:02 utils
 
-Install step 12: Update the PATH in the coupled model
-
-Check utils/mitgcm_options (line 27 and 28), make sure they are correct:: 
+Check ``utils/mitgcm_options`` (line 27 and 28), make sure they are correct:: 
 
   INCLUDES='-I$MPI_DIR/include/ $SKRIPS_NETCDF_INCLUDE'
   LIBS='-L$MPI_DIR/lib/ $SKRIPS_NETCDF_LIB'
 
-Check utils/mkmod.sh (from line 22):: 
+Check ``utils/mkmod.sh`` (from line 22):: 
 
   set comp         = $MPI_DIR/mpif77
   set cccommand    = $MPI_DIR/mpicc
@@ -62,12 +60,11 @@ Check utils/mkmod.sh (from line 22)::
   set complibs     = ($SKRIPS_NETCFDF_LIB -lnetcdf)
   set compinc      = ($SKRIPS_NETCFDF_INCLUDE)
 
-Run install.sh ::
+Run ``install.sh`` ::
 
   ./install.sh
 
-The installer will generate *esmf_application* in folder coupledCode folder (current working
-directory: *$HOME/scripps_kaust_model/couplers/L3.C1.coupled_RS2012_ring/*)::
+The installer will generate ``esmf_application`` in ``coupledCode`` folder::
 
   [ruisun@acc00]~/scripps_kaust_model/coupler/L3.C1.coupled_RS2012_ring$ cd coupledCode/
   [ruisun@acc00]~/.../coupler/L3.C1.coupled_RS2012_ring/coupledCode$ ls
@@ -92,7 +89,7 @@ This is because the name of the pgi libraries are different from ring@ucsd.edu, 
 
 2. PGF90-W-0025-Illegal character (#) - ignored (mod_esmf_atm.F90: 564)
 
-This is because the include function in mod_esmf_atm.F90 is illegal. I will replace *#include "med_find_esmf_coupling.inc"* using *include "med_find_esmf_coupling.inc"*.
+This is because the include function in mod_esmf_atm.F90 is illegal. I will replace ``#include "med_find_esmf_coupling.inc"`` using ``include "med_find_esmf_coupling.inc"``.
 
 3. We have also tried to compile the code using iFort compiler. It would take iFort 40 minutes when
    compiling MITgcm as a library (which is less than 5 minutes when using PGI compiler).

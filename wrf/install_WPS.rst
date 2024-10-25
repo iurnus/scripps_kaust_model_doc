@@ -13,7 +13,7 @@ Download WPS::
   mv WPS-4.5 WPSV45
   cd WPSV45
 
-Update the configurations. First open **configure**, update line 154 to add the WRF directory::
+Update the configurations. First open ``configure``, update line 154 to add the WRF directory::
   
   standard_wrf_dirs="WRF WRF-4.0.3 WRF-4.0.2 WRF-4.0.1 WRF-4.0 WRFV3 WRFV451_AO"
 
@@ -48,4 +48,4 @@ Run the compile command for the real applications::
 
     ./compile &> log.compile &
 
-If the code is compiled, *geogrid.exe*, *metgrid.exe* and *ungrib.exe* can be seen in the current folder.
+If the code is compiled, ``geogrid.exe``, ``metgrid.exe`` and ``ungrib.exe`` can be seen in the current folder.

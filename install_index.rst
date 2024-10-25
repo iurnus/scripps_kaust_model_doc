@@ -2,13 +2,13 @@
 Install the model components
 ############################
 
-The official repository of SKRIPS v2.01 is maintained on Github::
+SKRIPS v2.01 is available from Github::
 
   https://github.com/iurnus/scripps_kaust_model/releases/tag/v2.01
 
-Now I am illustrating the installation on my desktop kala as an example. To install the
-SKRIPS model (for example, in /home/rus043/scripps_kaust_model/), 
-we have to download the SKRIPS model and set up the bashrc file.
+I am using my Linux machine kala as an example. To install the SKRIPS model (for
+example, in ``$HOME/scripps_kaust_model/``), we have to download the SKRIPS
+model and set up the bashrc file.
 
 Install step 1.1: Download SKRIPS version from Github::
 
@@ -20,7 +20,7 @@ Install step 1.1: Download SKRIPS version from Github::
   cd scripps_kaust_model
   ls -l
 
-You will see the following folders and files::
+You will see the following items::
   
   drwxr-xr-x 12 rus043 mazloff-lab   13 Aug 29 15:01 coupler
   drwxr-xr-x  4 rus043 mazloff-lab    4 Aug 29 15:01 esmf_test
@@ -35,31 +35,42 @@ Install step 1.2: Create a bashrc file for SKRIPS model::
 Here I am copying the bashrc file that I used for EXPANSE. There are also bashrc
 files for other machines that can be used in *scripts* folder.
 
-Then, add the following line to ~/.bashrc file::
+Then, add the following line to ``~/.bashrc`` file (you can use ``vim``, ``emacs``,
+or ``gedit``)::
   
   alias load_skrips="source ~/.bashrc_skrips" 
   
-Now activate the bashrc setups in the command line. **Note that you need to activate
-the bachrc setups every time when you want to run SKRIPS model**, otherwise the Linux system
-will not remember what you did::
-  
+Save your changes in ``~/.bashrc``, run the following command in your terminal::
+
+  source ~/.bashrc
   load_skrips
 
-After the bashrc file is successfully loaded, we can see the following message::
+Now activate the bashrc setups in the command line. Because the changes are
+added to ``~/.bashrc``, when you open a new terminal window, you only need to
+type ``load_skrips`` to activate all the changes.
+
+.. note::
+  Make sure that you activate the bachrc setups every time when you want to
+  run SKRIPS model, otherwise the Linux system will not remember what you did.
+
+When the bashrc file is successfully loaded, you can see the following message::
 
   Setting up the bashrc for SKRIPS model...
   SKRIPS_DIR is: /home/rus043/scripps_kaust_model/
 
-In the ~/.bashrc_skrips file, we have::
+In the ``~/.bashrc_skrips`` file, we have::
 
   # Location of the modules
   export SKRIPS_DIR=$HOME/scripps_kaust_model/
   export ESMF_DIR=$SKRIPS_DIR/esmf/
   export MITGCM_DIR=$SKRIPS_DIR/MITgcm_c68r/
-  export WRF_DIR=$SKRIPS_DIR/WRFV451_AO/
+  export WRF_DIR=$SKRIPS_DIR/WRFV452_AO/
   export WPS_DIR=$SKRIPS_DIR/WPSV45/
-  export PWRF_DIR=$SKRIPS_DIR/PWRFV451_AO/
+  export PWRF_DIR=$SKRIPS_DIR/PWRFV452_AO/
   export WW3_DIR=$SKRIPS_DIR/ww3_607/
+
+  # This value is 1 when installing WRF with ESMF
+  export WRF_ESMF=1
   
   # Other libraries
   export ZDIR=/home/rus043/libraries/zlib-1.3-build
@@ -119,14 +130,16 @@ In the ~/.bashrc_skrips file, we have::
   # export NETCDF_CONFIG_C=${NFDIR}/bin/ncxx4-config
   export NETCDF_CONFIG_F=${NFDIR}/bin/nf-config
   
-When you want to install the SKRIPS model on another machine::
+.. note:: Before you want to install the SKRIPS model on another machine:
 
-  1. Please make sure the paths for the model components, NETCDF, MPI, WW3, and ESMF are correct.
-  2. WW3 is not necessary for running the coupled model. 
-  3. To install the coupled model on SDSC expanse, please use scripts/bashrc\_expanse.
-  4. To install the coupled model on Shaheen III, please use scripts/bashrc\_shaheen.
+  #. Please install NetCDF and MPI.
+  #. Please update the paths for the model components (NetCDF, MPI, WW3, and ESMF).
+  #. WW3 is not necessary for running the coupled model. 
+  #. To install the coupled model on SDSC expanse, please use scripts/bashrc\_expanse.
+  #. To install the coupled model on SHAHEEN III, please use scripts/bashrc\_shaheen.
 
-Now we can start install the module components and the coupled model.
+Now we can start to install the module components and compile the coupled
+model:
 
 .. toctree::
    :maxdepth: 1
