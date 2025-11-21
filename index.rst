@@ -13,9 +13,9 @@ open-source model for coupled atmosphere-ocean simulations.
 
 
 The SKRIPS model is intended to compile and run on many different Unix/Linux
-operating systems with little or no change. Minimally, you will need the
-fortran compiler, MPI, netCDF libraries, and up to 10 Gb of disk space for
-installing all these components:
+operating systems with little or no change. Minimally, you will need fortran
+compiler, MPI, netCDF libraries, and up to 20 GB of disk space for installing
+all these components:
 
 - Atmosphere Solver: WRF (version 4.5.2)
 - Ocean Solver: MITgcm (version c68r)

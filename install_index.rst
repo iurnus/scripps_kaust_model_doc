@@ -2,9 +2,9 @@
 Install the model components
 ############################
 
-SKRIPS v2.01 is available from Github::
+SKRIPS v2.0.1 is available from Github::
 
-  https://github.com/iurnus/scripps_kaust_model/releases/tag/v2.01
+  https://github.com/iurnus/scripps_kaust_model/releases/tag/v2.0.1
 
 I am using my Linux machine kala as an example. To install the SKRIPS model (for
 example, in ``$HOME/scripps_kaust_model/``), we have to download the SKRIPS
@@ -14,9 +14,9 @@ Install step 1.1: Download SKRIPS version from Github::
 
   # I am using my work folder as an example
   cd
-  wget https://github.com/iurnus/scripps_kaust_model/archive/v2.01.zip
-  unzip v2.01.zip
-  mv scripps_kaust_model-2.01 scripps_kaust_model
+  wget https://github.com/iurnus/scripps_kaust_model/archive/refs/tags/v2.0.1.zip
+  unzip v2.0.1.zip
+  mv scripps_kaust_model-2.0.1 scripps_kaust_model
   cd scripps_kaust_model
   ls -l
 
