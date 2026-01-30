@@ -1,6 +1,6 @@
-############################
-Install the model components
-############################
+#########################
+Download the SKRIPS Model
+#########################
 
 SKRIPS v2.0.1 is available from Github::
 
@@ -28,6 +28,9 @@ You will see the following items::
   -rw-r--r--  1 rus043 mazloff-lab 4239 Aug 29 15:01 README.md
   drwxr-xr-x  6 rus043 mazloff-lab    6 Aug 29 15:01 scripts
 
+Edit the bashrc File
+--------------------
+
 Install step 1.2: Create a bashrc file for SKRIPS model::
 
   cp ./scripts/bashrc/bashrc_kala ~/.bashrc_skrips
@@ -45,22 +48,40 @@ Save your changes in ``~/.bashrc``, run the following command in your terminal::
   source ~/.bashrc
   load_skrips
 
-Now activate the bashrc setups in the command line. Because the changes are
-added to ``~/.bashrc``, when you open a new terminal window, you only need to
-type ``load_skrips`` to activate all the changes.
+Now the bashrc setups are activated after ``load_skrips``. We have now added
+some changes to ``~/.bashrc`` to run the coupled model. When you open a new
+terminal window, you need to run ``load_skrips`` again to activate all these
+changes.
 
 .. note::
   Make sure that you activate the bachrc setups every time when you want to
   run SKRIPS model, otherwise the Linux system will not remember what you did.
 
-When the bashrc file is successfully loaded, you can see the following message::
+When the bashrc setups are successfully activated, you can see the following
+message::
 
   Setting up the bashrc for SKRIPS model...
   SKRIPS_DIR is: /home/rus043/scripps_kaust_model/
 
+Now we can start to install the module components and compile the coupled
+model:
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   Install and Test ESMF<esmf/index>
+   Install and Test MITgcm<mitgcm/index>
+   Install and Test WRF<wrf/index>
+   Install and Test WW3<ww3/index>
+   Install and Test the Coupled Code<coupled/index>
+
+Changes We Made in bashrc File
+------------------------------
+
 In the ``~/.bashrc_skrips`` file, we have::
 
-  # Location of the modules
+  # Location of the coupler and models
   export SKRIPS_DIR=$HOME/scripps_kaust_model/
   export ESMF_DIR=$SKRIPS_DIR/esmf/
   export MITGCM_DIR=$SKRIPS_DIR/MITgcm_c68r/
@@ -72,7 +93,7 @@ In the ``~/.bashrc_skrips`` file, we have::
   # This value is 1 when installing WRF with ESMF
   export WRF_ESMF=1
   
-  # Other libraries
+  # Location of other libraries
   export ZDIR=/home/rus043/libraries/zlib-1.3-build
   export H5DIR=/home/rus043/libraries/hdf5-1.14.3-build
   export NCDIR=/home/rus043/libraries/netcdf-build
@@ -91,7 +112,7 @@ In the ``~/.bashrc_skrips`` file, we have::
   export PATH=$NCDIR/bin:$NFDIR/bin:$OPENMPI/bin:$CMAKEDIR/bin:$WPS_DIR:$PATH
   export PROJ_LIB=/home/rus043/anaconda2/share/proj/
   
-  # For ESMF
+  # ESMF setups
   export ESMF_OS=Linux
   export ESMF_COMM=openmpi
   export ESMF_NETCDF=nc-config
@@ -136,17 +157,5 @@ In the ``~/.bashrc_skrips`` file, we have::
   #. Please update the paths for the model components (NetCDF, MPI, WW3, and ESMF).
   #. WW3 is not necessary for running the coupled model. 
   #. To install the coupled model on SDSC expanse, please use scripts/bashrc\_expanse.
-  #. To install the coupled model on SHAHEEN III, please use scripts/bashrc\_shaheen.
+  #. To install the coupled model on KAUST SHAHEEN III, please use scripts/bashrc\_shaheen.
 
-Now we can start to install the module components and compile the coupled
-model:
-
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
-
-   Install and test ESMF<esmf/index>
-   Install and test MITgcm<mitgcm/index>
-   Install and test WRF<wrf/index>
-   Install and test WW3<ww3/index>
-   Install and test coupled code<coupled/index>

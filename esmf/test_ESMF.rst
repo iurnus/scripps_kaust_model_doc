@@ -2,12 +2,12 @@
 Test ESMF
 #########
 
-Test ESMF with applications
-===========================
+Test ESMF using an Example Case
+===============================
 
-Compared with the unit test cases, an ESMF application can better test ESMF.
-Here we are presenting two example ESMF cases. In addition to these examples, we
-also have two ESMF test cases in the coupler folder
+Compared with the ESMF unit test cases, an ESMF application can better test
+ESMF. Here we are presenting two example ESMF cases. In addition to these
+examples, we also have two ESMF test cases in the coupler folder
 ``$SKRIPS_DIR/coupler/L1.C2.esmf_coupled_test`` and ``$SKRIPS_DIR/coupler/L1.C3.esmf_interpl_test``.
 
 .. warning::

@@ -5,9 +5,9 @@ Install ESMF
 Download ESMF
 =============
 
-ESMF 8.6.0 is available at:
+ESMF 8.9.0 is available at:
 
-    https://github.com/esmf-org/esmf/releases/tag/v8.6.0
+    https://github.com/esmf-org/esmf/releases/tag/v8.9.0
 
 The earlier releases of ESMF can be found at:
 
@@ -16,12 +16,12 @@ The earlier releases of ESMF can be found at:
 Install ESMF on kala (with GNU compiler)
 ========================================
 
-Install step 2.1: Download ESMF 8.6.0::
+Install step 2.1: Download ESMF 8.9.0::
 
   cd $SKRIPS_DIR
-  wget https://github.com/esmf-org/esmf/archive/refs/tags/v8.6.0.zip
-  unzip v8.6.0.zip
-  mv esmf-8.6.0 esmf
+  wget https://github.com/esmf-org/esmf/archive/refs/tags/v8.9.0.zip
+  unzip v8.9.0.zip
+  mv esmf-8.9.0 esmf
 
 Examine the bashrc file
 =======================

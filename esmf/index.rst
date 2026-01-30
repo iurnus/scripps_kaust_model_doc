@@ -1,5 +1,5 @@
 #####################
-Install and test ESMF
+Install and Test ESMF
 #####################
 
 The Earth System Modeling Framework (ESMF) is a high-performance, flexible

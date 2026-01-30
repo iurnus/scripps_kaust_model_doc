@@ -21,5 +21,5 @@ supports a variety of capabilities, including:
 
 
    Install WRF <install_WRF>
-   (optional) Install WPS for pre-processing<install_WPS>
-   (optional) Run WPS for pre-processing<pre_WPS>
+   (optional) Install WPS for Pre-Processing<install_WPS>
+   (optional) Run WPS for Pre-Processing<pre_WPS>

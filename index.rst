@@ -32,15 +32,15 @@ Getting Started
   :maxdepth: 2
   :titlesonly:
 
-  How to install the model components <install_index>
-  How to run coupled simulations <tutorial/index>
+  How to Install the Model Components <install_index>
+  How to Run Coupled Simulations <tutorial/index>
 
 
-For developers
+For Developers
 --------------
 .. toctree::
   :maxdepth: 2
   :titlesonly:
 
-  Introduction of implementations <implementations/index>
-  Limitations and known issues <limitations/index>
+  Introduction of the Implementations <implementations/index>
+  Limitations and Known Issues <limitations/index>

@@ -12,16 +12,13 @@ We have prepared the installer for install WRF on kala or SHAHEEN III or SDSC Ex
 Install step 4.1(a): Download WRF::
 
   cd $SKRIPS_DIR
-  # there are some issues with 'source code' version
-  # wget https://github.com/wrf-model/WRF/archive/refs/tags/v4.5.2.zip
 
-  # use the other version
-  wget https://github.com/wrf-model/WRF/releases/download/v4.5.2/v4.5.2.zip
-  unzip v4.5.2.zip
-  tar -xvf v4.5.2.tar
-  mv WRF-4.5.2 WRFV452_AO
+  wget https://github.com/wrf-model/WRF/releases/download/v4.7.1/v4.7.1.zip
+  unzip v4.7.1.zip
+  tar -xvf v4.7.1.tar
+  mv WRFV4.7.1 WRFV471_AO
   # save a copy
-  cp -rf WRFV452_AO WRFV452_AO.org
+  cp -rf WRFV471_AO WRFV471_AO.org
 
 Step 4.2(a): Run the installer::
   
@@ -37,7 +34,7 @@ Step 4.2(a): Run the installer::
 
 The installer will check the location of WRF::
 
-  WRF DIR is: /home/rus043/scripps_kaust_model//WRFV452_AO/
+  WRF DIR is: /home/rus043/scripps_kaust_model//WRFV471_AO/
   Continue with this WRF DIR? (Y/N): Y
 
 Then it will ask you to select the WRF configurations. It is same as running
