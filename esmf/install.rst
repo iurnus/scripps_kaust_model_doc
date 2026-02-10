@@ -82,5 +82,5 @@ official website, some unit tests could also fail on specific machines.
 Currently we don't know which specific tests must pass for the coupled code.
 
 More summaries of ESMF releases are available here: 
-    https://earthsystemmodeling.org/release/platforms_8_6_0
+    https://earthsystemmodeling.org/release/platforms_8_9_0
     https://earthsystemmodeling.org/static/releases.html

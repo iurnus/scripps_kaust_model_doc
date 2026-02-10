@@ -23,14 +23,8 @@ Install step 4.1(a): Download WRF::
 Step 4.2(a): Run the installer::
   
   cd scripts/wrf/
-  ## FOR SHAHEEN
-  ## ./installWRF452_ao_shaheen.sh
-  ## FOR EXPANSE
-  ## ./installWRF452_ao_expanse.sh
-  ## FOR KALA
-  ## ./installWRF452_ao_kala.sh
   ## FOR GENERAL MACHINE
-  ./installWRF452_ao_general.sh
+  ./installWRF471_ao_general.sh
 
 The installer will check the location of WRF::
 
@@ -87,16 +81,16 @@ Download and configure WRF
 Install step 4.1(b): Download WRF::
 
   cd $SKRIPS_DIR
-  wget https://github.com/wrf-model/WRF/releases/download/v4.5.2/v4.5.2.zip
-  unzip v4.5.2.zip
-  tar -xvf v4.5.2.tar
-  mv WRF-4.5.2 WRFV452_AO
+  wget https://github.com/wrf-model/WRF/releases/download/v4.7.1/v4.7.1.zip
+  unzip v4.7.1.zip
+  tar -xvf v4.7.1.tar
+  mv WRF-4.7.1 WRFV471_AO
   # save a copy
-  cp -rf WRFV452_AO WRFV452_AO.org
+  cp -rf WRFV471_AO WRFV471_AO.org
 
 Install step 4.2.1(b): Set the WRF configurations::
   
-  cd WRFV452_AO
+  cd WRFV471_AO
   ./configure
 
 After running ``./configure``, there are several WRF configurations for us to select
@@ -181,7 +175,7 @@ Then, save ``configure.wrf`` file after the edit.
 Finally, the coupler need these WRF variables. Now save the variables of the
 configuration file in another file::
 
-  cd $SKRIPS_DIR/WRFV452_AO
+  cd $SKRIPS_DIR/WRFV471_AO
 
   linenumber=$(grep -n "bundled:" configure.wrf | cut -d : -f 1)
   head -n $((linenumber-1)) configure.wrf > configure.wrf_cpl
@@ -190,7 +184,7 @@ The generated ``configure.wrf_cpl`` file will be used to compile the coupled
 model.
 
 Install step 4.2.3(b): Copy other files and install WRF (current working directory:
-$SKRIPS_DIR/WRFV452_AO)::
+$SKRIPS_DIR/WRFV471_AO)::
    
    # These lines are used to generate configure.wrf. 
    # They are commented out in the step-by-step instruction.
@@ -259,4 +253,8 @@ surface radiative fluxes.
 (3) The WRF output to ESMF uses auxhist5 (auxiliary history output 5) in WRF.
 It is in conflict with the diagnostics of Regional Arctic System Model (RASM)
 in WRF.
+
+(4) We need to replce icc using icx on Shaheen::
+
+  sed -i s/icc/icx/g configure.wrf
 

@@ -11,20 +11,15 @@ User Guide of Scripps-KAUST Regional Integrated Prediction System (SKRIPS)
 The Scripps-KAUST Regional Integrated Prediction System (SKRIPS) is an
 open-source model for coupled atmosphere-ocean simulations.
 
-
 The SKRIPS model is intended to compile and run on many different Unix/Linux
 operating systems with little or no change. Minimally, you will need fortran
 compiler, MPI, netCDF libraries, and up to 20 GB of disk space for installing
 all these components:
 
-- Atmosphere Solver: WRF (version 4.5.2)
+- Atmosphere Solver: WRF (version 4.7.1)
 - Ocean Solver: MITgcm (version c68r)
 - Wave Solver: WaveWatch III (version 6.07.1)
-- Driver (coupler): ESMF/NUOPC (version 8.6.0)
-
-The SKRIPS v2.01 code is available at:
-
-  https://github.com/iurnus/scripps_kaust_model/releases/tag/v2.01
+- Driver (coupler): ESMF/NUOPC (version 8.9.0)
 
 Getting Started
 ---------------
